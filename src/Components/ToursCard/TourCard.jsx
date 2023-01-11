@@ -1,8 +1,8 @@
 import React from "react";
-import { Cardcontainer, ImagenCard, Title } from "./StyledCards";
+import { Cardcontainer, ImagenCard, Title } from "./StyledTourCard";
 
 
-const ActivityCard = ({title, image}) => {
+const TourCard = ({title, image}) => {
 
    
 
@@ -17,4 +17,4 @@ const ActivityCard = ({title, image}) => {
     )    
 }
 
-export default ActivityCard;
+export default TourCard;

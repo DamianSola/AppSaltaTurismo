@@ -1,6 +1,8 @@
-import React from "react";
+import React,{ useEffect } from "react";
 import { ActivitiesContainer,Title, Image, OnlyActivities } from "./StyleActivities";
 import ActivityCard from "../ActivitiesCard/ActivityCard";
+import {useDispatch,useSelector} from 'react-redux'
+import {getAllActivities} from "../../Redux/Actions/Index"
 
 const Activities = () => {
 
@@ -17,6 +19,15 @@ const Activities = () => {
 
     ]
 
+    const dispatch = useDispatch()
+    const {allActivities} = useSelector(state => state)
+    console.log(allActivities)
+
+    
+    useEffect(()=>{
+        dispatch(getAllActivities())
+    },[dispatch])
+
     // console.log(hardcode.map(e => e.title))
 
 
@@ -27,9 +38,9 @@ const Activities = () => {
             </Title>
             <OnlyActivities>
 
-            {hardcode && hardcode.map((e,index) => {
+            {allActivities && allActivities.map((e,index) => {
                 return (
-                <ActivityCard key={index} title= {e.title}  image= {e.image}/>)
+                <ActivityCard key={index} title= {e.name}  image= {e.images}/>)
             })}
 
             </OnlyActivities>

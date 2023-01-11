@@ -11,11 +11,14 @@ height: 7rem;
 
 `
 
+export const FontAwesomeIcon = styled.i`
+`
+
 export const NavBar = styled.div`
 display: flex;
 width: 100%;
 /* margin: 0 50%; */
-background-color: ${p => p.darkMood ? "black" : "white"} ;
+background-color: #00b2ec ;
 /* background-color: grey; */
 color: black;
 justify-content: space-between;

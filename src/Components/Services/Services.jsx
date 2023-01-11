@@ -1,6 +1,7 @@
 import React from "react";
 import ServiceCard from "./ServiceCard/ServiceCard";
 import { ServiceContain, Title, OnlyService } from "./styleServices";
+import {useDispatch, useSelector} from "react-redux"
 
 export default function Services(){
 
@@ -11,14 +12,16 @@ export default function Services(){
         {title:"RENT CAR", image:"https://www.grupomybcr.com/wp-content/uploads/2016/06/rentacar.jpg"}
     ]
 
+    const dispatch = useDispatch()
+
 
     return(
         <ServiceContain>
             <Title>Servicios</Title>
             <OnlyService>
-                {hardCodeService && hardCodeService.map(e => {
+                {hardCodeService && hardCodeService.map((e,i) => {
                     return(
-                        <ServiceCard title={e.title} image={e.image}/>
+                        <ServiceCard key={i} title={e.title} image={e.image}/>
                         )
                     })}
             </OnlyService>
