@@ -12,30 +12,39 @@ const url =  'http://localhost:3001/'
 
 //POST
 export const postActivity = (data) => {
-    return function (){
-        return(
-            axios.post(`${url}activities`, data)
-        )
+   return () => {
+    axios.post(`${url}/activities`, data) 
+   }
+}
+
+export const postTour = (data) => {
+    return () => {
+        axios.post(`${url}/tours`, data)
+       }
+}
+
+export const postService = (data) => {
+    return () => {
+        axios.post(`${url}/services`,data)
+       }
+}
+
+export const postCategory = (data) => {
+    return () => {
+        axios.post(`${url}/categories`,data)
+    }
+
+}
+
+export const postSubCategory = (data) => {
+    return () => {
+        axios.post(`${url}/subCategories`,data)
     }
 }
-
-export const postTour = () => {
-
-}
-
-export const postService = () => {
-
-}
-
-export const postCategory = () => {
-
-}
-
-export const postSubCategory = () => {
-
-}
-export const postTown = () => {
-    
+export const postTown = (data) => {
+    return () => {
+        axios.post(`${url}/towns`,data)
+    }
 }
 
 
