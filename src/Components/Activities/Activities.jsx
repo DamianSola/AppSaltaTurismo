@@ -22,6 +22,7 @@ const Activities = () => {
     const dispatch = useDispatch()
     const {allActivities} = useSelector(state => state)
     console.log(allActivities)
+    // let activities = allActivities.rows
 
     
     useEffect(()=>{
@@ -34,7 +35,7 @@ const Activities = () => {
     return (
         <ActivitiesContainer>
             <Title>
-                Actividades
+                ACTIVITIES
             </Title>
             <OnlyActivities>
 

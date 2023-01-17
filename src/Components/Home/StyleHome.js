@@ -8,5 +8,18 @@ display: block;
 `
 
 export const secondContainer = styled.div`
-display:block
+display:block;
+`
+
+export const ImagePresentation = styled.div`
+display: block;
+background-repeat: no-repeat;
+background-position: center;
+/* justify-content: space-between; */
+width: 100%;
+`
+
+export const Image = styled.img`
+width: 100%;
+
 `

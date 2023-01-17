@@ -5,36 +5,37 @@ import {CountainResume, Activities, NameTable, Amount} from "./StyledResume";
 import {getAllActivities,getAllTours,getAllCategories,
     getAllService,getAllSubCategories,getAllTowns} from "../../../Redux/Actions/Index"
 import { useState } from "react";
+import { AllActionDates } from "../../../Redux/Actions/Admin";
 
 export default function Resume(){
     const dispacth = useDispatch()
-    const {allActivities} = useSelector(s => s)
 
-    const [resume , setResume] = useState([{name:"activities", cant:2564},
-    {name: 'tours', cant: 64},{name: "services", cant:591},{name: "towns", cant:27}])
+    const [resume , setResume] = useState([
+    ])
+
+    let {allDates} = useSelector(s => s)
+    console.log(allDates)
 
     useEffect(() => {
-        dispacth(
-            getAllActivities(),
-            getAllTours(),
-            getAllService(),
-            getAllCategories(),
-            getAllSubCategories(),
-            getAllTowns()
-            )
+        document.title = "admin";
+       dispacth(AllActionDates())
     },[])
 
     return(
         <CountainResume>
-            {resume && resume.map(e => {
+            {allDates && allDates.map(e => {
                 return(
                     <Activities>
-                        <NameTable>{e.name}</NameTable>
-                        <Amount>{e.cant}</Amount>
+                        <NameTable>{e.title}</NameTable>
+                        <Amount>{e.count}</Amount>
                     </Activities>
                 )
             })}
-
+            {/* <Activities>
+            <NameTable>Activities</NameTable>
+            <Amount>{allActivities.length}</Amount>
+            </Activities> */}
+            
         </CountainResume>
     )
 } 
