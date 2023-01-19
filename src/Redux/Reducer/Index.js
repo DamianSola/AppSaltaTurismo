@@ -5,7 +5,8 @@ import { GET_ALL_ACTIVITIES,
     GET_ALL_SERVICES, 
     GET_ALL_SUBCATEGORIES, 
     GET_ALL_CATEGORIES,
-    GET_ONE_ACTIVITY 
+    GET_ONE_ACTIVITY,
+    ELEMENT
 } from "../Actions/Index";
 
 import {ALL_DATE} from "../Actions/Admin"
@@ -51,7 +52,11 @@ export default function RootReducer(state = initialState, action){
                 ...state,
                 allDates: action.payload
             }
-            
+        case ELEMENT:
+            return{
+                ...state,
+                element: action.payload
+            }
         default: return state;
     }
 }

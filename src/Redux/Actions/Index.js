@@ -7,6 +7,7 @@ export const GET_ALL_SUBCATEGORIES = 'GET_ALL_SUBCATEGORIES'
 export const GET_ALL_TOURS = 'GET_ALL_TOURS'
 export const GET_ALL_SERVICES = 'GET_ALL_SERVICES'
 export const GET_ALL_TOWNS = 'GET_ALL_TOWNS'
+export const ELEMENT = 'ELEMENT'
 
 
 const URL = 'http://localhost:3001/'
@@ -81,4 +82,10 @@ export const getAllTowns = () => {
             })
         })
     }
+}
+
+export const likeActivity = (activity) => {
+    return () => {
+        axios.put(`${URL}activities/likes/${activity}`,null)
+    }     
 }

@@ -1,11 +1,12 @@
 import styled from "styled-components";
 
 export const Cardcontainer = styled.div`
-width: 20rem;
+width: 18rem;
 height: 21rem;
 margin: 0px 6px;
 border-radius: 4%;
-background-color:#DCDCDC ;
+background-color:#F5F5F5;
+border: solid 0.5px;
 
 &&:hover{
     opacity: 0.9;

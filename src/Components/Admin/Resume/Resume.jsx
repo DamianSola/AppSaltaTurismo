@@ -2,8 +2,8 @@ import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {CountainResume, Activities, NameTable, Amount} from "./StyledResume";
-import {getAllActivities,getAllTours,getAllCategories,
-    getAllService,getAllSubCategories,getAllTowns} from "../../../Redux/Actions/Index"
+// import {getAllActivities,getAllTours,getAllCategories,
+//     getAllService,getAllSubCategories,getAllTowns} from "../../../Redux/Actions/Index"
 import { useState } from "react";
 import { AllActionDates } from "../../../Redux/Actions/Admin";
 

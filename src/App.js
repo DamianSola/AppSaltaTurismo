@@ -8,6 +8,7 @@ import Activities from './Components/Activities/Activities';
 import Footer from './Components/Footer/Footer';
 import Home from './Components/Home/Home';
 import Resume from './Components/Admin/Resume/Resume';
+import ElementList from './Components/AllElements/ElememntsList';
 // const DarkMod = () => {
 
 // }
@@ -20,6 +21,7 @@ function App() {
       <Routes>
       {/* <Route path="/" element={<Landing/>}/> */}
       <Route exact path='/' element={<Home/>}/>
+      <Route exact path='/list' element={<ElementList/>}/>
       <Route exact path='/admin' element= {<Resume/>}/>
       </Routes>
     </div>

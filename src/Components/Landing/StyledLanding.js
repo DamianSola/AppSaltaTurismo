@@ -8,7 +8,8 @@ font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 font-size: 20px;
 height: 5rem;
 margin: 0 0 2% 0;
-background-color: #f5f5f5;
+/* background-color: #f5f5f5; */
+background-color: #00b2ec ;
 
 /* color: rgb(47, 79, 79); */
 
