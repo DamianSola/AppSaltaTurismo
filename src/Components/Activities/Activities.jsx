@@ -10,6 +10,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAllActivities } from "../../Redux/Actions/Index";
 import { Autoplay, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper";
+import { useNavigate } from "react-router-dom";
 
 const Activities = () => {
   let hardcode = [
@@ -59,7 +60,7 @@ const Activities = () => {
         "https://www.entornoturistico.com/wp-content/uploads/2016/01/turismo.jpg",
     },
   ];
-
+  const navigate = useNavigate()
   const [activ, setActiv] = useState([]);
 
   /* const dispatch = useDispatch()
@@ -73,11 +74,14 @@ const Activities = () => {
   }, []);
 
   // console.log(hardcode.map(e => e.title))
+  const Click = ()=>{
+    navigate("/pruebaactivities")
+}
 
   return (
     <ActivitiesContainer>
       {console.log(activ)}
-      <Title>ACTIVITIES</Title>
+      <Title onClick={Click}>ACTIVITIES</Title>
       <OnlyActivities>
         {hardcode &&
           hardcode.map((e, index) => {
