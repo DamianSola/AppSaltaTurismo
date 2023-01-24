@@ -6,6 +6,13 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
+
+/* LINKS DE INFO
+Docu de Swiper -> https://swiperjs.com/react#usage
+Video de youtube -> https://www.youtube.com/watch?v=xEWMK7G_Mhs
+Repo del video -> https://github.com/Mauro069/Slider-react/blob/main/src/App.jsx
+*/
+
 const PruebaActivities = () => {
   let hardcode = [
     {
