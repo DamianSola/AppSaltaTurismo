@@ -19,9 +19,9 @@ const Activities = () => {
 
     ]
 
-    const dispatch = useDispatch()
+    /* const dispatch = useDispatch()
     const {allActivities} = useSelector(state => state.allActivities)
-    console.log(allActivities)
+    console.log(allActivities) */
     // let activities = allActivities.rows
 
     
