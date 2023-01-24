@@ -13,9 +13,9 @@ const Tours = () => {
     console.log(allTours)
 
 
-    useEffect(() => {
+   /*  useEffect(() => {
         dispatch(getAllTours())
-    },[dispatch])
+    },[dispatch]) */
 
     return(
         <ActivitiesContainer>
