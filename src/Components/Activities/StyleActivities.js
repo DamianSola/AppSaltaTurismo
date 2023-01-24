@@ -12,7 +12,7 @@ export const OnlyActivities = styled.div`
 
 `
 export const Title = styled.h3`
-
+font-size: 25px;
 `
 
 export const Image = styled.img`
