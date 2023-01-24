@@ -11,8 +11,8 @@ const ActivityCard = ({title, image}) => {
 
     return(
         <Cardcontainer>
-            <ImagenCard src={image}/>
             <Title>{title}</Title>
+            <ImagenCard src={image}/>
         </Cardcontainer>
     )    
 }

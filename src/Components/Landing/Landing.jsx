@@ -1,8 +1,11 @@
 import React from "react";
 import { useState } from "react";
 import {LandingContain,Title,NavBar,Item} from "./StyledLanding"
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Landing(){
+
+    const navigate = useNavigate()
 
     let [darkMood, setDarkmood] = useState(false)
     
@@ -13,15 +16,17 @@ export default function Landing(){
     }
     
     // console.log(darkMood)
-
+const Click = ()=>{
+    navigate("/")
+}
 
     return(
         <LandingContain >
             <NavBar >
             {/* <button onClick={DarkMoodChange}>holaa </button> */}
-            <Title>LA LINDA</Title>
+           <Title onClick={Click}>LA LINDA</Title>
             <Item></Item>
-            <Item>About</Item>
+            <Item>About</Item> 
             <Item>culture</Item>
             <Item>Servicios</Item>
             <Item>Contacto</Item>
