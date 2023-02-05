@@ -19,17 +19,12 @@ const Tours = () => {
     },[dispatch])
 
     return(
-        <ActivitiesContainer>
-            <Title>
-                TOURS
-            </Title>
             <OnlyActivities>
                 {allTours && allTours.map((e,i) => {
                     return <TourCard 
                     title={e.name} key={i} image={e.image}/>
                 })}
             </OnlyActivities>
-        </ActivitiesContainer>
     )
 }
 

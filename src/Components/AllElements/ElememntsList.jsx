@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllActivities, likeActivity } from "../../Redux/Actions/Index";
-import { ContainElement,
-     ContainerList, Title, Image,
-      Description, ContainTwo, Containtree,Likes, SubCategory, LikeButton } from "./StyledList";
-
+import { 
+        ContainElement,
+        ContainerList, Title, Image,
+        Description, ContainTwo, Containtree,
+        Likes, SubCategory, LikeButton, SeeMore 
+} from "./StyledList";
+import { Link } from "react-router-dom";
 
 const ElementList = () => {
 
@@ -27,16 +30,9 @@ const ElementList = () => {
         //    dispatch(getAllActivities())
         }
     }
-    // console.log(like)
-
-    // const arrayLikes = () => {
-    //     let arr = allActivities && allActivities.map(e => e.likes)
-    // }
-
 
     useEffect(() => {
         dispatch(getAllActivities())
-        // arrayLikes()
     },[])
 
     return(
@@ -47,13 +43,16 @@ const ElementList = () => {
                 <ContainTwo>
                 <Title>{e.name.toUpperCase()}</Title>
                 <Description>{e.description}</Description>
+                <Likes>likes {e.likes}</Likes>
+                
+                <SeeMore> <Link to="/" > Ver mas </Link> </SeeMore>
+                
                 </ContainTwo>
-                <Containtree>
-                    <SubCategory>{e.subCategory.name.toUpperCase()}</SubCategory>
+                {/* <Containtree>
+                    <SubCategory>{e.subCategory && e.subCategory.name.toUpperCase()}</SubCategory>
                     <Likes>likes {e.likes}</Likes>
                     <LikeButton onClick={() => ClickLike(like, e.id, i)}>like</LikeButton>
-                    {/* <p>{e.id}</p> */}
-                </Containtree>
+                </Containtree> */}
             </ContainElement>
            }): <h3>Sin actividades</h3> }
         </ContainerList>

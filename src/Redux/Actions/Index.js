@@ -50,7 +50,7 @@ export const getAllService = () => {
 
 export const getAllCategories = () => {
     return(dispatch) => {
-        return axios(`${URL}subcategories`)
+        return axios(`${URL}categories`)
         .then((res) => {
             dispatch({
                 type: GET_ALL_CATEGORIES,

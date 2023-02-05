@@ -35,12 +35,12 @@ export default function RootReducer(state = initialState, action){
         case GET_ALL_CATEGORIES:
             return{
                 ...state,
-                allCategories: action.payload
+                allCategories: action.payload.rows
             }
         case GET_ALL_TOWNS:
             return{
                 ...state,
-                allTowns: action.payload
+                allTowns: action.payload.rows
             }
         case GET_ALL_SERVICES:
             return{

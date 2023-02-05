@@ -4,10 +4,6 @@ import { Cardcontainer, ImagenCard, Title } from "./StyledCards";
 
 const ActivityCard = ({title, image}) => {
 
-   
-
-    // let backImage = {        
-    //     backgroundImage: 'url(' + hadcode.image + ')'}
 
     return(
         <Cardcontainer>

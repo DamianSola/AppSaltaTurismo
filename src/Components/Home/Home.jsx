@@ -9,6 +9,8 @@ import {useDispatch, useSelector} from "react-redux"
 import { getAllActivities} from "../../Redux/Actions/Index"
 import Tours from "../Tours/Tours";
 import Intro from "./Intro";
+import Towns from "../Towns/Towns";
+import CategoriesHome from "../Categories/Categories";
 
 
 
@@ -20,11 +22,13 @@ export default function Home(){
 
     return(
         <HomeContainer>
-            {/* <Carousel/> */}
             <Intro/>
-            <Activities/>
-            <Services/>
+            <h1>DESTACADOS</h1>
+            <CategoriesHome/>
+            <h1>TOURS</h1>
             <Tours/>
+            <h1>PUEBLOS DE SALTA</h1>
+            <Towns/>
             <Footer/>
         </HomeContainer>
         

@@ -7,10 +7,13 @@ export const ActivitiesContainer = styled.div`
 
 `
 export const OnlyActivities = styled.div`
-  display: flex;  
-  height: 25rem;
+  display: flex; 
 
 `
+export const SectionActivity = styled.section`
+
+`
+
 export const Title = styled.h3`
 font-size: 25px;
 `

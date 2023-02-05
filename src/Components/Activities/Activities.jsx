@@ -1,5 +1,5 @@
 import React,{ useEffect } from "react";
-import { ActivitiesContainer,Title, Image, OnlyActivities } from "./StyleActivities";
+import { ActivitiesContainer,Title, Image, OnlyActivities, SectionActivity } from "./StyleActivities";
 import ActivityCard from "../ActivitiesCard/ActivityCard";
 import {useDispatch,useSelector} from 'react-redux'
 import {getAllActivities} from "../../Redux/Actions/Index"
@@ -34,17 +34,20 @@ const Activities = () => {
 
     return (
         <ActivitiesContainer>
+            <SectionActivity>
             <Title>
                 ACTIVITIES
             </Title>
-            <OnlyActivities>
 
-            {allActivities && allActivities.map((e,index) => {
-                return (
-                <ActivityCard key={index} title= {e.name}  image= {e.images}/>)
-            })}
+                <OnlyActivities>
 
-            </OnlyActivities>
+                    {allActivities && allActivities.map((e,index) => {
+                    return (
+                        <ActivityCard key={index} title= {e.name}  image= {e.images}/>)
+                    })}
+
+                </OnlyActivities>
+            </SectionActivity>
         </ActivitiesContainer>
     )
 }
