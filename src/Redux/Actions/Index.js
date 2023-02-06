@@ -4,10 +4,12 @@ export const GET_ALL_ACTIVITIES = 'GET_ALL_ACTIVITIES'
 export const GET_ONE_ACTIVITY  = 'GET_ONE_ACTIVITY'
 export const GET_ALL_CATEGORIES = 'GET_ALL_CATEGORIES'
 export const GET_ALL_SUBCATEGORIES = 'GET_ALL_SUBCATEGORIES'
+export const GET_ONE_SUBCATEGORY = 'GET_ONE_SUBCATEGORY'
 export const GET_ALL_TOURS = 'GET_ALL_TOURS'
 export const GET_ALL_SERVICES = 'GET_ALL_SERVICES'
 export const GET_ALL_TOWNS = 'GET_ALL_TOWNS'
 export const ELEMENT = 'ELEMENT'
+export const GET_ONE_CATEGORY = "GET_ONE_CATEGORY"
 
 
 const URL = 'http://localhost:3001/'
@@ -60,12 +62,35 @@ export const getAllCategories = () => {
     }
 }
 
+export const getOneCategory = (id) => {
+    return(dispatch) => {
+        return axios.get(`${URL}categories/${id}`)
+        .then((res) => {
+            dispatch({
+                type: GET_ONE_CATEGORY,
+                payload: res.data
+            })
+        })
+    }
+}
+
 export const getAllSubCategories = () => {
     return(dispatch) => {
         return axios(`${URL}subcategories`)
         .then((res) => {
             dispatch({
                 type: GET_ALL_SUBCATEGORIES,
+                payload: res.data
+            })
+        })
+    }
+}
+export const getOneSubCategories = (id) => {
+    return(dispatch) => {
+        return axios.get(`${URL}subcategories/${id}`)
+        .then((res) => {
+            dispatch({
+                type: GET_ONE_SUBCATEGORY,
                 payload: res.data
             })
         })

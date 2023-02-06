@@ -10,6 +10,7 @@ import Home from './Components/Home/Home';
 import Resume from './Components/Admin/Resume/Resume';
 import ElementList from './Components/AllElements/ElememntsList';
 import About from './Components/About/About';
+import SubCategories from './Components/SubCategories/SubCategories';
 // const DarkMod = () => {
 
 // }
@@ -22,9 +23,10 @@ function App() {
       <Routes>
       {/* <Route path="/" element={<Landing/>}/> */}
       <Route exact path='/' element={<Home/>}/>
-      <Route exact path='/list' element={<ElementList/>}/>
+      <Route exact path='/sub-categories/:id' element={<ElementList/>}/>
       <Route exact path='/admin' element= {<Resume/>}/>
       <Route exact path='/about' element= {<About/>}/>
+      <Route exact path='/categories/:id' element= {<SubCategories/>}/>
       </Routes>
     </div>
   );

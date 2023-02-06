@@ -1,58 +1,44 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllActivities, likeActivity } from "../../Redux/Actions/Index";
+import { getAllActivities, getOneSubCategories, likeActivity } from "../../Redux/Actions/Index";
 import { 
         ContainElement,
         ContainerList, Title, Image,
         Description, ContainTwo, Containtree,
         Likes, SubCategory, LikeButton, SeeMore 
 } from "./StyledList";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const ElementList = () => {
 
-    let [like, setLike] = useState(false)
-    // let [likes, setlikes] = useState([])
+    let {id} = useParams()
 
     let dispatch = useDispatch()
-    let {allActivities} = useSelector(s => s)
-    console.log(allActivities)
+    let {oneSubCategory} = useSelector(s => s)
+    // console.log(oneSubCategory)
+    const activities = oneSubCategory.activities
+    console.log(activities)
 
-    const ClickLike = (like, activity, index) => {
-        console.log(activity)
-        if(like){
-            dispatch(likeActivity(activity));
-            setLike(false)
-            // dispatch(getAllActivities())
-        }else{
-           dispatch(likeActivity(activity))
-           setLike(true)
-        //    dispatch(getAllActivities())
-        }
-    }
+
+    
 
     useEffect(() => {
-        dispatch(getAllActivities())
+        dispatch(getOneSubCategories(id))
     },[])
 
     return(
         <ContainerList>
-           {allActivities ? allActivities.map((e,i) => {
+           {activities && activities.length > 0 ? activities.map((e) => {
             return <ContainElement key={e.id}>
                 <Image src={e.images}/>
                 <ContainTwo>
-                <Title>{e.name.toUpperCase()}</Title>
-                <Description>{e.description}</Description>
-                <Likes>likes {e.likes}</Likes>
-                
+                    <Containtree>
+                        <Title>{e.name.toUpperCase()}</Title>
+                        <Likes>likes {e.likes}</Likes>
+                    </Containtree>
+                <Description>{e.description}</Description>                
                 <SeeMore> <Link to="/" > Ver mas </Link> </SeeMore>
-                
                 </ContainTwo>
-                {/* <Containtree>
-                    <SubCategory>{e.subCategory && e.subCategory.name.toUpperCase()}</SubCategory>
-                    <Likes>likes {e.likes}</Likes>
-                    <LikeButton onClick={() => ClickLike(like, e.id, i)}>like</LikeButton>
-                </Containtree> */}
             </ContainElement>
            }): <h3>Sin actividades</h3> }
         </ContainerList>

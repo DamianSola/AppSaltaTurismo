@@ -6,13 +6,16 @@ import { GET_ALL_ACTIVITIES,
     GET_ALL_SUBCATEGORIES, 
     GET_ALL_CATEGORIES,
     GET_ONE_ACTIVITY,
+    GET_ONE_CATEGORY,
+    GET_ONE_SUBCATEGORY,
     ELEMENT
 } from "../Actions/Index";
 
 import {ALL_DATE} from "../Actions/Admin"
 
 const initialState = {
-    
+    oneCategry:{},
+    oneSubCategory:{}
 }
 
 export default function RootReducer(state = initialState, action){
@@ -56,6 +59,16 @@ export default function RootReducer(state = initialState, action){
             return{
                 ...state,
                 element: action.payload
+            }
+        case GET_ONE_CATEGORY: 
+            return {
+                ...state,
+                oneCategry: action.payload
+            }
+        case GET_ONE_SUBCATEGORY:
+            return {
+                ...state,
+                oneSubCategory: action.payload
             }
         default: return state;
     }
