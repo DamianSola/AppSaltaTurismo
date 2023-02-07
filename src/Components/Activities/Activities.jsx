@@ -19,15 +19,15 @@ const Activities = () => {
 
     ]
 
-    const dispatch = useDispatch()
-    const {allActivities} = useSelector(state => state)
-    console.log(allActivities)
+    /* const dispatch = useDispatch()
+    const {allActivities} = useSelector(state => state.allActivities)
+    console.log(allActivities) */
     // let activities = allActivities.rows
 
     
-    useEffect(()=>{
+  /*   useEffect(()=>{
         dispatch(getAllActivities())
-    },[dispatch])
+    },[dispatch]) */
 
     // console.log(hardcode.map(e => e.title))
 
@@ -39,14 +39,17 @@ const Activities = () => {
                 ACTIVITIES
             </Title>
 
-                <OnlyActivities>
-
+            {/* {hardcode && hardcode.map((e,index) => {
+                return (
+                <ActivityCard key={index} title= {e.name}  image= {e.image}/>)
+            })} */}
+{/* 
                     {allActivities && allActivities.map((e,index) => {
                     return (
                         <ActivityCard key={index} title= {e.name}  image= {e.images}/>)
-                    })}
+                    })} */}
 
-                </OnlyActivities>
+                {/* </OnlyActivities> */}
             </SectionActivity>
         </ActivitiesContainer>
     )

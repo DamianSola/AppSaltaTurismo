@@ -16,7 +16,7 @@ const Tours = () => {
 
     useEffect(() => {
         dispatch(getAllTours())
-    },[dispatch])
+    },[dispatch]) 
 
     return(
             <OnlyActivities>
