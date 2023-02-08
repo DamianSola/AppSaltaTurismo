@@ -10,6 +10,8 @@ export const GET_ALL_SERVICES = 'GET_ALL_SERVICES'
 export const GET_ALL_TOWNS = 'GET_ALL_TOWNS'
 export const ELEMENT = 'ELEMENT'
 export const GET_ONE_CATEGORY = "GET_ONE_CATEGORY"
+export const GET_ONE_TOWN = 'GET_ONE_TOWN'
+export const GET_ONE_TOUR = 'GET_ALL_TOUR'
 
 
 const URL = 'http://localhost:3001/'
@@ -38,6 +40,17 @@ export const getAllTours = () => {
     }
 }
 
+export const getOneTour = (id) => {
+    return (dispatch) => {
+        return axios(`${URL}tours/${id}`)
+        .then((res) => {
+            dispatch({
+                type: GET_ONE_TOUR,
+                payload: res.data
+            })
+        })
+    }
+}
 export const getAllService = () => {
     return (dispatch) => {
         return axios(`${URL}service`)
@@ -103,6 +116,18 @@ export const getAllTowns = () => {
         .then((res) => {
             dispatch({
                 type: GET_ALL_TOWNS,
+                payload: res.data
+            })
+        })
+    }
+}
+
+export const getOneTown = (id) => {
+    return(dispatch) => {
+        return axios(`${URL}towns/${id}`)
+        .then((res) => {
+            dispatch({
+                type: GET_ONE_TOWN,
                 payload: res.data
             })
         })

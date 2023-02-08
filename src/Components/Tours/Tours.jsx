@@ -10,9 +10,9 @@ const Tours = () => {
 
     const dispatch = useDispatch()
     const {allTours} = useSelector(s => s)
-    console.log(allTours)
-    // let tours = allTours.rows
-
+    // console.log(allTours)
+    let someTours;
+    if(allTours) someTours = allTours.slice(0,5)
 
     useEffect(() => {
         dispatch(getAllTours())
@@ -20,9 +20,9 @@ const Tours = () => {
 
     return(
             <OnlyActivities>
-                {allTours && allTours.map((e,i) => {
+                {someTours && someTours.map((e,i) => {
                     return <TourCard 
-                    title={e.name} key={i} image={e.image}/>
+                    title={e.name} key={i} id={e.id} image={e.image}/>
                 })}
             </OnlyActivities>
     )

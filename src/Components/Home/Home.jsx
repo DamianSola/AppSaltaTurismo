@@ -11,7 +11,7 @@ import Tours from "../Tours/Tours";
 import Intro from "./Intro";
 import Towns from "../Towns/Towns";
 import CategoriesHome from "../Categories/Categories";
-
+import {Link} from "react-router-dom";
 
 
 export default function Home(){
@@ -25,7 +25,7 @@ export default function Home(){
             <Intro/>
             <h1>DESTACADOS</h1>
             <CategoriesHome/>
-            <h1>TOURS</h1>
+            <h1><Link to='/tours'>TOURS</Link></h1>
             <Tours/>
             <h1>PUEBLOS DE SALTA</h1>
             <Towns/>

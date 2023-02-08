@@ -1,8 +1,10 @@
 import React from "react";
 import { Cardcontainer, ImagenCard, Title } from "./StyledTourCard";
+import {Link} from 'react-router-dom';
 
 
-const TourCard = ({title, image}) => {
+
+const TourCard = ({title, image, id}) => {
 
    
 
@@ -12,7 +14,9 @@ const TourCard = ({title, image}) => {
     return(
         <Cardcontainer>
             <ImagenCard src={image}/>
+            <Link to={`tours/${id}`} >
             <Title>{title}</Title>
+            </Link>
         </Cardcontainer>
     )    
 }

@@ -8,7 +8,8 @@ export const ActivitiesContainer = styled.div`
 `
 export const OnlyActivities = styled.div`
   display: flex; 
-
+  justify-content: left;
+  /* flex-wrap: wrap; */
 `
 export const SectionActivity = styled.section`
 

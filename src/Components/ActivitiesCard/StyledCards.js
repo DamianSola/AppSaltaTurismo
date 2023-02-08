@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
 export const Cardcontainer = styled.div`
-width: 18rem;
-height: 21rem;
+width: 13rem;
+/* height: 18rem; */
 margin: 0px 6px;
-border-radius: 4%;
-background-color:#F5F5F5;
+/* border-radius: 4%; */
+/* background-color:#F5F5F5; */
 border: solid 0.5px;
 
 &&:hover{
@@ -13,9 +13,9 @@ border: solid 0.5px;
 }
 ` 
 export const ImagenCard = styled.img`
-width: 18rem;
-height: 16rem;
-border-radius: 4% 4% 0 0;
+width: 13rem;
+/* height: 16rem; */
+/* border-radius: 4% 4% 0 0; */
 `
 export const Title = styled.h3`
 text-align: center;
