@@ -21,6 +21,8 @@ const Name = styled.p`
 
 const TownCard = ({name, image, id}) => {
 
+
+    
     return(
         <Card>
             <Link to= {`/town/${id}`}>

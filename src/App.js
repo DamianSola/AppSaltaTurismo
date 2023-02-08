@@ -11,6 +11,9 @@ import Resume from './Components/Admin/Resume/Resume';
 import ElementList from './Components/AllElements/ElememntsList';
 import About from './Components/About/About';
 import SubCategories from './Components/SubCategories/SubCategories';
+import TownDetails from './Components/Towns/TownsDetails';
+import OnlyTours from './Components/Tours/OnlyTours';
+import TourDetail from './Components/Tours/TourDetail'
 // const DarkMod = () => {
 
 // }
@@ -27,6 +30,9 @@ function App() {
       <Route exact path='/admin' element= {<Resume/>}/>
       <Route exact path='/about' element= {<About/>}/>
       <Route exact path='/categories/:id' element= {<SubCategories/>}/>
+      <Route exact path='/town/:id' element= {<TownDetails/>}/>
+      <Route exact path='/tours' element= {<OnlyTours/>}/>
+      <Route exact path='/tours/:id' element= {<TourDetail/>}/>
       </Routes>
     </div>
   );

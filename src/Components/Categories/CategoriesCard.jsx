@@ -22,7 +22,7 @@ color: rgba( 253, 254, 254, 0);
 `
 
 const NameCategory = styled.h2`
-margin-top: 50%;
+/* margin-top: 50%; */
 font-size: 30px;
 `
 
