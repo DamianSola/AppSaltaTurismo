@@ -7,6 +7,8 @@ export const GET_ALL_SUBCATEGORIES = 'GET_ALL_SUBCATEGORIES'
 export const GET_ONE_SUBCATEGORY = 'GET_ONE_SUBCATEGORY'
 export const GET_ALL_TOURS = 'GET_ALL_TOURS'
 export const GET_ALL_SERVICES = 'GET_ALL_SERVICES'
+export const GET_ALL_SERVICES_TYPES = 'GET_ALL_SERVICES_TYPES'
+export const GET_ONE_SERVICES_TYPES = 'GET_ONE_SERVICES_TYPES'
 export const GET_ALL_TOWNS = 'GET_ALL_TOWNS'
 export const ELEMENT = 'ELEMENT'
 export const GET_ONE_CATEGORY = "GET_ONE_CATEGORY"
@@ -57,6 +59,30 @@ export const getAllService = () => {
         .then((res) => {
             dispatch({
                 type: GET_ALL_SERVICES,
+                payload: res.data
+            })
+        })
+    }
+}
+
+export const AllServiceType = () => {
+    return (dispatch) => {
+        return axios(`${URL}serviceTypes`)
+        .then((res) => {
+            dispatch({
+                type: GET_ALL_SERVICES_TYPES,
+                payload: res.data
+            })
+        })
+    }
+}
+
+export const getOneServiceType = (id) => {
+    return (dispatch) => {
+        return axios.get(`${URL}serviceTypes/${id}`)
+        .then((res) => {
+            dispatch({
+                type: GET_ONE_SERVICES_TYPES,
                 payload: res.data
             })
         })

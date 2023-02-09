@@ -34,7 +34,7 @@ const CategoriesCard = ({image, name, id}) =>{
 
 
     return(
-        <Link to={`/categories/${id}`}>
+        <Link exact to={`/categories/${id}`}>
         <Card style={backImage}>
             <NameCategory>{name}</NameCategory>
         </Card>

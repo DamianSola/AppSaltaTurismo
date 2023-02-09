@@ -14,6 +14,7 @@ import SubCategories from './Components/SubCategories/SubCategories';
 import TownDetails from './Components/Towns/TownsDetails';
 import OnlyTours from './Components/Tours/OnlyTours';
 import TourDetail from './Components/Tours/TourDetail'
+import Services from './Components/Services/Services';
 // const DarkMod = () => {
 
 // }
@@ -21,7 +22,7 @@ import TourDetail from './Components/Tours/TourDetail'
 
 function App() {
   return (
-    <div className="App">
+    <div className="App" >
         <Landing/>
       <Routes>
       {/* <Route path="/" element={<Landing/>}/> */}
@@ -33,6 +34,8 @@ function App() {
       <Route exact path='/town/:id' element= {<TownDetails/>}/>
       <Route exact path='/tours' element= {<OnlyTours/>}/>
       <Route exact path='/tours/:id' element= {<TourDetail/>}/>
+      <Route exact path='/service/:id' element= {<Services/>}/>
+
       </Routes>
     </div>
   );

@@ -10,7 +10,9 @@ import { GET_ALL_ACTIVITIES,
     GET_ONE_SUBCATEGORY,
     ELEMENT,
     GET_ONE_TOWN,
-    GET_ONE_TOUR
+    GET_ONE_TOUR, 
+    GET_ALL_SERVICES_TYPES,
+    GET_ONE_SERVICES_TYPES
 } from "../Actions/Index";
 
 import {ALL_DATE} from "../Actions/Admin"
@@ -19,7 +21,8 @@ const initialState = {
     oneCategry:{},
     oneSubCategory:{},
     OneTown:{},
-    oneTour:{}
+    oneTour:{},
+    oneServiceType:{}
 }
 
 export default function RootReducer(state = initialState, action){
@@ -57,7 +60,17 @@ export default function RootReducer(state = initialState, action){
         case GET_ALL_SERVICES:
             return{
                 ...state,
-                allServices: action.payload
+                allServices: action.payload.rows
+            }
+        case GET_ALL_SERVICES_TYPES:
+            return{
+                ...state,
+                allServiceTypes: action.payload.rows
+            }
+        case GET_ONE_SERVICES_TYPES:
+            return{
+                ...state,
+                oneServiceType: action.payload
             }
         case ALL_DATE:
             return{

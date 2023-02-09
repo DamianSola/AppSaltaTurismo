@@ -22,7 +22,7 @@ const SubCategoryCard = ({name, id, image}) => {
         <Card>
             <Photo src={image}/>
             <Name>{name}</Name>
-            <Link to={`/sub-categories/${id}`}>Ver mas...</Link>
+            <Link exact to={`/sub-categories/${id}`}>Ver mas...</Link>
         </Card>
     )
 }

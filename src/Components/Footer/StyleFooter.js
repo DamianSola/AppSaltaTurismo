@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const FooterContain = styled.div`
 display: flex;
 justify-content: space-around;
-width: 100%;
+/* width: 100%; */
 height: 15rem;
 background-color: #7B0000;
 `

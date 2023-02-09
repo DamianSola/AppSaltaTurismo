@@ -1,30 +1,48 @@
-import React from "react";
+import React,{useEffect} from "react";
 import ServiceCard from "./ServiceCard/ServiceCard";
-import { ServiceContain, Title, OnlyService } from "./styleServices";
+import { ServiceContain, Title, OnlyService, Photo, ServicesTypes, Types, TypeName } from "./styleServices";
 import {useDispatch, useSelector} from "react-redux"
+import { getOneServiceType, AllServiceType } from "../../Redux/Actions/Index";
+import {useParams} from "react-router-dom"
 
 export default function Services(){
 
-    const hardCodeService = [
-        {title:"HOSPEDAJE", image:"https://www.estrategiaynegocios.net/binrepository/600x401/0c16/600d370/none/26086/QJKB/HOSPEDAJE.11_EN1388320_MG219542061.jpg"},
-        {title:"GASTRONOMIA", image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuUpGwO8smTf_lW0he7r0WtnEdmGFVK8MbyFyDh6m0C7R3Oxxio4AlF30piXL0TPveSxk&usqp=CAU"},
-        {title:"RECORRIDOS", image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTggUlMvim-QPWZqhOtb10FM-xxIwzu5DJi1A&usqp=CAU"},
-        {title:"RENT CAR", image:"https://www.grupomybcr.com/wp-content/uploads/2016/06/rentacar.jpg"}
-    ]
+    const {id} = useParams()
+    const {oneServiceType, allServiceTypes} = useSelector(s => s)
+    console.log(oneServiceType)
+    let {name, image, services} = oneServiceType
 
     const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(getOneServiceType(id))
+        dispatch(AllServiceType())
+    }, [])
 
 
     return(
         <ServiceContain>
-            <Title>Servicios</Title>
+            <Title><Photo src={image}/> {name && name.toUpperCase()}</Title>
             <OnlyService>
-                {hardCodeService && hardCodeService.map((e,i) => {
+                {services && services.map((e,i) => {
                     return(
-                        <ServiceCard key={i} title={e.title} image={e.image}/>
+                        <ServiceCard key={i} 
+                        title={e.name} 
+                        image={e.images}
+                        phone={e.phone}
+                        Adress={e.Adress}
+                        webSite={e.webSite}
+                        punctuation={e.punctuation}
+                        />
                         )
                     })}
             </OnlyService>
+            <Title>Ver tambien</Title>
+            <ServicesTypes>
+                {allServiceTypes && allServiceTypes.map(e => {
+                    return <Types key={e.id} type><TypeName>{e.name.toUpperCase()}</TypeName><Photo src={image}/></Types>
+                })}
+            </ServicesTypes>
         </ServiceContain>
     )
 }

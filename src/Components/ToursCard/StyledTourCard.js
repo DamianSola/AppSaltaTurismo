@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
 export const Cardcontainer = styled.div`
-width: 18rem;
+width: 18.5rem;
 height: 16rem;
-margin: 6px;
+margin: 9px;
 /* border-radius: 4%; */
 border: solid 1px;
 /* background-color:#F5F5F5; */
@@ -13,14 +13,15 @@ border: solid 1px;
 }
 ` 
 export const ImagenCard = styled.img`
-width: 18rem;
-border-radius: 5% 5% 0 0;
+width: 18.5rem;
 /* height: 15rem; */
 
 `
 export const Title = styled.h3`
 /* margin-top: 0%; */
 text-align: center;
+text-decoration: none;
+font-style: none;
 /* align-items: center; */
 color: black;
 font-size: 20px;

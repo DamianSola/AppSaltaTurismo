@@ -5,15 +5,15 @@ import SubCategoryCard from './SubCategoryCard';
 import CategoriesHome from '../Categories/Categories'
 import { useEffect } from "react";
 import { useParams } from "react-router";
-import { getAllSubCategories, getOneCategory } from "../../Redux/Actions/Index";
+import { getOneCategory } from "../../Redux/Actions/Index";
 
 
 
 const SubCategories = () => {
 
     let {id} = useParams()
-    console.log(id)
-    let {allCategories, oneCategry} = useSelector(s => s)
+    // console.log(id)
+    let {oneCategry} = useSelector(s => s)
     let dispatch = useDispatch()
 
     // let nameCategory = allCategories.find(e => e.id === id)
