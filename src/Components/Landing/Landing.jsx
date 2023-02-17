@@ -48,17 +48,16 @@ color: black;
 display: block;
 `
 
+const StyleLink = styled(NavLink)`
+text-decoration: none;
+`
+
 
 
 export default function Landing(){
-
-    let [darkMood, setDarkmood] = useState(false)
+    
     let [display , setDisplay] = useState(false)
     
-    const DarkMoodChange = () => {
-        if (darkMood === false) setDarkmood(true)
-        if (darkMood === true) setDarkmood(false)
-    }
     
     const {allServiceTypes} = useSelector(s => s)
     const dispatch = useDispatch()
@@ -72,9 +71,9 @@ export default function Landing(){
         <LandingContain >
             <NavBar >
             {/* <button onClick={DarkMoodChange}>holaa </button> */}
-            <Title><NavLink exact to= '/' >INICIO</NavLink></Title>
+            <Title><StyleLink exact to= '/' >INICIO</StyleLink></Title>
             <Item></Item>
-            <Item><NavLink exact to='/about'>About</NavLink></Item>
+            <Item><StyleLink exact to='/about'>About</StyleLink></Item>
             <Item>culture</Item>
            <ServiList>
                 <Servi onClick={() => display? setDisplay(false) : setDisplay(true)}>Servicios</Servi>

@@ -1,11 +1,8 @@
 import './App.css';
 import React from 'react';
 import {Route, Routes } from "react-router-dom";
-import logo from './logo.svg';
-import Carousel from './Components/Carousels/Carousel';
 import Landing from './Components/Landing/Landing';
 import Activities from './Components/Activities/Activities';
-import Footer from './Components/Footer/Footer';
 import Home from './Components/Home/Home';
 import Resume from './Components/Admin/Resume/Resume';
 import ElementList from './Components/AllElements/ElememntsList';
@@ -15,10 +12,6 @@ import TownDetails from './Components/Towns/TownsDetails';
 import OnlyTours from './Components/Tours/OnlyTours';
 import TourDetail from './Components/Tours/TourDetail'
 import Services from './Components/Services/Services';
-// const DarkMod = () => {
-
-// }
-
 
 function App() {
   return (
@@ -35,7 +28,7 @@ function App() {
       <Route exact path='/tours' element= {<OnlyTours/>}/>
       <Route exact path='/tours/:id' element= {<TourDetail/>}/>
       <Route exact path='/service/:id' element= {<Services/>}/>
-
+      <Route exact path='/sub-categories/activity/:id' element={<Activities/>}/>
       </Routes>
     </div>
   );

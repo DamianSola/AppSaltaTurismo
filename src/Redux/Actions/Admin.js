@@ -1,10 +1,10 @@
 import axios from "axios";
-import { getAllActivities,
-    getAllTours,
-    getAllService,
-    getAllCategories,
-    getAllSubCategories,
-    getAllTowns } from './Index'
+// import { getAllActivities,
+//     getAllTours,
+//     getAllService,
+//     getAllCategories,
+//     getAllSubCategories,
+//     getAllTowns } from './Index'
 
 export const POST_ACTIVITY = 'POST_ACTIVITY'
 export const PUT_ACTIVITY = 'PUT_ACTIVITY'

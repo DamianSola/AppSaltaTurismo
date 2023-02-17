@@ -1,17 +1,11 @@
 import React, {useEffect} from "react";
-import Activities from "../Activities/Activities";
-import Carousel from "../Carousels/Carousel";
 import Footer from "../Footer/Footer";
-import Landing from "../Landing/Landing";
-import Services from "../Services/Services";
-import { HomeContainer,secondContainer, ImagePresentation } from "./StyleHome";
-import {useDispatch, useSelector} from "react-redux"
-import { getAllActivities} from "../../Redux/Actions/Index"
+import { HomeContainer, StyleLink } from "./StyleHome";
 import Tours from "../Tours/Tours";
 import Intro from "./Intro";
 import Towns from "../Towns/Towns";
 import CategoriesHome from "../Categories/Categories";
-import {Link} from "react-router-dom";
+import "react-multi-carousel/lib/styles.css";
 
 
 export default function Home(){
@@ -21,14 +15,12 @@ export default function Home(){
         document.title = "Home";
     }, [])
 
-
-
     return(
         <HomeContainer>
             <Intro/>
             <h1>DESTACADOS</h1>
             <CategoriesHome/>
-            <h1><Link to='/tours'>TOURS</Link></h1>
+            <h1><StyleLink to='/tours' text-decoration="none">TOURS</StyleLink></h1>
             <Tours/>
             <h1>PUEBLOS DE SALTA</h1>
             <Towns/>

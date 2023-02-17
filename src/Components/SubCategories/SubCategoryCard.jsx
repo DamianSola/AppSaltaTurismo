@@ -1,4 +1,4 @@
-import React from "react";
+import React, { createContext } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
@@ -18,6 +18,7 @@ const Name = styled.p`
 `
 
 const SubCategoryCard = ({name, id, image}) => {
+
     return(
         <Card>
             <Photo src={image}/>

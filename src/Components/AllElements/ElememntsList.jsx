@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { getAllActivities, getOneSubCategories, likeActivity } from "../../Redux/Actions/Index";
+import React, {useEffect } from "react";
+import { useDispatch, useSelector,  } from "react-redux";
+import { getOneSubCategories } from "../../Redux/Actions/Index";
 import { 
         ContainElement,
         ContainerList, Title, Image,
         Description, ContainTwo, Containtree,
-        Likes, SubCategory, LikeButton, SeeMore 
+        Likes, SeeMore 
 } from "./StyledList";
-import { Link, useParams } from "react-router-dom";
+import { Link, useLocation, useParams} from "react-router-dom";
 
 const ElementList = () => {
 
@@ -17,7 +17,6 @@ const ElementList = () => {
     let {oneSubCategory} = useSelector(s => s)
     // console.log(oneSubCategory)
     const activities = oneSubCategory.activities
-    console.log(activities)
 
 
     
@@ -37,7 +36,7 @@ const ElementList = () => {
                         <Likes>likes {e.likes}</Likes>
                     </Containtree>
                 <Description>{e.description}</Description>                
-                <SeeMore> <Link to="/" > Ver mas </Link> </SeeMore>
+                <SeeMore> <Link exact to={`/sub-categories/activity/${e.id}`} >Ver mas</Link> </SeeMore>
                 </ContainTwo>
             </ContainElement>
            }): <h3>Sin actividades</h3> }

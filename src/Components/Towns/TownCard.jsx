@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { NavLink, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 // Styled componets
 const Card = styled.div`
@@ -19,17 +19,24 @@ const Name = styled.p`
     text-decoration: none
 `
 
+const StyleLink = styled(Link)`
+text-decoration: none;
+color:black;
+
+
+`
+
 const TownCard = ({name, image, id}) => {
 
 
     
     return(
         <Card>
-            <Link to= {`/town/${id}`}>
+            <StyleLink to= {`/town/${id}`}>
             {/* <Photo src={image}/> */}
             <Photo src='https://buckets3.glanacion.com/lntools/anexos/fotos/72/30072w1366q100.jpg'/>
             <Name>{name}</Name>
-            </Link>
+            </StyleLink>
         </Card>
     )
 }

@@ -25,7 +25,7 @@ export default function Resume(){
         <CountainResume>
             {allDates && allDates.map(e => {
                 return(
-                    <Activities>
+                    <Activities Key={e.id}>
                         <NameTable>{e.title}</NameTable>
                         <Amount>{e.count}</Amount>
                     </Activities>

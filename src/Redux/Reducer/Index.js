@@ -1,24 +1,14 @@
 
 import { GET_ALL_ACTIVITIES, 
-    GET_ALL_TOURS, 
-    GET_ALL_TOWNS, 
-    GET_ALL_SERVICES, 
-    GET_ALL_SUBCATEGORIES, 
-    GET_ALL_CATEGORIES,
-    GET_ONE_ACTIVITY,
-    GET_ONE_CATEGORY,
-    GET_ONE_SUBCATEGORY,
-    ELEMENT,
-    GET_ONE_TOWN,
-    GET_ONE_TOUR, 
-    GET_ALL_SERVICES_TYPES,
-    GET_ONE_SERVICES_TYPES
-} from "../Actions/Index";
+    GET_ALL_TOURS, GET_ALL_TOWNS, GET_ALL_SERVICES, GET_ALL_SUBCATEGORIES, GET_ALL_CATEGORIES,
+    GET_ONE_ACTIVITY, GET_ONE_CATEGORY, GET_ONE_SUBCATEGORY, ELEMENT, GET_ONE_TOWN, GET_ONE_TOUR, 
+    GET_ALL_SERVICES_TYPES, GET_ONE_SERVICES_TYPES} from "../Actions/Index";
 
 import {ALL_DATE} from "../Actions/Admin"
 
 const initialState = {
     oneCategry:{},
+    oneActivity: {},
     oneSubCategory:{},
     OneTown:{},
     oneTour:{},
@@ -31,6 +21,11 @@ export default function RootReducer(state = initialState, action){
             return {
                 ...state,
                 allActivities: action.payload.rows,
+            }
+        case GET_ONE_ACTIVITY:
+            return {
+                ...state,
+                oneActivity: action.payload
             }
         case GET_ALL_TOURS:
             return{

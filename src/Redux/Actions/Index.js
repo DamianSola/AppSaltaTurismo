@@ -30,6 +30,18 @@ export const getAllActivities = () => {
     }
 }
 
+export const getOneActivity = (id) => {
+    return (dispatch) => {
+        return axios(`${URL}activities/${id}`)
+        .then((res) => {
+            dispatch({
+                type: GET_ONE_ACTIVITY ,
+                payload: res.data
+            })
+        })
+    }
+}
+
 export const getAllTours = () => {
     return (dispatch) => {
         return axios(`${URL}tours`)

@@ -34,6 +34,7 @@ const Towns = () => {
             {
                 allTowns ? allTowns.map(e => {
                     return <TownCard
+                    key={e.id}
                     name={e.name}
                     id={e.id}
                     image={e.images}
