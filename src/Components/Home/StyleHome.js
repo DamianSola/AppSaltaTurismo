@@ -12,19 +12,12 @@ export const secondContainer = styled.div`
 display:block;
 `
 
-export const ImagePresentation = styled.div`
-display: block;
-background-repeat: no-repeat;
-background-position: center;
-/* justify-content: space-between; */
-width: 100%;
-`
-
-export const Image = styled.img`
-width: 100%;
-
-`
 
 export const StyleLink = styled(Link)`
 text-decoration: none;
+color: black;
+transition: 0.3s;
+:hover{
+    color:bisque;
+}
 `

@@ -77,6 +77,9 @@ export const getAllService = () => {
     }
 }
 
+export const deleteServiceType = () => {
+return {type: "DELETE_TYPES"}
+}
 export const AllServiceType = () => {
     return (dispatch) => {
         return axios(`${URL}serviceTypes`)

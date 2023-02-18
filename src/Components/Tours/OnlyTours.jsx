@@ -20,7 +20,7 @@ const OnlyTours = () => {
 
     const dispatch = useDispatch()
     const {allTours} = useSelector(s => s)
-    console.log(allTours)
+    // console.log(allTours)
     // let tours = allTours.rows
 
 

@@ -4,25 +4,33 @@ import { Link } from "react-router-dom";
 import "../../App.css"
 
 const Card = styled.div`
-display: flex;
-width: 19rem;
-height: 20rem;
-background-repeat: no-repeat;
-background-size: cover;
+display: block;
+width: 300px;
+/* height: 20rem; */
 margin:5px;
-color: rgba( 253, 254, 254, 0);
+border: solid 0.5px;
+/* color: rgba( 253, 254, 254, 0); */
+color: black;
+transition: 1s;
 
 :hover{
-    /* width: 18.5rem; */
-    /* opacity: 0.6; */
     color: black;
-    /* background-color: black; */
+    /* background-size: auto; */
 }
 `
 
 const NameCategory = styled.h2`
-justify-content: center;
-font-size: 30px;
+display: block;
+position: relative;
+color: black;
+/* text-align: left; */
+font-size: 20px;
+transition: 1s;
+/* padding: none; */
+:hover{
+    /* translate: calc(12%); */
+    font-size: 18px;
+}
 `
 
 const StyleLink = styled(Link)`
@@ -31,18 +39,22 @@ text-decoration: none;
 
 const CategoriesCard = ({image, name, id}) =>{
 
+    
     let backImage = {        
         backgroundImage: 'url(' + image + ')'
     }
 
+   
+
 
 
     return(
-        <StyleLink exact to={`/categories/${id}`} id="App-links">
-        <Card style={backImage}>
-            <NameCategory>{name}</NameCategory>
+        <Card> 
+            <img src={image} width="100%" />
+            <StyleLink exact to={`/categories/${id}`} id="App-links">
+                <NameCategory>{name}</NameCategory>
+            </StyleLink>
         </Card>
-        </StyleLink>
     )
 }
 

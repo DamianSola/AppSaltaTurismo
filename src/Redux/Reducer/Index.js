@@ -62,6 +62,11 @@ export default function RootReducer(state = initialState, action){
                 ...state,
                 allServiceTypes: action.payload.rows
             }
+        case "DELETE_TYPES":
+            return{
+                ...state,
+                oneServiceType: {}
+            }
         case GET_ONE_SERVICES_TYPES:
             return{
                 ...state,

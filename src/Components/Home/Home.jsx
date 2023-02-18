@@ -5,7 +5,17 @@ import Tours from "../Tours/Tours";
 import Intro from "./Intro";
 import Towns from "../Towns/Towns";
 import CategoriesHome from "../Categories/Categories";
-import "react-multi-carousel/lib/styles.css";
+import styled from "styled-components"
+
+const Title = styled.h1`
+    color:black;
+    transition: 0.3s;
+    :hover{
+        color: bisque
+        ;
+    }
+` 
+
 
 
 export default function Home(){
@@ -18,11 +28,11 @@ export default function Home(){
     return(
         <HomeContainer>
             <Intro/>
-            <h1>DESTACADOS</h1>
+            <Title>DESTACADOS</Title>
             <CategoriesHome/>
-            <h1><StyleLink to='/tours' text-decoration="none">TOURS</StyleLink></h1>
+            <Title><StyleLink to='/tours' text-decoration="none">TOURS</StyleLink></Title>
             <Tours/>
-            <h1>PUEBLOS DE SALTA</h1>
+            <Title>PUEBLOS DE SALTA</Title>
             <Towns/>
             <Footer/>
         </HomeContainer>

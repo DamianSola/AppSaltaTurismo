@@ -15,14 +15,12 @@ list-style:none;
 const Servi = styled.button`
 text-decoration: none;
 border-style: none;
-color: black;
+color: white;
 background-color: #00b2ec ;
 font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-font-size: 20px;
+font-size: 22px;
 
-:hover{
-    background-color: aliceblue;
-}
+
 `
 
 const TypesList = styled.ul`
@@ -32,12 +30,15 @@ padding: none;
 background-color: #00b2ec ;
 font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 position: absolute;
+
 `
 const Type = styled.li`
 text-decoration: none;
 list-style:none;
-display: block;
+/* display: block; */
 text-align: left;
+
+
 :hover{
     background-color: white ;
 }
@@ -46,10 +47,13 @@ const Tname = styled.a`
 text-decoration: none;
 color: black;
 display: block;
+
 `
 
 const StyleLink = styled(NavLink)`
 text-decoration: none;
+background-color: #00b2ec ;
+color: white;
 `
 
 
@@ -71,7 +75,7 @@ export default function Landing(){
         <LandingContain >
             <NavBar >
             {/* <button onClick={DarkMoodChange}>holaa </button> */}
-            <Title><StyleLink exact to= '/' >INICIO</StyleLink></Title>
+            <Title><StyleLink exact to= '/' >SALTA</StyleLink></Title>
             <Item></Item>
             <Item><StyleLink exact to='/about'>About</StyleLink></Item>
             <Item>culture</Item>

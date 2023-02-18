@@ -30,6 +30,8 @@ export const Title = styled.h1`
 margin: 1rem;
 padding: 0%;
 text-decoration: none;
+font-style: oblique;
+font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 /* width: 25rem */
 `
 
@@ -37,4 +39,5 @@ export const Item = styled.p`
 margin: 20px;
 padding: 10px;
 font-size: larger;
+color: white;
 `
