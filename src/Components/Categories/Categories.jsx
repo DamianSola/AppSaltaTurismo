@@ -9,7 +9,7 @@ const CategoriesHome = () => {
 
     const {allCategories} = useSelector(s => s)
     const dispatch = useDispatch()
-    console.log(allCategories)
+    // console.log(allCategories)
 
     useEffect(()=>{
         dispatch(getAllCategories())

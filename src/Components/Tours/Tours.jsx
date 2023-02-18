@@ -32,8 +32,8 @@ const Tours = () => {
 
     return(
         <div>
-            <button onClick={handleBack}>back</button>
-            <button onClick={handleNext}>next</button>
+            {/* <button onClick={handleBack}>back</button>
+            <button onClick={handleNext}>next</button> */}
             <TourContainer>
                 {someTours && someTours.map((e,i) => {
                     return <TourCard 

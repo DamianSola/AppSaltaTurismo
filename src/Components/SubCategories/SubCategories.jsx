@@ -12,19 +12,14 @@ import { getOneCategory } from "../../Redux/Actions/Index";
 const SubCategories = () => {
 
     let {id} = useParams()
-    // console.log(id)
     let {oneCategry} = useSelector(s => s)
     let dispatch = useDispatch()
 
-    // let nameCategory = allCategories.find(e => e.id === id)
     let subCategories = oneCategry.subCategories
-
-    // console.log(nameCategory)
 
     useEffect(()=>{
         dispatch(getOneCategory(id))
     }, [])
-
 
     return(
         <ContainerSubCategories>
