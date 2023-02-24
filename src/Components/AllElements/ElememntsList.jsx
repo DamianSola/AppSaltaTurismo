@@ -18,9 +18,6 @@ const ElementList = () => {
     // console.log(oneSubCategory)
     const activities = oneSubCategory.activities
 
-
-    
-
     useEffect(() => {
         dispatch(getOneSubCategories(id))
     },[])
@@ -30,13 +27,13 @@ const ElementList = () => {
            {activities && activities.length > 0 ? activities.map((e) => {
             return <ContainElement key={e.id}>
                 <Image src={e.images}/>
+                <Title>{e.name.toUpperCase()}</Title>
                 <ContainTwo>
-                    <Containtree>
-                        <Title>{e.name.toUpperCase()}</Title>
-                        <Likes>likes {e.likes}</Likes>
-                    </Containtree>
                 <Description>{e.description}</Description>                
-                <SeeMore> <Link exact to={`/sub-categories/activity/${e.id}`} >Ver mas</Link> </SeeMore>
+                <Containtree>
+                <Likes>likes {e.likes}</Likes>
+                    <SeeMore exact to={`/sub-categories/activity/${e.id}`}> Ver mas {" >"}</SeeMore>
+                </Containtree>
                 </ContainTwo>
             </ContainElement>
            }): <h3>Sin actividades</h3> }

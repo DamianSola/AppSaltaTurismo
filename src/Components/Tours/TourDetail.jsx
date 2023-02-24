@@ -7,7 +7,7 @@ import styled from "styled-components"
 const Container = styled.div`
     display: flex;
     width: 90%;
-    margin: auto 10px;
+    margin: auto ;
     border: solid 1px;
     padding: 10px;
 `

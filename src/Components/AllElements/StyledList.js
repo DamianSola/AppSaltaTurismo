@@ -1,23 +1,19 @@
 import styled from "styled-components";
+import {Link} from "react-router-dom"
 
 export const ContainerList = styled.div`
 display: block;
-flex-wrap: wrap;
-justify-content: space-between;
-width: 100%;
-/* height: 100%; */
-/* background-color: #F5F5F5; */
-/* padding-top: 2rem; */
-margin: 10px 0 ;
+justify-content: center;
+width: 90%;
+margin: auto ;
 `
 export const ContainElement = styled.div`
 display: flex;
-/* width: 280px; */
-/* border-radius: 5px; */
-border: solid 1px;
+/* border: solid 1px ; */
+box-shadow: 10px 10px 10px ;
 background-color: white;
-margin: 10px;
-font-family: Lucida Console;
+margin: 20px;
+
 `
 
 export const Image = styled.img`
@@ -35,20 +31,30 @@ width: 100%;
 export const Containtree = styled.div`
 display: flex;
 justify-content: space-around;
+/* text-align: left; */
+/* position: absolute; */
+
 `
 
 export const Title = styled.p`
 font-size: 1.5rem;
+position: absolute;
+margin: auto;
+text-align: left;
+background-color: #7B0000;
+color: white;
 `
 export const Description = styled.p`
 font-size: 1rem;
-text-align: center;
+text-align: left;
+padding: 10px;
 `
 
 export const Likes = styled.p`
-/* text-align: right; */
-font-size: 20px;
+text-align: left;
+/* font-size: 20px; */
 `
+
 
 export const SubCategory = styled.p`
 font-size: 20px;
@@ -65,7 +71,7 @@ border-radius: 3px;
 
     }
 `
-export const SeeMore = styled.a`
+export const SeeMore = styled(Link)`
     font-size: 1.5rem;
     text-decoration: none;
     color: black;

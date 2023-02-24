@@ -4,7 +4,6 @@ export const ActivitiesContainer = styled.div`
   display: block;
   /* height: 25rem; */
   width: 100%;
-
 `
 export const OnlyActivities = styled.div`
   display: flex; 

@@ -3,6 +3,7 @@ import { ActivitiesContainer,Title, Photo, Slyder} from "./StyleActivities";
 import {useDispatch,useSelector} from 'react-redux'
 import {getOneActivity} from "../../Redux/Actions/Index"
 import { useParams } from "react-router";
+import  Carousel  from "../Carousels/Carousel";
 
 const Activities = () => {
     let {id} = useParams()
@@ -32,11 +33,12 @@ const Activities = () => {
     return (
         <ActivitiesContainer>
             <Title>{name}</Title>
-            <Slyder>
+            <Carousel images={images}/>
+            {/* <Slyder>
                 {images && images.map((e,i) => {
                     return  <Photo src={e} key={i}/> 
                 })}
-            </Slyder>
+            </Slyder> */}
           
         </ActivitiesContainer>
     )

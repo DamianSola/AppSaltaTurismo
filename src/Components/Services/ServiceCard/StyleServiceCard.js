@@ -14,8 +14,13 @@ justify-content: left;
 background-size: cover;
 margin: 0.7rem;
 padding: 10px;
-
 border: solid black 1px;
+transition: 0.5s;
+
+:hover{
+    box-shadow: 10px 10px 10px;
+    border:none;
+}
 `
 
 export const Photo = styled.img`

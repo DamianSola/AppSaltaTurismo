@@ -8,6 +8,7 @@ export const CarouselDiv = styled.div `
    background-position: center;
    justify-content: space-between;
 
+
 `
 export const Title = styled.h4 `
 position: absolute;
@@ -15,6 +16,8 @@ margin-left: 10%;
 color: white;
 font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 font-size: 30px;
+   transition: 1s;
+
 `
 // export const Contenido = styled.div `
 //    display: flex;

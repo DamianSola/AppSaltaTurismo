@@ -44,9 +44,6 @@ const CategoriesCard = ({image, name, id}) =>{
         backgroundImage: 'url(' + image + ')'
     }
 
-   
-
-
 
     return(
         <Card> 

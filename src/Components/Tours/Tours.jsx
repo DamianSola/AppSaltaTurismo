@@ -14,7 +14,7 @@ const Tours = () => {
     const {allTours} = useSelector(s => s)
     // console.log(allTours)
     let someTours;
-    if(allTours) someTours = allTours.slice(0,5)
+    if(allTours) someTours = allTours.slice(0,8)
 
     useEffect(() => {
         dispatch(getAllTours())
