@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import {LandingContain, Title, NavBar, Item} from "./StyledLanding";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import {useSelector, useDispatch} from "react-redux"
 import {AllServiceType} from "../../Redux/Actions/Index";
 import styled from "styled-components";
@@ -43,7 +43,7 @@ text-align: left;
     background-color: white ;
 }
 `
-const Tname = styled.a`
+const Tname = styled(Link)`
 text-decoration: none;
 color: black;
 display: block;
@@ -83,7 +83,7 @@ export default function Landing(){
                 <Servi onClick={() => display? setDisplay(false) : setDisplay(true)}>Servicios</Servi>
                 <TypesList display = {display}>
                     {allServiceTypes && allServiceTypes.map(e => {
-                        return <Type key={e.id}><Tname href={`/service/${e.id}`}>{e.name}</Tname></Type>
+                        return <Type key={e.id}><Tname to={`/service/${e.id}`}>{e.name}</Tname></Type>
                     })}
 				</TypesList>
 			</ServiList>

@@ -52,7 +52,7 @@ padding: 10px;
 
 export const Likes = styled.p`
 text-align: left;
-/* font-size: 20px; */
+font-size: 20px;
 `
 
 

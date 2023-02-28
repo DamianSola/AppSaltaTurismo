@@ -6,7 +6,7 @@ import Intro from "./Intro";
 import Towns from "../Towns/Towns";
 import CategoriesHome from "../Categories/Categories";
 import styled from "styled-components"
-// import Carru from "../Tours/Carru";
+import Carru from "../Tours/Carru";
 
 const Title = styled.h1`
     color:black;
@@ -35,7 +35,8 @@ export default function Home(){
             <Title><StyleLink to='/tours' text-decoration="none">TOURS</StyleLink></Title>
             <Tours/>
             <Title>PUEBLOS DE SALTA</Title>
-            <Towns/>
+            <Towns id="pueblos" title="pueblos"/>
+            <Carru/>
             {/* <Footer/> */}
         </HomeContainer>
         

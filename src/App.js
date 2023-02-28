@@ -13,6 +13,7 @@ import OnlyTours from './Components/Tours/OnlyTours';
 import TourDetail from './Components/Tours/TourDetail'
 import Services from './Components/Services/Services';
 import Footer from './Components/Footer/Footer';
+import Towns from './Components/Towns/Towns';
 
 function App() {
   return (
