@@ -6,11 +6,9 @@ import {useLocation, useParams} from "react-router-dom"
 
 const TourCard = ({title, image, id}) => {
 
-    // let location = useLocation();
-
     return(
         <Cardcontainer>
-            <StyleLink to={`tours/${id}`} >
+            <StyleLink exact to={`/tours/${id}`} >
             <ImagenCard src={image}/>
             <Title>{title}</Title>
             </StyleLink>

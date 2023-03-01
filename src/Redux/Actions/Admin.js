@@ -17,6 +17,10 @@ export const ALL_DATE = "ALL_DATE"
 
 const url =  'http://localhost:3001'
 
+// export const SomeThingDate = (date) => {
+    
+// }
+
 //POST
 export const postActivity = (data) => {
    return () => {

@@ -14,6 +14,7 @@ import TourDetail from './Components/Tours/TourDetail'
 import Services from './Components/Services/Services';
 import Footer from './Components/Footer/Footer';
 import Towns from './Components/Towns/Towns';
+import AllActivities from './Components/Admin/Details/AllActivities';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
       <Route exact path='/tours/:id' element= {<TourDetail/>}/>
       <Route exact path='/service/:id' element= {<Services/>}/>
       <Route exact path='/sub-categories/activity/:id' element={<Activities/>}/>
+      <Route exact path= '/admin/ACTIVITIES' element={<AllActivities/>}/>
       </Routes>
       <Footer/>
     </div>

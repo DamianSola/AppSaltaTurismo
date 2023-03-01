@@ -34,7 +34,7 @@ const OnlyTours = () => {
             <OnlyActivities>
                 {allTours && allTours.map((e,i) => {
                     return <TourCard 
-                    title={e.name} key={i} image={e.image}/>
+                    title={e.name} key={i} id={e.id} image={e.image}/>
                 })}
             </OnlyActivities>
         </Container>

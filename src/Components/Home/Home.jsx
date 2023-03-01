@@ -36,7 +36,7 @@ export default function Home(){
             <Tours/>
             <Title>PUEBLOS DE SALTA</Title>
             <Towns id="pueblos" title="pueblos"/>
-            <Carru/>
+            {/* <Carru/> */}
             {/* <Footer/> */}
         </HomeContainer>
         
