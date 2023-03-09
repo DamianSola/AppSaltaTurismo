@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import "../../App.css"
+import { useDispatch } from "react-redux";
+import {getOneCategory} from "../../Redux/Actions/Index"
 
 const Card = styled.div`
 display: block;
@@ -44,11 +46,14 @@ const CategoriesCard = ({image, name, id}) =>{
         backgroundImage: 'url(' + image + ')'
     }
 
+    const dispatch = useDispatch()
+
 
     return(
         <Card> 
             <img src={image} width="100%" />
-            <StyleLink exact to={`/categories/${id}`} id="App-links">
+            <StyleLink exact to={`/categories/${id}`} onChange={() => {dispatch(getOneCategory(id))
+}} id="App-links">
                 <NameCategory>{name}</NameCategory>
             </StyleLink>
         </Card>

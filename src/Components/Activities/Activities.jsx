@@ -1,9 +1,9 @@
 import React,{ useEffect } from "react";
-import { ActivitiesContainer,Title, Photo, Slyder} from "./StyleActivities";
+import { ActivitiesContainer,Title, Photo, Slyder, Description, Header, Body} from "./StyleActivities";
 import {useDispatch,useSelector} from 'react-redux'
 import {getOneActivity} from "../../Redux/Actions/Index"
 import { useParams } from "react-router";
-import  Carousel  from "../Carousels/Carousel";
+// import  Carousel  from "../Carousels/Carousel";
 
 const Activities = () => {
     let {id} = useParams()
@@ -27,19 +27,19 @@ const Activities = () => {
 
     useEffect(()=>{
         dispatch(getOneActivity(id))
-    },[dispatch])
+    },[])
 
   
     return (
         <ActivitiesContainer>
+            <Header>
+            <Photo src={images}/>
             <Title>{name}</Title>
-            <Carousel images={images}/>
-            {/* <Slyder>
-                {images && images.map((e,i) => {
-                    return  <Photo src={e} key={i}/> 
-                })}
-            </Slyder> */}
-          
+            </Header>
+            <Body>
+            <Description>{description}</Description>
+            </Body>
+
         </ActivitiesContainer>
     )
 }

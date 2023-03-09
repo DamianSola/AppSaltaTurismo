@@ -19,49 +19,60 @@ const Controls = styled.div`
     justify-content: space-around;
 ` 
 const ContainElements = styled.div`
-    display: block;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+   
 
 `
 const Elements = styled.div`
-    display: flex;
+    display: block;
+     /* width: 250px; */
     margin: 10px auto;
     border: solid 0.5px;
-    width: 60%;
-    justify-content: space-between;
+    width: 30%;
+    /* justify-content: space-between; */
 
 `
 
 const ButtonsEl = styled.div`
     display: flex;
-    flex-direction: column;
-   padding: 5px;
+    /* flex-direction: column; */
+   padding: 10px;
+
     
 `
 const Delete = styled.button`
     background-color: #7B0000;
+    color: white;
     margin: auto;
     border-style: none;
     border-radius: 2px;
     padding: 5px;
     width: 100px;
     transition: 0.2s;
+    border: solid 2px #7B0000;
+
 
     :hover{
-        color: white;
+       border: solid 2px  #00b2ec;
     }
 `
 
 const Put = styled.button`
     background-color: #00b2ec;
     border-style: none;
+    color: white;
     border-radius: 2px;
     padding: 5px;
     width: 100px;
     margin: auto;
     transition: 0.2s;
+    border: solid 2px  #00b2ec;
+
 
     :hover{
-        color: white;
+        border: solid 2px #7B0000;
         /* border: solid black; */
     }
 `
@@ -69,60 +80,82 @@ const Agregar = styled.button`
     margin: auto;
     background-color:  #00b2ec;
     border-style:none;
-    width: 80px;
+    /* width: 80px; */
+    width: 4rem;
     padding: 5px;
     transition: 0.2s;
 
     :hover{
         color: white;
+        font-size: 15px;
 
     }
 `
 
+const SearchInput = styled.input`
+    margin-left: 5px;
+    padding: 5px;
+`
+const SearchButton = styled.button`
+    background-color:  #00b2ec;
+    transition: 50ms;
+    margin-left: 5px;
+    border-style: none;
+    width: 4rem;
+    :hover{
+        color:white;
+        font-size: 15px;
+    }
+`
 const Name = styled(Link)`
     text-decoration: none;
+    position: absolute;
+    background-color:  #00b2ec;
     margin: auto;
     font-size: 20px;
-    color: black;
+    color: white;
     transition: 0.5s;
     width: 100px;
+    /* max-height: 100px; */
+    padding:10px;
+    border: solid 2px  #00b2ec;
+
+
     :hover{
-    font-size: 25px;
+    color:#7B0000;
+    border: solid 2px #7B0000;
 
     }
 `
 const Photo = styled.img`
-    width: 150px;
+    width: 100%;
 `
 const AllActivities = () => {
 
     // const [datos, setDatos] = useState
 
     let {allActivities} = useSelector(s => s)
-    let dispatch = useDispatch()
-
-    // const activities = new Promise(getAllActivities()).then(e =>  console.log(e.payload)).then(e => e)
-    
+    let dispatch = useDispatch()    
     
 
 
     useEffect(() => {
-        // console.log(datos)
-
-    },[allActivities])
+        dispatch(getAllActivities())
+      
+    },[])
 
     return(
         <Container>
             <Controls>
                 <Agregar>agregar</Agregar>
-                <input type="search" placeholder="buscar actividad..."/>
-                <button type="submit">buscar</button>
+                <SearchInput type="search" placeholder="buscar actividad..."/>
+                <SearchButton type="submit">buscar</SearchButton>
             </Controls>
             <ContainElements>
                 {allActivities && allActivities.map(e => {
                     return <Elements key={e.id}>
+                        <Name exact to= {`/sub-categories/activity/${e.id}`}>{e.name}</Name>
                         <Photo src={e.images}/>
-                        <Name>{e.name}</Name>
                         {/* <Likes>{e.likes}</Likes> */}
                     <ButtonsEl>
                         <Delete>BORRAR</Delete>

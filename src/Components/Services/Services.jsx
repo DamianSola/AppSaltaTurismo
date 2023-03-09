@@ -9,7 +9,7 @@ export default function Services(){
 
     const {id} = useParams()
     const {oneServiceType, allServiceTypes} = useSelector(s => s)
-    console.log(oneServiceType)
+    // console.log(oneServiceType)
     let {name, image, services} = oneServiceType
 
     const dispatch = useDispatch()
@@ -18,7 +18,7 @@ export default function Services(){
         dispatch(getOneServiceType(id))
         dispatch(AllServiceType())
         // dispatch(deleteServiceType())
-    }, [])
+    }, [id])
 
 
     return(
@@ -41,7 +41,7 @@ export default function Services(){
             <Title>Ver tambien</Title>
             <ServicesTypes>
                 {allServiceTypes && allServiceTypes.map(e => {
-                    return <Types key={e.id} type><TypeName>{e.name.toUpperCase()}</TypeName><Photo src={image}/></Types>
+                    return <Types key={e.id} ><TypeName to={`/service/${e.id}`} onChange={() => dispatch(getOneServiceType(e.id))}>{e.name.toUpperCase()}</TypeName><Photo src={image}/></Types>
                 })}
             </ServicesTypes>
         </ServiceContain>
