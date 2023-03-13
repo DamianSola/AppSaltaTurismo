@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { getAllActivities } from "../../../Redux/Actions/Index";
 import { Likes } from "../../AllElements/StyledList";
+import ActivityFormPost from "../Forms/Create/ActivityForm";
 // import { AllServiceType, getAllActivities, getAllCategories, getAllService, getAllSubCategories, getAllTours, getAllTowns } from "../../../Redux/Actions/Index"
 
 
@@ -132,25 +133,33 @@ const Photo = styled.img`
 `
 const AllActivities = () => {
 
-    // const [datos, setDatos] = useState
+    const [addActivity, setAddActivity] = useState(false)
 
     let {allActivities} = useSelector(s => s)
     let dispatch = useDispatch()    
+
+    const openModal = () => {
+        setAddActivity(true)
+    }
     
+    const closeModal = () => {
+        setAddActivity(false)
+    }
 
 
     useEffect(() => {
         dispatch(getAllActivities())
       
-    },[])
+    },[addActivity])
 
     return(
         <Container>
             <Controls>
-                <Agregar>agregar</Agregar>
+                <Agregar onClick ={openModal}>agregar</Agregar>
                 <SearchInput type="search" placeholder="buscar actividad..."/>
                 <SearchButton type="submit">buscar</SearchButton>
             </Controls>
+            {addActivity && <ActivityFormPost close={closeModal}/>}
             <ContainElements>
                 {allActivities && allActivities.map(e => {
                     return <Elements key={e.id}>
@@ -165,7 +174,7 @@ const AllActivities = () => {
                 })}
                 
             </ContainElements>
-            
+          
         </Container>
     )
 }
