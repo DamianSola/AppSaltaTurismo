@@ -12,27 +12,28 @@ display: block;
 text-decoration: none;
 list-style:none;
 `
-const Servi = styled.button`
+const Servi = styled.p`
 text-decoration: none;
 border-style: none;
 color: white;
-background-color: #00b2ec ;
-font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+color: #7B0000;
+/* background-color: #00b2ec ; */
+background-color: #87CEFA;
+/* font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; */
 font-size: 22px;
-
-
 `
 
 const TypesList = styled.ul`
 display:${props => props.display? "block" : "none"};
 /* margin: none; */
 padding: none;
-background-color: #00b2ec ;
+/* background-color: #00b2ec ; */
+background-color: #87CEFA;
 font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 position: absolute;
 
 `
-const Type = styled.li`
+const Type = styled.p`
 text-decoration: none;
 list-style:none;
 /* display: block; */
@@ -52,8 +53,10 @@ display: block;
 
 const StyleLink = styled(NavLink)`
 text-decoration: none;
-background-color: #00b2ec ;
-color: white;
+/* background-color: #00b2ec ; */
+background-color: #87CEFA;
+/* color: white; */
+color: #7B0000
 `
 
 

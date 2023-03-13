@@ -16,6 +16,7 @@ import Footer from './Components/Footer/Footer';
 import Towns from './Components/Towns/Towns';
 import AllActivities from './Components/Admin/Details/AllActivities';
 
+
 function App() {
   return (
     <div className="App" >

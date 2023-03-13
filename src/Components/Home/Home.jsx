@@ -6,15 +6,14 @@ import Intro from "./Intro";
 import Towns from "../Towns/Towns";
 import CategoriesHome from "../Categories/Categories";
 import styled from "styled-components"
-import Carru from "../Tours/Carru";
 
 const Title = styled.h1`
     color:black;
     transition: 0.3s;
-    :hover{
+    /* :hover{
         color: bisque
         ;
-    }
+    } */
 ` 
 
 
@@ -36,8 +35,8 @@ export default function Home(){
             <Tours/>
             <Title>PUEBLOS DE SALTA</Title>
             <Towns id="pueblos" title="pueblos"/>
-            {/* <Carru/> */}
-            {/* <Footer/> */}
+            {/* <Carousel/> */}
+
         </HomeContainer>
         
     )

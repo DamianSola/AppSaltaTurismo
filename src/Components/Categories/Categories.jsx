@@ -20,7 +20,6 @@ const CategoriesHome = () => {
             {allCategories && allCategories.map(e => {
                 return <CategoriesCard name={e.name} id={e.id} image={e.image} key={e.id}/>
             })}
-
         </CategoriesC>
     )
 }

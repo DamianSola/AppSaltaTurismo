@@ -23,15 +23,17 @@ const Texto = styled.h1`
     padding-top: 13rem;
     /* margin: 20%; */
     font-style: oblique;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    /* font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; */
     color: white;
     font-size: 60px;
     transition: 2s;
+    width: 100%;
+    text-shadow: 5px 5px 5px black;
 
-    :hover{
+    /* :hover{
       font-size: 70px;
 
-    }
+    } */
 `
 
 const Intro = () => {

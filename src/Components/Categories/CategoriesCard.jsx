@@ -7,36 +7,55 @@ import {getOneCategory} from "../../Redux/Actions/Index"
 
 const Card = styled.div`
 display: block;
-width: 300px;
-/* height: 20rem; */
+/* width: 300px; */
 margin:5px;
 border: solid 0.5px;
-/* color: rgba( 253, 254, 254, 0); */
+border-radius: 3px;
 color: black;
-transition: 1s;
+transition: 0.5s;
+/* background-color: #eeeeee ; */
+background-color: white;
+align-items: center;
+box-shadow: 0px 0px 5px;
 
 :hover{
-    color: black;
-    /* background-size: auto; */
+    .NameCategory{
+        box-shadow: 3px 3px 3px;
+
+    }
+
 }
+
 `
 
 const NameCategory = styled.h2`
 display: block;
-position: relative;
+/* position: fixed; */
 color: black;
-/* text-align: left; */
-font-size: 20px;
-transition: 1s;
-/* padding: none; */
-:hover{
-    /* translate: calc(12%); */
-    font-size: 18px;
-}
+font-size: 19px;
+font-family:arial;
+transition: 0.5s;
+
+/* :hover{
+    display: block;
+} */
 `
 
 const StyleLink = styled(Link)`
 text-decoration: none;
+margin:0 5px;
+color: black;
+`
+
+const Photo = styled.img`
+width: 100%;
+/* height: 100%; */
+`
+const SeeMore = styled.p`
+    /* text-align: right; */
+    margin: 5px;
+    font-style: italic;
+    font-size: 20px;
 `
 
 const CategoriesCard = ({image, name, id}) =>{
@@ -51,10 +70,11 @@ const CategoriesCard = ({image, name, id}) =>{
 
     return(
         <Card> 
-            <img src={image} width="100%" />
+            <Photo src={image} width="100%" />
+            <NameCategory>{name}</NameCategory>
             <StyleLink exact to={`/categories/${id}`} onChange={() => {dispatch(getOneCategory(id))
-}} id="App-links">
-                <NameCategory>{name}</NameCategory>
+}} id="App-links">               
+                <SeeMore>Ver mas {">"}</SeeMore>
             </StyleLink>
         </Card>
     )

@@ -32,7 +32,7 @@ const SubCategories = () => {
             <h1>No hay datos</h1>
             }
             </ContainerTwo>
-            <h2>Ver Tambien</h2>
+            <h2 text-aling="left">Ver Tambien</h2>
             <CategoriesHome/>
         </ContainerSubCategories>
 

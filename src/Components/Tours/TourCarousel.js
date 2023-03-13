@@ -1,24 +1,8 @@
 import styled from "styled-components";
 
 export const TourContainer = styled.div`
-display: flex;
-transition: 1s;
-position: cover;
-overflow-x: scroll;
-scroll-snap-stop: normal;
-/* scroll-snap-type: x mandatory; */
-/* -webkit-overflow-scrolling: touch; */
-scroll-behavior: smooth;
-
-::-webkit-scrollbar {
-    display: none;
-}
-
-/* :hover{
-    translate: calc(-25%);
-} */
+    width: 95%;
+    margin: 0 auto;
+    box-shadow: 10px 10 10px black;
+    /* margin-top: 50px; */
 `
-
-/* scroll-snap-type: x mandatory; */
-/* -webkit-overflow-scrolling: touch; */
-/* scroll-behavior: smooth; */

@@ -4,9 +4,13 @@ export const FooterContain = styled.div`
 display: flex;
 justify-content: space-around;
 margin-top: 20px;
-/* width: 100%; */
-height: 15rem;
-background-color: #7B0000;
+width: 100%;
+height: 12rem;
+/* background-color: #800000; */
+background-color: #B22222;
+position: static;
+top: 100%;
+/* position: fixed; */
 `
 
 export const Parts = styled.div`

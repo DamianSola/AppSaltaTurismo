@@ -5,14 +5,12 @@ import styled from "styled-components";
 export const LandingContain = styled.div `
 display: flex;
 /* width: 100%; */
-font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+/* font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; */
 font-size: 20px;
-height: 5rem;
-margin: 0 0 2% 0;
-/* background-color: #f5f5f5; */
-background-color: #00b2ec ;
-
-/* color: rgb(47, 79, 79); */
+height: 4rem;
+/* background-color: #00b2ec ; */
+background-color: #87CEFA;
+width: 100%;
 
 `
 
@@ -38,6 +36,9 @@ font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 export const Item = styled.p`
 margin: 20px;
 padding: 10px;
+text-decoration: none;
 font-size: larger;
-color: white;
+/* color: white; */
+color: #7B0000
+
 `

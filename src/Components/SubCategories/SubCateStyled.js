@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const ContainerSubCategories = styled.div`
 display: flex;
 flex-direction: column;
-text-align: left;
+/* text-align: left; */
 margin: auto 20px;
 font-style: oblique;
 `
