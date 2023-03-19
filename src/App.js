@@ -15,6 +15,8 @@ import Services from './Components/Services/Services';
 import Footer from './Components/Footer/Footer';
 import Towns from './Components/Towns/Towns';
 import AllActivities from './Components/Admin/Details/AllActivities';
+import AllSubCategories from './Components/Admin/Details/AllSubCategories';
+import AllCategories from './Components/Admin/Details/AllCategories';
 
 
 function App() {
@@ -34,6 +36,9 @@ function App() {
       <Route exact path='/service/:id' element= {<Services/>}/>
       <Route exact path='/sub-categories/activity/:id' element={<Activities/>}/>
       <Route exact path= '/admin/ACTIVITIES' element={<AllActivities/>}/>
+      <Route exact path='/admin/SUB CATEGORIES' element={<AllSubCategories/>}/>
+      <Route exact path='/admin/CATEGORIES' element={<AllCategories/>}/>
+
       </Routes>
       <Footer/>
     </div>
@@ -41,3 +46,5 @@ function App() {
 }
 
 export default App;
+
+

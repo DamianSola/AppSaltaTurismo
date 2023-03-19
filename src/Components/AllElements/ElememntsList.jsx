@@ -9,13 +9,13 @@ import {
 } from "./StyledList";
 import { Link, useLocation, useParams} from "react-router-dom";
 
+
 const ElementList = () => {
 
     let {id} = useParams()
 
     let dispatch = useDispatch()
     let {oneSubCategory} = useSelector(s => s)
-    // console.log(oneSubCategory)
     const activities = oneSubCategory.activities
 
     useEffect(() => {
@@ -24,24 +24,28 @@ const ElementList = () => {
 
     return(
         <ContainerList>
+            <p className="subCategoryName" >{oneSubCategory.name}</p>
+            <div className="body">
+
            {activities && activities.length > 0 ? activities.map((e) => {
-            return <ContainElement key={e.id}>
-                <Image src={e.images}/>
-                <Title>{e.name.toUpperCase()}</Title>
-                <ContainTwo>
-                <Description>{e.description}</Description>                
-                <Containtree>
+               return <ContainElement key={e.id}>
                 <Likes>
-                {e.likes}
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" color="red" class="bi bi-heart-fill" viewBox="0 0 16 16">
                     <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
                 </svg>
+                {"  "+e.likes}
                 </Likes>
-                    <SeeMore exact to={`/sub-categories/activity/${e.id}`}> Ver mas {" >"}</SeeMore>
+                <Image src={e.images}/>
+                <ContainTwo>
+                <Title>{e.name.toUpperCase()}</Title>
+                <Description>{e.description.slice(0,150)} ... mas</Description>                
+                <Containtree>
+                    <SeeMore><Link className="Link" exact to={`/sub-categories/activity/${e.id}`}> Ver mas </Link></SeeMore>
                 </Containtree>
                 </ContainTwo>
             </ContainElement>
            }): <h3>Sin actividades</h3> }
+           </div>
         </ContainerList>
     )
 }

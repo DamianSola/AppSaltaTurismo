@@ -130,7 +130,7 @@ export const getOneCategory = (id) => {
 
 export const getAllSubCategories = () => {
     return(dispatch) => {
-        return axios(`${URL}subcategories`)
+        return axios.get(`${URL}subcategories`)
         .then((res) => {
             dispatch({
                 type: GET_ALL_SUBCATEGORIES,

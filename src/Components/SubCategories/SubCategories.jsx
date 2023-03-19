@@ -23,11 +23,11 @@ const SubCategories = () => {
 
     return(
         <ContainerSubCategories>
-            <h1>{oneCategry.name}</h1>
+            <h1 key='1'>{oneCategry.name}</h1>
             <ContainerTwo>
 
             {subCategories? subCategories.map(e => {
-                return <SubCategoryCard name={e.name} image={e.image} id={e.id} Key={e.id}/>
+                return <SubCategoryCard name={e.name} showButton={true} image={e.image} id={e.id} Key={e.id}/>
             }):
             <h1>No hay datos</h1>
             }

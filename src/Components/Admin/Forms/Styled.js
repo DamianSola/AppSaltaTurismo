@@ -1,30 +1,23 @@
 import styled from "styled-components";
 import Modal from 'react-modal';
 
-
-export const ContainerModal = styled.div`
-/* background-color: black; */
-/* border: solid 0.5px;
-border-radius: 10px;
-width: 100%; */
-`
 export const ModalContainer = styled(Modal)`
     display: block;
-    /* margin: auto; */
-    width: 50%;
+    width: 65%;
     min-height: 20%;
-    background-color: #87CEFA;
+    /* background-color: #87CEFA; */
+    background-color: #ECF0F1 ;
     padding: 20px;
     border: solid 1px black;
     border-radius: 10px;
-    transform: translate(45%, 10%);
-    /* transform: translate(-50%, -50%) ; */
+    transform: translate(25%, 5%);
 `
 
 
 export const ContainerForm = styled.div`
 display: block;
-
+margin: auto;
+justify-content: center;
 `
 export const Forms = styled.div`
 display: block;
@@ -32,31 +25,43 @@ display: block;
 
 export const Label = styled.label`
 padding: 5px;
-margin-right: 10px;
-display: block;
-text-align: right;
+margin: 10px;
 `
 
 export const CloseButton = styled.button`
-color:white;
-background-color: red;
-padding: 10px;
-border-style: none;
-border-radius: 5px;
-border: solid 0.5px red;
-text-align: right;
+display: block;
+/* background-color: #87CEFA; */
+background-color: #D0D3D4;
+padding: 3px;
+width: 20px;
+/* border-style: none; */
+border-radius: 2px;
+border: solid 0.5px;
+margin-left: 95%;
+/* text-align: right; */
 
 &&:hover{
-    border-color: black;
+    color: white;
+    background-color: red;
 }
 `
 
 export const Input = styled.input`
 padding: 5px;
-margin: 10px;
-/* width: 80%; */
-line-height: ${props => props.props === "description" && "10" };
-width: ${prop => prop.value !== "agregar actividad" && "70%" };
-/* height: ${props => props.props === "description" && "100px" }; */
+margin: 10px 0;
+width: ${prop => prop.name === "name" && "40%" };
 text-align: left;
 `
+
+export const InputDescription = styled.textarea`
+padding: 5px;
+margin: 10px 0;
+width: 90%;
+height: 150px;
+`
+
+export const TitleForm = styled.p`
+font-size: 30px;
+width: 100%;
+text-align: center;
+` 

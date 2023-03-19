@@ -4,13 +4,16 @@ import {useLocation, useParams} from "react-router-dom"
 
 
 
-const TourCard = ({title, image, id}) => {
+const TourCard = ({title, image, id, description}) => {
 
     return(
         <Cardcontainer>
             <StyleLink exact to={`/tours/${id}`} >
             <ImagenCard src={image}/>
-            <Title>{title}</Title>
+            <Title>
+                <p className="title"> {title}</p>
+                <p className="description">{description.slice(0,50)} ...mas</p>    
+            </Title>
             </StyleLink>
         </Cardcontainer>
     )    

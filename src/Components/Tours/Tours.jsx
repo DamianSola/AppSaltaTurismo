@@ -11,12 +11,12 @@ import TourCard from "../ToursCard/TourCard";
 
 const Tours = () => {
 
-    const dispatch = useDispatch()
-    const {allTours} = useSelector(s => s)
-    let someTours;
-    if(allTours) someTours = allTours.slice(0,12)
+  const dispatch = useDispatch()
+  const {allTours} = useSelector(s => s)
+  let someTours;
+  if(allTours) someTours = allTours.slice(0,12)
 
-    const [defaultImage, setDefaultImage] = useState({});
+  const [defaultImage, setDefaultImage] = useState({});
   const settings = {
     dots: true,
     infinite: false,
@@ -24,6 +24,7 @@ const Tours = () => {
     slidesToShow: 4,
     slidesToScroll: 1,
     initialSlide: 0,
+    colorButton: "red",
     responsive: [
       {
         breakpoint: 1024,
@@ -51,30 +52,21 @@ const Tours = () => {
       },
     ],
   };
-
-  
-//   const handleErrorImage = (data) => {
-//       setDefaultImage((prev) => ({
-//           ...prev,
-//           [data.target.alt]: data.target.alt,
-//           linkDefault: "https://static.vecteezy.com/system/resources/thumbnails/007/306/898/small/stylish-panoramic-background-silver-steel-metal-texture-vector.jpg",
-//         }));
-//     };
     
     useEffect(() => {
         dispatch(getAllTours())
     },[dispatch]) 
 
 
-    return(         
-            <TourContainer> 
-                <Slider {...settings}>
-                {someTours && someTours.map((e,i) => {
-                    return <TourCard 
-                    title={e.name} key={i} id={e.id} image={e.image}/>
-                })}
-                </Slider>
-            </TourContainer>
+  return(         
+    <TourContainer>
+      <Slider {...settings} button-color="red">
+        {someTours && someTours.map((e,i) => {
+          return <TourCard 
+            title={e.name} key={i} id={e.id} image={e.image} description={e.description}/>
+        })}
+      </Slider>
+    </TourContainer>
     )
 }
 

@@ -1,57 +1,40 @@
 import React from "react";
-// import { Form } from "react-bootstrap";
-import Modal from 'react-modal';
-import { ContainerModal, CloseButton, ContainerForm, Forms, Label,ModalContainer,Input } from "../Styled";
+import {
+    Button,
+    Form,
+    TextBox,
+  } from 'react-form-elements'
+import { ContainerModal, CloseButton, ContainerForm, Forms, 
+    Label,ModalContainer,Input, InputDescription, TitleForm } from "../Styled";
 
-const customStyles = {
-    content: {
-      top: '50%',
-      left: '50%',
-      right: 'auto',
-      bottom: 'auto',
-      width: '60%',
-    //   height: "60%",
-    //   padding: 'none',
-      transform: 'translate(-50%, -50%)',
-      Transition: '0.5s',
-      background: "#87CEFA",
-      border: 'black',
-
-    }
-  };
 
 const ActivityFormPost = ({close}) => {
     
 
     return(
-        // <ContainerModal >
-            <ModalContainer isOpen={true}>
-        <CloseButton onClick={close}>X</CloseButton>
+       
+        <ModalContainer isOpen={true}>
+        <CloseButton onClick={close}>x</CloseButton>
        <ContainerForm>
-        <Forms>
-            <Label>
-                nombre:
+        <TitleForm >Agragar una nueva actividad</TitleForm>
+        <Forms >
+            <Label>nombre:</Label>
+                <Input type="text" name="name"/>
+            <Label>imagen:</Label>
+                <Input type="file" multiple name="images"/>
+            <br/>
+            <Label>Pueblo:</Label>
                 <Input type="text"/>
-            </Label>
-            <br/>
-            <Label >
-                descripcion:
-                <Input  props="description"/>
-            </Label>
-            <br/>
-            <Label>
-                imagen 1:
-                <Input type="image"/>
-            </Label>
-            <Label>
-                imagen 2:
-                <Input type="file"/>
-            </Label>
-            <Input type="submit" value="agregar actividad"/>
+            <Label>Sub categoria:</Label>
+                <Input type="text"/>
+            <br/>      
+            <Label >descripcion:</Label>
+                <InputDescription  name="description" />
+            <Input type="submit" value="agregar actividad" name="agregar"/>
         </Forms>
         </ContainerForm>
         </ModalContainer>
-    //    </ContainerModal>
+   
     )
 } 
 

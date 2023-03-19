@@ -22,74 +22,70 @@ const Controls = styled.div`
 const ContainElements = styled.div`
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: center;
    
 
 `
 const Elements = styled.div`
-    display: block;
-     /* width: 250px; */
-    margin: 10px auto;
+    display: flex;
+    margin: 5px ;
     border: solid 0.5px;
-    width: 30%;
-    /* justify-content: space-between; */
+    width: 40%;
+    height: 150px;
+    border-radius: 10px;
+    padding: 5px;
+    background-color: #ECF0F1 ;
 
 `
 
 const ButtonsEl = styled.div`
     display: flex;
-    /* flex-direction: column; */
-   padding: 10px;
+    flex-wrap: wrap;
+    width: 30%;
+    padding: 10px;
 
-    
-`
-const Delete = styled.button`
-    background-color: #7B0000;
-    color: white;
-    margin: auto;
-    border-style: none;
-    border-radius: 2px;
-    padding: 5px;
-    width: 100px;
-    transition: 0.2s;
-    border: solid 2px #7B0000;
+    button{
+       background-color: #D0D3D4;
+        margin: 5px;
+        width: 100px;
+        border-radius: 5px;
+        transition: 0.2s;
+    }
 
+    .link{
+        text-decoration: none;
+        color: black;
+        margin: 5px;
+        width: 100px;
+        border-radius: 5px;
+        transition: 0.2s;
+    }
 
-    :hover{
-       border: solid 2px  #00b2ec;
+    .link:hover{
+        color: white;
+        background-color: black;
+
+    }
+
+   .put:hover{
+        background-color: blue;
+        color: white;
+    }
+
+    .delete:hover{
+        background-color: red;
+        color: white;
     }
 `
 
-const Put = styled.button`
-    background-color: #00b2ec;
-    border-style: none;
-    color: white;
-    border-radius: 2px;
-    padding: 5px;
-    width: 100px;
-    margin: auto;
-    transition: 0.2s;
-    border: solid 2px  #00b2ec;
-
-
-    :hover{
-        border: solid 2px #7B0000;
-        /* border: solid black; */
-    }
-`
 const Agregar = styled.button`
     margin: auto;
-    background-color:  #00b2ec;
-    border-style:none;
-    /* width: 80px; */
-    width: 4rem;
     padding: 5px;
     transition: 0.2s;
 
     :hover{
         color: white;
-        font-size: 15px;
-
+        background-color: blue;
     }
 `
 
@@ -98,39 +94,37 @@ const SearchInput = styled.input`
     padding: 5px;
 `
 const SearchButton = styled.button`
-    background-color:  #00b2ec;
-    transition: 50ms;
+    /* margin: auto; */
     margin-left: 5px;
-    border-style: none;
-    width: 4rem;
+    padding: 5px;
+    transition: 0.2s;
+    
     :hover{
-        color:white;
+        background-color: #D0D3D4;
+    }
+`
+const Name = styled.div`
+    display: flex;
+    width: 80%;
+
+    img{
+        width: 50%;
+        border-radius: 10px 0 0 10px;
+    }
+
+    div{
+        display: block;
+        margin: auto ;
+    }
+    .name{
+        font-size: 20px;
+    }
+
+    .like{
         font-size: 15px;
     }
 `
-const Name = styled(Link)`
-    text-decoration: none;
-    position: absolute;
-    background-color:  #00b2ec;
-    margin: auto;
-    font-size: 20px;
-    color: white;
-    transition: 0.5s;
-    width: 100px;
-    /* max-height: 100px; */
-    padding:10px;
-    border: solid 2px  #00b2ec;
 
-
-    :hover{
-    color:#7B0000;
-    border: solid 2px #7B0000;
-
-    }
-`
-const Photo = styled.img`
-    width: 100%;
-`
 const AllActivities = () => {
 
     const [addActivity, setAddActivity] = useState(false)
@@ -155,7 +149,7 @@ const AllActivities = () => {
     return(
         <Container>
             <Controls>
-                <Agregar onClick ={openModal}>agregar</Agregar>
+                <Agregar onClick ={openModal}>agregar +</Agregar>
                 <SearchInput type="search" placeholder="buscar actividad..."/>
                 <SearchButton type="submit">buscar</SearchButton>
             </Controls>
@@ -163,12 +157,18 @@ const AllActivities = () => {
             <ContainElements>
                 {allActivities && allActivities.map(e => {
                     return <Elements key={e.id}>
-                        <Name exact to= {`/sub-categories/activity/${e.id}`}>{e.name}</Name>
-                        <Photo src={e.images}/>
-                        {/* <Likes>{e.likes}</Likes> */}
+                        <Name>
+                            <img src={e.images}/>
+                            <div className="details">
+                            <p className="name">{e.name}</p>
+                            <p>{e.subCategory.name}</p>
+                            <p className="like">Me gusta: {e.likes}</p>
+                            </div>
+                        </Name>
                     <ButtonsEl>
-                        <Delete>BORRAR</Delete>
-                        <Put>ACTUALIZAR</Put>
+                        <button className="put">cambios</button>
+                        <button className="delete">borrar</button>
+                        <Link className="link" exact to= {`/sub-categories/activity/${e.id}`}>ver mas {'>'}</Link>
                     </ButtonsEl>
                 </Elements>
                 })}

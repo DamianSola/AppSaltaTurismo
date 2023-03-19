@@ -7,16 +7,14 @@ import {getOneCategory} from "../../Redux/Actions/Index"
 
 const Card = styled.div`
 display: block;
-/* width: 300px; */
 margin:5px;
 border: solid 0.5px;
-border-radius: 3px;
+border-radius: 5px;
 color: black;
 transition: 0.5s;
-/* background-color: #eeeeee ; */
 background-color: white;
-align-items: center;
-box-shadow: 0px 0px 5px;
+text-align: center;
+height: 20rem;
 
 :hover{
     .NameCategory{
@@ -30,15 +28,11 @@ box-shadow: 0px 0px 5px;
 
 const NameCategory = styled.h2`
 display: block;
-/* position: fixed; */
 color: black;
 font-size: 19px;
 font-family:arial;
 transition: 0.5s;
 
-/* :hover{
-    display: block;
-} */
 `
 
 const StyleLink = styled(Link)`
@@ -49,13 +43,24 @@ color: black;
 
 const Photo = styled.img`
 width: 100%;
-/* height: 100%; */
+border-radius: 5px 5px 0 0 ;
+
 `
 const SeeMore = styled.p`
-    /* text-align: right; */
-    margin: 5px;
+    background-color: black;
+    color: white;
+    margin: auto;
     font-style: italic;
     font-size: 20px;
+    padding: 5px;
+    width: 60%;
+    border-radius: 10px;
+    transition: 0.2s;
+
+    :hover{
+    font-size: 22px;
+
+    }
 `
 
 const CategoriesCard = ({image, name, id}) =>{

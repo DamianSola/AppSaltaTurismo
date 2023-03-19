@@ -3,21 +3,38 @@ import {Link} from "react-router-dom"
 
 export const ContainerList = styled.div`
 display: block;
-justify-content: center;
-width: 90%;
-margin: auto ;
+width: 100%;
+margin: auto;
+
+    .body{
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .subCategoryName{
+        font-size: 60px;
+        color: #414141;
+        margin: auto;
+        left: 0%;
+    }
 `
 export const ContainElement = styled.div`
-display: flex;
-/* border: solid 1px ; */
-box-shadow: 10px 10px 10px ;
+display: block;
 background-color: white;
-margin: 20px;
+width: 30%;
+margin: 10px;
+border-radius: 10px;
+border: solid 0.5px #ECF0F1;
+padding: 10px;
 
+:hover{
+    background-color: #ECF0F1 ;
+
+}
 `
 
 export const Image = styled.img`
-width: 22rem;
+width: 100%;
 /* border-radius: 5px 5px 0 0 ; */
 `
 
@@ -25,33 +42,35 @@ width: 22rem;
 export const ContainTwo = styled.div`
 display: block;
 width: 100%;
+text-align: left;
 /* padding: 5%; */
 `
 
 export const Containtree = styled.div`
 display: flex;
 justify-content: space-around;
-/* text-align: left; */
-/* position: absolute; */
+
 
 `
 
 export const Title = styled.p`
 font-size: 1.5rem;
-position: absolute;
 margin: auto;
-text-align: left;
-background-color: #7B0000;
-color: white;
 `
 export const Description = styled.p`
 font-size: 1rem;
-text-align: left;
-padding: 10px;
+padding: 5px;
+color: grey;
 `
 
-export const Likes = styled.p`
-text-align: left;
+export const Likes = styled.div`
+/* text-align: left; */
+background-color: black;
+color: white;
+padding: 5px;
+position: absolute;
+border-radius: 0 0 10px 0;
+/* right: 0%; */
 font-size: 20px;
 `
 
@@ -71,12 +90,16 @@ border-radius: 3px;
 
     }
 `
-export const SeeMore = styled(Link)`
-    font-size: 1.5rem;
-    text-decoration: none;
-    color: black;
-    text-align: right;
-    /* :hover{ */
-    
-    /* } */
+export const SeeMore = styled.div`
+    font-size: 20px;
+   
+    .Link{
+        text-decoration: none;
+        color: white;
+        background-color: black;
+        padding: 5px ;
+        border-radius: 10px;
+
+    }
+
 `

@@ -38,6 +38,7 @@ const Towns = () => {
                     name={e.name}
                     id={e.id}
                     image={e.images}
+                    description={e.description}
                     />
                 }):
                 <NotTowns>

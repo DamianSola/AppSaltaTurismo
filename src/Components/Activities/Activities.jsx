@@ -32,12 +32,12 @@ const Activities = () => {
   
     return (
         <ActivitiesContainer>
-            <Header>
-            <Photo src={images}/>
             <Title>{name}</Title>
-            </Header>
-            <Body>
+            {/* <Header> */}
+            {/* </Header> */}
             <Description>{description}</Description>
+            <Body>
+            <Photo src={images}/>
             </Body>
 
         </ActivitiesContainer>

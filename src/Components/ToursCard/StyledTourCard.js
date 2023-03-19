@@ -3,30 +3,40 @@ import { Link } from "react-router-dom";
 
 export const Cardcontainer = styled.div`
 /* width: 18.5rem; */
-width: 16.5rem;
-
-margin: 9px;
+width: 17rem;
+border-radius: 5px;
+margin: 5px;
 border: solid 1px;
 transition: 0.5s;
+height: 20rem;
 
 &&:hover {
-    box-shadow: 10px 10px 10px;
+    box-shadow: 0px 0px 10px;
+    /* width: 17.5rem; */
 }
 ` 
 export const ImagenCard = styled.img`
-width: 16.5rem;
-/* width: 100%; */
-
+/* width: 16.5rem; */
+width: 100%;
+border-radius: 5px 5px 0 0;
 
 `
-export const Title = styled.h3`
+export const Title = styled.div`
 display: block;
 text-align: center;
 text-decoration: none;
-font-style: none;
 color: black;
-font-size: 20px;
-font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+padding: 5px;
+
+    .title{
+        font-size: 30px;
+        margin: auto;
+    }
+
+    .description{
+        margin: auto;
+        color:grey;
+    }
 
 
 `

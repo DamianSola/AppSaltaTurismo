@@ -5,42 +5,51 @@ import { Link } from "react-router-dom";
 
 const Card = styled.div`
     display: block;
-    margin: 0.5rem;
-    /* width: 15rem; */
-    width: 23%;
-    /* -webkit-box-shadow: 15px 23px 34px -27px ; */
-    box-shadow: 9px 4px 22px -4px rgba(0,0,0,0.75);
+    margin: 10px;
+    padding: 5px;
+    width: 250px;
+    height: 250px;
     border: solid 1px;
+    border-radius: 10px;
+    text-align: center;
 `
 const Photo = styled.img`
     width: 100%;
+    border-radius: 10px;
+
 `
 const Name = styled.p`
     text-align: center;
     font-size: 20px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    padding: none;
+    /* padding: none; */
     margin: 0 0 30px 0;
 
 `
 const SeeMore = styled(Link)`
 text-decoration: none;
+margin: auto;
 color: black;
 font-size: 20px;
+padding: 5px;
+border-radius: 5px;
+transition: 0.2s;
 
 :hover{
-    color: #7B0000;
+    color: white;
+    background-color: black;
+
 }
 `
 const SeeText = styled.p`
-    text-align: right;
+    /* text-align: right; */
     margin:0 0 0 5px;
 `
 const BodyCard = styled.div`
     padding: none;
     margin: auto;
 `
-const SubCategoryCard = ({name, id, image}) => {
+const SubCategoryCard = ({name, id, image, showButton, category}) => {
 
     return(
         <Card>
@@ -48,7 +57,12 @@ const SubCategoryCard = ({name, id, image}) => {
             <BodyCard>
             <Name>{name}</Name>
             <SeeText>
-                <SeeMore exact to={`/sub-categories/${id}`}>Ver mas {" >"}</SeeMore>
+                {
+                    showButton && <SeeMore exact to={`/sub-categories/${id}`}>Ver mas {" >"}</SeeMore>
+                }{
+                    category && <p>{category}</p>
+                }
+
             </SeeText>
             </BodyCard>
         </Card>

@@ -1,14 +1,11 @@
 import styled from "styled-components";
 
 export const ActivitiesContainer = styled.div`
-  /* display: block; */
-  /* height: 25rem; */
+  text-align: left;
   width: 95%;
   height: 100%;
-  display: flex;
-  margin: auto;
-  background-color: blanchedalmond;
-  /* padding: 10%; */
+  display: block;
+  margin: 40px auto;
   @media screen and (max-width: 750px){
     flex-direction: column;
   } 
@@ -21,20 +18,18 @@ export const OnlyActivities = styled.div`
 `
 export const Body = styled.section`
   display: block;
-  width: 50%;
+  text-align: center;
   @media screen and (max-width: 750px){
   width: 100%;
   } 
 
 `
 export const Photo = styled.img`
-width: 100%;
+width: 60%;
 `
 export const Title = styled.h3`
 font-size: 35px;
-position: absolute;
 margin: auto;
-background-color: #7B0000;
 `
 
 export const Header = styled.div`
@@ -43,7 +38,6 @@ width: 100%;
 `
 
 export const Description = styled.p`
-text-align: left;
-margin-left:10px;
 width: 100%;
+margin: 40px auto;
 `

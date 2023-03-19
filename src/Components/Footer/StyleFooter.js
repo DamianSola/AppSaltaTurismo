@@ -5,12 +5,9 @@ display: flex;
 justify-content: space-around;
 margin-top: 20px;
 width: 100%;
-height: 12rem;
-/* background-color: #800000; */
-background-color: #B22222;
-position: static;
-top: 100%;
-/* position: fixed; */
+height: 100%;
+border-top: solid 0.5px grey;
+background-color: #ECF0F1 ;
 `
 
 export const Parts = styled.div`
@@ -18,5 +15,4 @@ display: block;
 padding: 3rem;
 text-align: left;
 font-size: larger;
-color: white;
 `

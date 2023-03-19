@@ -25,7 +25,7 @@ const Texto = styled.h1`
     font-style: oblique;
     /* font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; */
     color: white;
-    font-size: 60px;
+    font-size: 100px;
     transition: 2s;
     width: 100%;
     text-shadow: 5px 5px 5px black;
@@ -44,7 +44,7 @@ const Intro = () => {
 return(
     <ImagePresentation style={backImage}>
         {/* <Image src={photo} /> */}
-        <Texto>PROVINCIA DE SALTA</Texto>
+        <Texto>SALTA</Texto>
     </ImagePresentation>
 )
 }

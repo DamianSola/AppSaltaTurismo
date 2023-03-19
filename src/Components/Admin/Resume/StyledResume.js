@@ -20,12 +20,13 @@ export const Bock = styled.div`
 font-size: large;
 margin: 5px; 
 background-color: #FFFFFF;
-border: solid 0.5px;
+border: solid 0.5px black;
 transition-duration: 0.4s;
 
 
 :hover{
-    background-color: #00b2ec;
+    /* background-color: #00b2ec; */
+    background-color: #ECF0F1;
     }
 `
 
