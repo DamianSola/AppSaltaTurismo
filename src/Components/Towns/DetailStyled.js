@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const DetailContain = styled.div`
 display: flex ;
 flex-direction: column;
-width: 90%;
+width: 95%;
 margin: auto;
 `
 
@@ -12,18 +12,20 @@ display: flex;
 
 `
 export const Title = styled.h1`
- position: absolute;
-    color: white;
+ /* position: absolute; */
+    /* color: white; */
     font-size: 40px;
     margin: auto;
-    background-color: #7B0000;
-    border: solid 0.5px black ;
-    border-radius: 2px;
+    /* background-color: #7B0000; */
+    /* border: solid 0.5px black ; */
+    /* border-radius: 2px; */
 `
 export const Photos = styled.div`
 display: flex;
 justify-content: center;
-width: 100%;
+/* width: 100%; */
+padding: 0 20px;
+background-color: black;
 `
 
 export const Image = styled.img`

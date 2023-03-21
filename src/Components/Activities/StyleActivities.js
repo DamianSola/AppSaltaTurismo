@@ -18,7 +18,10 @@ export const OnlyActivities = styled.div`
 `
 export const Body = styled.section`
   display: block;
-  text-align: center;
+  background-color: black;
+  /* align-items: center; */
+  padding: 0 20%;
+
   @media screen and (max-width: 750px){
   width: 100%;
   } 
@@ -40,4 +43,5 @@ width: 100%;
 export const Description = styled.p`
 width: 100%;
 margin: 40px auto;
+font-size: 20px;
 `

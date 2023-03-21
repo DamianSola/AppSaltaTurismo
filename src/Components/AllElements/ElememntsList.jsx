@@ -35,7 +35,8 @@ const ElementList = () => {
                 </svg>
                 {"  "+e.likes}
                 </Likes>
-                <Image src={e.images}/>
+
+                <Image src={e.images.length == 1? e.images: e.images[0]}/>
                 <ContainTwo>
                 <Title>{e.name.toUpperCase()}</Title>
                 <Description>{e.description.slice(0,150)} ... mas</Description>                

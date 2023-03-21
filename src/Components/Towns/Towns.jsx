@@ -20,6 +20,7 @@ const Towns = () => {
     
     let dispatch = useDispatch()
     let {allTowns} = useSelector(s => s)
+    let sliceTowns = allTowns && allTowns.slice(0,4)
     // console.log(allTowns)
     // const Towns = allTowns.rows
 
@@ -32,7 +33,7 @@ const Towns = () => {
     return(
         <Containtowns>
             {
-                allTowns ? allTowns.map(e => {
+                sliceTowns ? sliceTowns.map(e => {
                     return <TownCard
                     key={e.id}
                     name={e.name}

@@ -20,6 +20,7 @@ const Card = styled.div`
 
 const Photo = styled.img`
     width: 100%;
+    height: 200px;
     border-radius: 10px 10px 0 0;
 `
 const Name = styled.div`
@@ -47,7 +48,7 @@ const TownCard = ({name, image, id, description}) => {
     return(
         <Card>
             <StyleLink to= {`/town/${id}`}>
-            <Photo src={image}/>
+            <Photo src={image.length === 1 ? image : image[0]}/>
             <Name>
                 <p className="name">{name}</p>
                 <p className="description">{description.slice(0.50)} ...mas</p>

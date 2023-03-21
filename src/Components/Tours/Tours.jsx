@@ -60,7 +60,7 @@ const Tours = () => {
 
   return(         
     <TourContainer>
-      <Slider {...settings} button-color="red">
+      <Slider {...settings}>
         {someTours && someTours.map((e,i) => {
           return <TourCard 
             title={e.name} key={i} id={e.id} image={e.image} description={e.description}/>

@@ -6,34 +6,25 @@ import photo from "./ciudadDeSalta.jpg"
 
 const ImagePresentation = styled.div`
 display: block;
-/* display: inline-block; */
 position: relative;
 width: 100%;
-height: 500px;
+/* height: 500px; */
+height: 100%;
+padding: 200px 0 ;
 background-position: center ;
 background-size: cover;
+margin: auto;
 `
 
-// const Image = styled.img`
-// width: 100%;
-// height: 30rem;
-// `
-
 const Texto = styled.h1`
-    padding-top: 13rem;
-    /* margin: 20%; */
+    /* padding-top: 13rem; */
+    margin: auto;
     font-style: oblique;
-    /* font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; */
     color: white;
     font-size: 100px;
     transition: 2s;
     width: 100%;
     text-shadow: 5px 5px 5px black;
-
-    /* :hover{
-      font-size: 70px;
-
-    } */
 `
 
 const Intro = () => {

@@ -3,27 +3,23 @@ import { ActivitiesContainer,Title, Photo, Slyder, Description, Header, Body} fr
 import {useDispatch,useSelector} from 'react-redux'
 import {getOneActivity} from "../../Redux/Actions/Index"
 import { useParams } from "react-router";
-// import  Carousel  from "../Carousels/Carousel";
+import Slider from 'react-slick';
+
 
 const Activities = () => {
     let {id} = useParams()
-    
-    // let hardcode = [
-    //     {title:"titulo", image: "https://www.entornoturistico.com/wp-content/uploads/2016/01/turismo.jpg"},
-    //     {title:"titulo", image: "https://www.ejemplos.in/wp-content/uploads/2021/04/ejemplos-de-atracciones-turisticas.jpg"},
-    //     {title:"titulo", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsi2OxBTH0-SO3R78ZE63JYIsBnjEm6CRHUIAs5rKHnrgALrhmWGxWsf8sHUNRr0WmDz8&usqp=CAU"},
-    //     {title:"titulo", image: "https://www.eltiempo.com/files/article_content/uploads/2020/11/06/5fa5e7f13092f.jpeg"},
-    //     {title:"titulo", image: "https://www.entornoturistico.com/wp-content/uploads/2016/01/turismo.jpg"},
-    //     {title:"titulo", image: "https://www.entornoturistico.com/wp-content/uploads/2016/01/turismo.jpg"},
-    //     {title:"titulo", image: "https://www.entornoturistico.com/wp-content/uploads/2016/01/turismo.jpg"},
-    //     {title:"titulo", image: "https://www.entornoturistico.com/wp-content/uploads/2016/01/turismo.jpg"},
-    //     {title:"titulo", image: "https://www.entornoturistico.com/wp-content/uploads/2016/01/turismo.jpg"},
-
-    // ]
 
     const dispatch = useDispatch()
     const {oneActivity} = useSelector(state => state)
-    let {likes,images,description,name,} = oneActivity
+    let {likes,images,description,name,} = oneActivity;
+
+   const settings = {
+      dots: true,
+      infinite: true,
+      speed: 500,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+    };
 
     useEffect(()=>{
         dispatch(getOneActivity(id))
@@ -33,12 +29,16 @@ const Activities = () => {
     return (
         <ActivitiesContainer>
             <Title>{name}</Title>
-            {/* <Header> */}
-            {/* </Header> */}
-            <Description>{description}</Description>
             <Body>
-            <Photo src={images}/>
+            <Slider {...settings} style={{ width: 700}}>
+            {images && images.map((e,i) => {
+                return <div>
+                    <img src={e} style={{ width: "100%" }}/>
+                </div> 
+                })}
+            </Slider>
             </Body>
+            <Description>{description}</Description>
 
         </ActivitiesContainer>
     )

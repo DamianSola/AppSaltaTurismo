@@ -6,13 +6,23 @@ import { DetailContain, Photos, Image, Description,Data,
 import {useDispatch , useSelector} from 'react-redux';
 import { getOneTown } from "../../Redux/Actions/Index";
 import ActivityCard from "../ActivitiesCard/ActivityCard";
+import Slider from 'react-slick';
+
 
 const TownDetails = () => {
     let {id} = useParams();
     let dispatch = useDispatch()
 
     let {OneTown} = useSelector(s => s)
-    let {name, location, images, description , activities} = OneTown
+    let {name, location, images, description , activities} = OneTown;
+
+    const settings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+      };
 
     useEffect(() => {
         dispatch(getOneTown(id))
@@ -23,11 +33,17 @@ const TownDetails = () => {
         return(
             <DetailContain>
                 <TownContainer>
-                    <Title>{name.toUpperCase()}</Title>
                     <Photos>
-                        <Image src={images}/>
+                <Slider {...settings} style={{ width: 650}}>
+                    {images && images.map((e,i) => {
+                    return <div>
+                            <img src={e} style={{ width: "100%" }}/>
+                        </div> 
+                })}
+                </Slider>
                     </Photos>
                     <Data>
+                        <Title>{name.toUpperCase()}</Title>
                         <Text>Ubicacion: {location}</Text>
                         <Description>{description}</Description>
                     </Data>
