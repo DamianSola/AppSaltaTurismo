@@ -21,6 +21,12 @@ justify-content: center;
 `
 export const Forms = styled.div`
 display: block;
+
+ .images{
+    display: flex;
+    /* display: grid; grid-template-columns: 200px 200px 200px; */
+    font-size: 15px;
+ }
 `
 
 export const Label = styled.label`
