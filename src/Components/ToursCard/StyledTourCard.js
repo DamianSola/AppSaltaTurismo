@@ -8,7 +8,7 @@ border-radius: 5px;
 margin: 5px;
 border: solid 1px;
 transition: 0.5s;
-height: 20rem;
+height: 18rem;
 
 &&:hover {
     box-shadow: 0px 0px 10px;

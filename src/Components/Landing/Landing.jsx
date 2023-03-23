@@ -4,7 +4,9 @@ import {Link } from "react-router-dom";
 import {useSelector, useDispatch} from "react-redux"
 import {AllServiceType} from "../../Redux/Actions/Index";
 import styled from "styled-components";
-import Dropdown from 'react-dropdown';
+import 'bootstrap/dist/css/bootstrap.min.css'
+import { Dropdown, DropdownMenu, DropdownItem, DropdownToggle } from "reactstrap";
+// import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
 
 
@@ -12,10 +14,11 @@ const LandingContain = styled.div `
     border-top: solid 25px #87CEFA;
     height: 4rem;
     padding: none;
-    position: static;
+    /* position: static; */
     /* background-color: #87CEFA; */
     width: 100%;
     margin: auto;
+    margin-bottom: 10px;
 
     ul{
         display: flex;
@@ -50,12 +53,17 @@ const LandingContain = styled.div `
         font-size: 20px;
         color: #7B0000;
         background-color: #ECF0F1;
+        
     }
 `
 
 export default function Landing(){
     
-    let [display , setDisplay] = useState(false)
+    let [dropDown , setDropDown] = useState(false)
+
+    const OpenAndCloseDD = () => {
+        setDropDown(!dropDown)
+    }
     
     
     const {allServiceTypes} = useSelector(s => s)
@@ -71,7 +79,20 @@ export default function Landing(){
             <ul>
                 <Link className="home" exact to='/'>INICIO</Link>
                 <Link className="item" exact to='/about'>Sobre nosotros</Link>
+                <Dropdown isOpen={dropDown} toggle={OpenAndCloseDD} >
+                    <DropdownToggle className="dropdown">
+                        Servicios</DropdownToggle>
+                    <DropdownMenu>
+                        {allServiceTypes && allServiceTypes.map(e => {
+                            return <DropdownItem key={e.id}>
+                                <Link className="item" exact to={`/service/${e.id}`}>{e.name}</Link>
+                            </DropdownItem>
+                        })}
+                    </DropdownMenu>
+                   
+                </Dropdown>
                 <Link className="item">Contactos</Link>
+                <p></p>
                 
             </ul>
         </LandingContain>

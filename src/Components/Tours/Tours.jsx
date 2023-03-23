@@ -17,6 +17,31 @@ const Tours = () => {
   if(allTours) someTours = allTours.slice(0,12)
 
   const [defaultImage, setDefaultImage] = useState({});
+
+  const SamplePrevArrow  = (props) => {
+    const {className, style, onClick} = props;
+    return (
+      <div
+        className={className}
+        style={{ ...style}}
+        onClick={onClick}
+      />
+    );
+  }
+
+  const SampleNextArrow = (props) => {
+    const {className, style, onClick} = props;
+    return (
+      <div
+        className={className}
+        style={{ ...style, width: "200", colorButton: 'black'}}
+        onClick={onClick}
+      />
+    );
+
+  }
+
+
   const settings = {
     dots: true,
     infinite: false,
@@ -24,7 +49,8 @@ const Tours = () => {
     slidesToShow: 4,
     slidesToScroll: 1,
     initialSlide: 0,
-    colorButton: "red",
+    prevArrow: <SamplePrevArrow/>,
+    nextArrow: <SampleNextArrow/>,
     responsive: [
       {
         breakpoint: 1024,
@@ -60,7 +86,7 @@ const Tours = () => {
 
   return(         
     <TourContainer>
-      <Slider {...settings}>
+      <Slider {...settings} >
         {someTours && someTours.map((e,i) => {
           return <TourCard 
             title={e.name} key={i} id={e.id} image={e.image} description={e.description}/>
