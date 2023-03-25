@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
     Button,
     Form,
@@ -12,14 +12,44 @@ import { ContainerModal, CloseButton, ContainerForm, Forms,
 
 const ActivityFormPost = ({close}) => {
     
+    const [input, setInput] = useState({})
+    console.log(input)
 
     const {allTowns ,allSubCategories} = useSelector(s => s)
     const dispatch = useDispatch()
 
-    // console.log(allTowns)
-    // console.log(allSubCategories)
+    const handleOnChange = (e) =>{
+        let {name, value} = e.target;
+        
+        setInput({
+            ...input,
+            [name]: value
+        })
+    }
 
+    const handleOnSubmit = (e) => {
+        e.preventDefault()
+        alert(input)
+        console.log(input)
+    }
+    const handleSelector = (e) => {
+        let {name, value} = e.target;
 
+        setInput({
+            ...input,
+            [name]: value
+        })
+        
+    }
+
+    const handleOnImages = (e) => {
+        const {name, value} = e.target;
+        // console.log(value)
+        setInput({
+            ...input,
+            [name]: value
+        })
+    }
 
     useEffect(()=>{
         dispatch(getAllSubCategories())
@@ -28,37 +58,46 @@ const ActivityFormPost = ({close}) => {
 
     return(
        
-        <ModalContainer isOpen={true}>
+        <ModalContainer isOpen={true} className={"formCreateActivities"}  
+        style={{
+            overlay: {
+              backgroundColor: '#000000aa'
+            }}}>
         <CloseButton onClick={close}>x</CloseButton>
        <ContainerForm>
         <TitleForm >Agragar una nueva actividad</TitleForm>
-        <Forms >
-            <Label>nombre:</Label>
-                <Input type="text" name="name"/>
-                {/* <div className="images">
-            <Label>imagen 1:</Label>
-                <Input type="file" multiple name="images"/>
-            <Label>imagen 2:</Label>
-                <Input type="file" multiple name="images"/>
-            <Label>imagen 3:</Label>
-                <Input type="file" multiple name="images"/>
-                </div> */}
-            <Label>Pueblo:</Label>
-            <select>
+        <Forms onSubmit={(e)=> handleOnSubmit(e)}>
+            <div className="content">
+        <div className="first">
+            <Input type="text" placeholder="nombre de la actividad..." name="name" onChange={(e) => handleOnChange(e)} value={input.name}/>
+            <br/>
+            <br/> 
+            <label className="label">Pueblo</label>
+            <select name="town" onChange={(e) => handleSelector(e)} value={input.town}>
                 {allTowns && allTowns.map(e => {
-                    return <option value={e.id}>{e.name}</option>
+                    return <option key={e.id} value={e.id}>{e.name}</option>
                 })}
             </select>
-            <Label>Sub categoria:</Label>
-            <select>
+            <br/>
+            <br/>
+            <label className="label">Sub categoria</label>
+            <select name="subCategory" onChange={(e) => handleSelector(e)} value={input.town}>
                 {allSubCategories && allSubCategories.rows.map(e => {
-                    return <option value={e.id}>{e.name}</option>
+                    return <option key={e.id} value={e.id}>{e.name}</option>
                 })}
             </select>
-            <br/>      
-            <Label >descripcion:</Label>
-                <InputDescription  name="description" />
+            <br/>
+            <br/>
+            <label>imagenes</label>
+            <Input type="file" name="images" id="images" onChange={(e) => handleOnImages(e)} 
+            value={[input.images]} accept="image/png, image/jpg" multiple/>
+            </div> 
+            <div className="second">
+            {/* <label className="label">descripcion:</label> */}
+                <InputDescription placeholder="descripcion..." name="description" onChange={(e) => handleOnChange(e)} value={input.description}/>
             <Input type="submit" value="agregar actividad" name="agregar"/>
+            </div>
+            </div>
         </Forms>
         </ContainerForm>
         </ModalContainer>

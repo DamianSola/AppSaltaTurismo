@@ -53,6 +53,7 @@ const LandingContain = styled.div `
         font-size: 20px;
         color: #7B0000;
         background-color: #ECF0F1;
+
         
     }
 `
@@ -68,7 +69,7 @@ export default function Landing(){
     
     const {allServiceTypes} = useSelector(s => s)
     const dispatch = useDispatch()
-    console.log(allServiceTypes)
+    // console.log(allServiceTypes)
     useEffect(()=>{
         dispatch(AllServiceType())
     },[])
@@ -84,7 +85,7 @@ export default function Landing(){
                         Servicios</DropdownToggle>
                     <DropdownMenu>
                         {allServiceTypes && allServiceTypes.map(e => {
-                            return <DropdownItem key={e.id}>
+                            return <DropdownItem key={e.id} >
                                 <Link className="item" exact to={`/service/${e.id}`}>{e.name}</Link>
                             </DropdownItem>
                         })}
