@@ -7,6 +7,7 @@ import { getAllActivities } from "../../../Redux/Actions/Index";
 import { Likes } from "../../AllElements/StyledList";
 import ActivityFormPost from "../Forms/Create/ActivityForm";
 import PutActivity from "../Forms/UpDates/putActivity";
+import SearchActivity from "../../Searchers/Search";
 // import { AllServiceType, getAllActivities, getAllCategories, getAllService, getAllSubCategories, getAllTours, getAllTowns } from "../../../Redux/Actions/Index"
 
 
@@ -131,6 +132,9 @@ const AllActivities = () => {
 
     const [addActivity, setAddActivity] = useState(false)
     const [putActivity, setPutActivity] = useState(false)
+    const [input, setInput] = useState("")
+
+    // console.log(input)
 
     let {allActivities} = useSelector(s => s)
     let dispatch = useDispatch()    
@@ -147,6 +151,7 @@ const AllActivities = () => {
     const destroyActivity = (id) => {
         // console.log(id)
         dispatch(deleteActivity(id)).then(res => alert(res))
+        dispatch(getAllActivities())
     }
 
 
@@ -159,11 +164,12 @@ const AllActivities = () => {
         <Container>
             <Controls>
                 <Agregar onClick ={openModal}>agregar +</Agregar>
-                <SearchInput type="search" placeholder="buscar actividad..."/>
-                <SearchButton type="submit">buscar</SearchButton>
+                {/* <SearchInput type="search" placeholder="buscar actividad..." value={input}/>
+                <SearchButton type="submit">buscar</SearchButton> */}
+                <SearchActivity/>
             </Controls>
-            {addActivity && <ActivityFormPost close={closeModal} open={addActivity}/>}
-            {putActivity && <PutActivity close={closeModal} open={addActivity}/>}
+            <ActivityFormPost close={closeModal} open={addActivity}/>
+            <PutActivity close={closeModal} open={putActivity}/>
             <ContainElements>
                 {allActivities && allActivities.map(e => {
                     return <Elements key={e.id}>
@@ -182,7 +188,7 @@ const AllActivities = () => {
                     </ButtonsEl>
                 </Elements>
                 })}
-                
+                {!allActivities && <p>Sin resultados</p>}
             </ContainElements>
           
         </Container>

@@ -46,9 +46,8 @@ const Container = styled.div`
 const PutActivity = ({open, close}) => {
 
 
-
     return(
-        <Modal isOpen={true}>
+        <Modal isOpen={open}>
            <Container>
             <button className="close" onClick={close}>x</button>
             <p>holaa</p>

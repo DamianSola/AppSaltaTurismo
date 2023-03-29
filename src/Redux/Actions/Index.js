@@ -14,6 +14,7 @@ export const ELEMENT = 'ELEMENT'
 export const GET_ONE_CATEGORY = "GET_ONE_CATEGORY"
 export const GET_ONE_TOWN = 'GET_ONE_TOWN'
 export const GET_ONE_TOUR = 'GET_ALL_TOUR'
+export const ACTIVITY_NAME = "ACTIVITY_NAME"
 
 
 const URL = 'http://localhost:3001/'
@@ -39,6 +40,25 @@ export const getOneActivity = (id) => {
                 payload: res.data
             })
         })
+    }
+}
+
+export const getActivityByName = (name) => {
+    return(dispatch) => {
+        return axios(`${URL}activities?name=${name}`)
+        .then(res => {
+            console.log(res)
+            dispatch({
+                type: ACTIVITY_NAME,
+                payload: res.data
+            })
+        }).catch(res => {
+            console.log(res.response.status)
+            dispatch({
+                type: ACTIVITY_NAME,
+                payload: res.response.status
+            })}
+        )
     }
 }
 
