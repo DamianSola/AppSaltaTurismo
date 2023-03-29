@@ -15,6 +15,7 @@ export const GET_ONE_CATEGORY = "GET_ONE_CATEGORY"
 export const GET_ONE_TOWN = 'GET_ONE_TOWN'
 export const GET_ONE_TOUR = 'GET_ALL_TOUR'
 export const ACTIVITY_NAME = "ACTIVITY_NAME"
+export const TOWN_NAME = "TOWN_NAME"
 
 
 const URL = 'http://localhost:3001/'
@@ -61,6 +62,7 @@ export const getActivityByName = (name) => {
         )
     }
 }
+
 
 export const getAllTours = () => {
     return (dispatch) => {
@@ -180,6 +182,25 @@ export const getAllTowns = () => {
                 payload: res.data
             })
         })
+    }
+}
+
+export const getTownByName = (name) => {
+    return(dispatch) => {
+        return axios(`${URL}activities?name=${name}`)
+        .then(res => {
+            console.log(res)
+            dispatch({
+                type: TOWN_NAME,
+                payload: res.data
+            })
+        }).catch(res => {
+            console.log(res.response.status)
+            dispatch({
+                type: TOWN_NAME,
+                payload: res.response.status
+            })}
+        )
     }
 }
 

@@ -8,23 +8,24 @@ import { getActivityByName } from "../../Redux/Actions/Index";
 const ContainerSearch = styled.div`
     
     input{
-        margin-left: 5px;
-        padding: 5px;
+        border: solid 0.5px;
+        border-radius: 5px;
+        background-color: #ffff;
+        color: black;
+        margin: 0 10px;
     }
 
     button{
-        margin-left: 5px;
-        padding: 5px;
-        transition: 0.2s;
-    }
-
-    button:hover{
-        background-color: #D0D3D4;
+        border: solid 0.5px;
+        border-radius: 5px;
+        background-color: #ffff;
+        color: black;
+        margin: 0 10px;
     }
 
 `
 
-const SearchActivity = () => {
+export const SearchActivity = () => {
 
     let [input, setInput ] = useState("")
     let dispatch = useDispatch()
@@ -46,4 +47,24 @@ const SearchActivity = () => {
     )
 
 }
-export default SearchActivity
+
+export const SearchTown = () => {
+    let [input, setInput ] = useState("")
+    let dispatch = useDispatch()
+
+    const handleOnChange = (e) => {
+        setInput(e.target.value)
+    }
+    const handleOnClick = (e) => {
+        e.preventDefault()
+        // dispatch(getActivityByName(input))
+        setInput("")
+    }
+
+    return(
+        <ContainerSearch>
+        <input type="search" placeholder="buscar pueblo..." value={input}  onChange={handleOnChange}/>
+        <button type="submit" onClick={handleOnClick}>buscar</button>
+        </ContainerSearch>
+    )
+}

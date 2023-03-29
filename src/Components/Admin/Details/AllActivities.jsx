@@ -7,7 +7,7 @@ import { getAllActivities } from "../../../Redux/Actions/Index";
 import { Likes } from "../../AllElements/StyledList";
 import ActivityFormPost from "../Forms/Create/ActivityForm";
 import PutActivity from "../Forms/UpDates/putActivity";
-import SearchActivity from "../../Searchers/Search";
+import {SearchActivity} from "../../Searchers/Search";
 // import { AllServiceType, getAllActivities, getAllCategories, getAllService, getAllSubCategories, getAllTours, getAllTowns } from "../../../Redux/Actions/Index"
 
 
