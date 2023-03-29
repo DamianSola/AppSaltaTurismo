@@ -5,33 +5,63 @@ import {
     TextBox,
   } from 'react-form-elements'
 import { useDispatch, useSelector } from "react-redux";
+import { postActivity } from "../../../../Redux/Actions/Admin";
 import { getAllSubCategories, getAllTowns } from "../../../../Redux/Actions/Index";
 import { ContainerModal, CloseButton, ContainerForm, Forms, 
     Label,ModalContainer,Input, InputDescription, TitleForm } from "../Styled";
 
 
-const ActivityFormPost = ({close}) => {
+const ActivityFormPost = ({close, open}) => {
+
+    // const [open, setOpen] = useS
     
-    const [input, setInput] = useState({})
-    console.log(input)
+    const [input, setInput] = useState({
+        name:"", town:"", subcategory:"", images:[], description:""
+    })
+
+    const [error, setError] = useState({})
 
     const {allTowns ,allSubCategories} = useSelector(s => s)
+
     const dispatch = useDispatch()
+
+    const validation = (input) => {
+        let {name, town, subcategory, images, description} = input ;
+        let error = {};
+
+        if(name.length < 3) error.name = "debe poner un nombre (minimo tres caracteres)";
+        if(town.length === 0) error.town = "debe elegir un pueblo";
+        if(subcategory.length === 0) error.subcategory = "debe elegir una sub categoria";
+        if(images === undefined) error.images = "agrega almenos una imagen";
+        if(description.length < 100) error.description = "debe poner una descripcion de al menos 100 caracteres";
+
+        return error;
+
+    }
+    
 
     const handleOnChange = (e) =>{
         let {name, value} = e.target;
-        
         setInput({
             ...input,
             [name]: value
         })
+        setError(validation({
+            ...input,
+            [name]:value
+        }))
     }
 
     const handleOnSubmit = (e) => {
         e.preventDefault()
-        alert(input)
-        console.log(input)
+        if(error === {}){
+            alert("hola")
+        }else{
+            close()
+            dispatch(postActivity(input))
+        }
     }
+
     const handleSelector = (e) => {
         let {name, value} = e.target;
 
@@ -47,18 +77,20 @@ const ActivityFormPost = ({close}) => {
         // console.log(value)
         setInput({
             ...input,
-            [name]: value
+            [name]: [value]
         })
     }
+
 
     useEffect(()=>{
         dispatch(getAllSubCategories())
         dispatch(getAllTowns())
+        
     },[dispatch])
 
     return(
        
-        <ModalContainer isOpen={true} className={"formCreateActivities"}  
+        <ModalContainer isOpen={open} className={"formCreateActivities"}  
         style={{
             overlay: {
               backgroundColor: '#000000aa'
@@ -69,9 +101,12 @@ const ActivityFormPost = ({close}) => {
         <Forms onSubmit={(e)=> handleOnSubmit(e)}>
             <div className="content">
         <div className="first">
-            <Input type="text" placeholder="nombre de la actividad..." name="name" onChange={(e) => handleOnChange(e)} value={input.name}/>
+            {error.name && <p className="errorText">{error.name}</p> }
+            <Input type="text" placeholder="nombre de la actividad..." name="name" 
+            onChange={(e) => handleOnChange(e)} value={input.name}/>
             <br/>
-            <br/> 
+            <br/>
+            {error.town && <p className="errorText">{error.town}</p> }
             <label className="label">Pueblo</label>
             <select name="town" onChange={(e) => handleSelector(e)} value={input.town}>
                 {allTowns && allTowns.map(e => {
@@ -80,22 +115,25 @@ const ActivityFormPost = ({close}) => {
             </select>
             <br/>
             <br/>
+            {error.subcategory && <p className="errorText">{error.subcategory}</p> }
             <label className="label">Sub categoria</label>
-            <select name="subCategory" onChange={(e) => handleSelector(e)} value={input.town}>
+            <select name="subcategory" onChange={(e) => handleSelector(e)} value={input.subcategory}>
                 {allSubCategories && allSubCategories.rows.map(e => {
                     return <option key={e.id} value={e.id}>{e.name}</option>
                 })}
             </select>
             <br/>
             <br/>
+            {error.images && <p className="errorText">{error.images}</p>}
             <label>imagenes</label>
             <Input type="file" name="images" id="images" onChange={(e) => handleOnImages(e)} 
             value={[input.images]} accept="image/png, image/jpg" multiple/>
             </div> 
             <div className="second">
-            {/* <label className="label">descripcion:</label> */}
-                <InputDescription placeholder="descripcion..." name="description" onChange={(e) => handleOnChange(e)} value={input.description}/>
-            <Input type="submit" value="agregar actividad" name="agregar"/>
+            {error.description && <p className="errorText">{error.description}</p> }
+            <InputDescription placeholder="descripcion..." name="description" onChange={(e) => handleOnChange(e)} value={input.description}/>
+            
+            <input type="submit" value="agregar actividad" onClick={(e) => handleOnSubmit(e)}/>
             </div>
             </div>
         </Forms>

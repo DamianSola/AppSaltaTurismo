@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { deleteActivity } from "../../../Redux/Actions/Admin";
 import { getAllActivities } from "../../../Redux/Actions/Index";
 import { Likes } from "../../AllElements/StyledList";
 import ActivityFormPost from "../Forms/Create/ActivityForm";
+import PutActivity from "../Forms/UpDates/putActivity";
 // import { AllServiceType, getAllActivities, getAllCategories, getAllService, getAllSubCategories, getAllTours, getAllTowns } from "../../../Redux/Actions/Index"
 
 
@@ -128,6 +130,7 @@ const Name = styled.div`
 const AllActivities = () => {
 
     const [addActivity, setAddActivity] = useState(false)
+    const [putActivity, setPutActivity] = useState(false)
 
     let {allActivities} = useSelector(s => s)
     let dispatch = useDispatch()    
@@ -138,13 +141,19 @@ const AllActivities = () => {
     
     const closeModal = () => {
         setAddActivity(false)
+        setPutActivity(false)
+    }
+
+    const destroyActivity = (id) => {
+        // console.log(id)
+        dispatch(deleteActivity(id)).then(res => alert(res))
     }
 
 
     useEffect(() => {
         dispatch(getAllActivities())
       
-    },[addActivity])
+    },[addActivity, dispatch])
 
     return(
         <Container>
@@ -153,21 +162,22 @@ const AllActivities = () => {
                 <SearchInput type="search" placeholder="buscar actividad..."/>
                 <SearchButton type="submit">buscar</SearchButton>
             </Controls>
-            {addActivity && <ActivityFormPost close={closeModal}/>}
+            {addActivity && <ActivityFormPost close={closeModal} open={addActivity}/>}
+            {putActivity && <PutActivity close={closeModal} open={addActivity}/>}
             <ContainElements>
                 {allActivities && allActivities.map(e => {
                     return <Elements key={e.id}>
                         <Name>
-                            <img src={e.images}/>
+                            <img src={e.images[0]}/>
                             <div className="details">
                             <p className="name">{e.name}</p>
-                            <p>{e.subCategory.name}</p>
+                            <p>{e.subCategory && e.subCategory.name}</p>
                             <p className="like">Me gusta: {e.likes}</p>
                             </div>
                         </Name>
                     <ButtonsEl>
-                        <button className="put">cambios</button>
-                        <button className="delete">borrar</button>
+                        <button className="put" onClick={() => setPutActivity(true)}>cambios</button>
+                        <button className="delete" onClick={() => destroyActivity(e.id)}>borrar</button>
                         <Link className="link" exact to= {`/sub-categories/activity/${e.id}`}>ver mas {'>'}</Link>
                     </ButtonsEl>
                 </Elements>

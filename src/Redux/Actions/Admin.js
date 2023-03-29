@@ -24,7 +24,10 @@ const url =  'http://localhost:3001'
 //POST
 export const postActivity = (data) => {
    return () => {
-    axios.post(`${url}/activities`, data) 
+    axios.post(`${url}/activities`, data)
+    .then(res => {
+        return res.data
+    }) 
    }
 }
 
@@ -92,8 +95,17 @@ export const putTown = () => {
 
 //DELETE
 
-export const deleteActivity = () => {
-    
+export const deleteActivity = (data) => async () => {
+    // console.log(data)
+    return (
+        await axios.delete(`${url}/activities/`+data)
+        .then(res => {
+            if(res.status === 200){
+                return res.data.msg
+            }else return "error" + res.status;
+        })
+        )
+       
 }
 
 export const deleteCategory = () => {

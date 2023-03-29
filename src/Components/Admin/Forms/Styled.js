@@ -23,6 +23,7 @@ justify-content: center;
 export const Forms = styled.div`
     display: block;
 
+
     .images{
         display: flex;
         /* display: grid; grid-template-columns: 200px 200px 200px; */
@@ -45,6 +46,11 @@ export const Forms = styled.div`
     .second{
         width: 90%;
         margin:20px
+    }
+
+    .errorText{
+        font-size: 12px;
+        color: red;
     }
 `
 
@@ -72,6 +78,8 @@ padding: 5px;
 margin: 10px 0;
 width: ${prop => prop.name === "name" && "80%" };
 text-align: left;
+border: solid 0.5px;
+/* border-bottom: solid 0.5px; */
 `
 
 export const InputDescription = styled.textarea`
