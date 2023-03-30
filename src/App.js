@@ -18,6 +18,7 @@ import AllActivities from './Components/Admin/Details/AllActivities';
 import AllSubCategories from './Components/Admin/Details/AllSubCategories';
 import AllCategories from './Components/Admin/Details/AllCategories';
 import AllTowns from './Components/Admin/Details/AllTowns';
+import AllServices from './Components/Admin/Details/AllService';
 
 
 function App() {
@@ -40,6 +41,8 @@ function App() {
       <Route exact path='/admin/SUB CATEGORIES' element={<AllSubCategories/>}/>
       <Route exact path='/admin/CATEGORIES' element={<AllCategories/>}/>
       <Route exact path='/admin/TOWNS' element={<AllTowns/>}/>
+      <Route exact path='/admin/SERVICE' element={<AllServices/>}/>
+
       </Routes>
       <Footer/>
     </div>

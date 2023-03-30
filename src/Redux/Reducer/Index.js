@@ -77,6 +77,7 @@ export default function RootReducer(state = initialState, action){
                 OneTown: action.payload
             }
         case GET_ALL_SERVICES:
+            // console.log(action.payload.rows)
             return{
                 ...state,
                 allServices: action.payload.rows

@@ -68,3 +68,24 @@ export const SearchTown = () => {
         </ContainerSearch>
     )
 }
+
+export const SearchService = () => {
+    let [input, setInput ] = useState("")
+    let dispatch = useDispatch()
+
+    const handleOnChange = (e) => {
+        setInput(e.target.value)
+    }
+    const handleOnClick = (e) => {
+        e.preventDefault()
+        // dispatch(getTownByName(input))
+        setInput("")
+    }
+
+    return(
+        <ContainerSearch>
+        <input type="search" placeholder="buscar servicio..." value={input}  onChange={handleOnChange}/>
+        <button type="submit" onClick={handleOnClick}>buscar</button>
+        </ContainerSearch>
+    )
+}

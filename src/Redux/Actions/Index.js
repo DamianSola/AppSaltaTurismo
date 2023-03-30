@@ -87,9 +87,11 @@ export const getOneTour = (id) => {
         })
     }
 }
+
+//SERVICES
 export const getAllService = () => {
     return (dispatch) => {
-        return axios(`${URL}service`)
+        return axios(`${URL}services`)
         .then((res) => {
             dispatch({
                 type: GET_ALL_SERVICES,
@@ -99,9 +101,13 @@ export const getAllService = () => {
     }
 }
 
+//SERVICES TYPES
+
 export const deleteServiceType = () => {
 return {type: "DELETE_TYPES"}
 }
+
+
 export const AllServiceType = () => {
     return (dispatch) => {
         return axios(`${URL}serviceTypes`)
@@ -125,6 +131,8 @@ export const getOneServiceType = (id) => {
         })
     }
 }
+
+//CATEGORIES
 
 export const getAllCategories = () => {
     return(dispatch) => {
@@ -150,6 +158,7 @@ export const getOneCategory = (id) => {
     }
 }
 
+//SUB CATEGORIES
 export const getAllSubCategories = () => {
     return(dispatch) => {
         return axios.get(`${URL}subcategories`)
