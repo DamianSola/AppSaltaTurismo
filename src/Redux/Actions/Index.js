@@ -173,6 +173,8 @@ export const getOneSubCategories = (id) => {
     }
 }
 
+// TOWNS
+
 export const getAllTowns = () => {
     return(dispatch) => {
         return axios(`${URL}towns`)
@@ -187,9 +189,8 @@ export const getAllTowns = () => {
 
 export const getTownByName = (name) => {
     return(dispatch) => {
-        return axios(`${URL}activities?name=${name}`)
+        return axios(`${URL}towns?name=${name}`)
         .then(res => {
-            console.log(res)
             dispatch({
                 type: TOWN_NAME,
                 payload: res.data

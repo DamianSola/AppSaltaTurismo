@@ -1,7 +1,7 @@
 import React,{useState} from "react";
 import { useDispatch } from "react-redux";
 import styled from "styled-components";
-import { getActivityByName } from "../../Redux/Actions/Index";
+import { getActivityByName, getTownByName } from "../../Redux/Actions/Index";
 
 
 
@@ -57,7 +57,7 @@ export const SearchTown = () => {
     }
     const handleOnClick = (e) => {
         e.preventDefault()
-        // dispatch(getActivityByName(input))
+        dispatch(getTownByName(input))
         setInput("")
     }
 
