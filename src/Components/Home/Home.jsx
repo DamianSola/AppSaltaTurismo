@@ -6,10 +6,12 @@ import Intro from "./Intro";
 import Towns from "../Towns/Towns";
 import CategoriesHome from "../Categories/Categories";
 import styled from "styled-components"
+import About from "../About/About";
 
 const Title = styled.h1`
     color:black;
     transition: 0.3s;
+    margin: 20px;
     /* :hover{
         color: bisque
         ;
@@ -31,10 +33,16 @@ export default function Home(){
             <Intro/>
             <Title>DESTACADOS</Title>
             <CategoriesHome/>
-            <Title><StyleLink to='/tours' text-decoration="none">TOURS</StyleLink></Title>
+            <br/>
+            {/* <Title><StyleLink to='/tours' text-decoration="none">TOURS</StyleLink></Title> */}
+            <Title id="tours">TOURS</Title>
             <Tours/>
-            <Title>PUEBLOS DE SALTA</Title>
-            <Towns id="pueblos" title="pueblos"/>
+            <br/>
+            <Title id="towns">PUEBLOS DE SALTA</Title>
+            <Towns/>
+            <br/>
+            <Title id="about">SOBRE NOSOTROS</Title>
+            <About/>
             {/* <Carousel/> */}
 
         </HomeContainer>

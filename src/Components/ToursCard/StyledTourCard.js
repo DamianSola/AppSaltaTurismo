@@ -3,12 +3,18 @@ import { Link } from "react-router-dom";
 
 export const Cardcontainer = styled.div`
 /* width: 18.5rem; */
-width: 17rem;
-border-radius: 5px;
-margin: 5px;
+width: 18rem;
+/* border-radius: 5px; */
+margin: 10px 5px;
 border: solid 1px;
 transition: 0.5s;
-height: 18rem;
+height: 300px;
+
+.title{
+        font-size: 30px;
+        margin: auto;
+        color: #7B0000;
+    }
 
 &&:hover {
     box-shadow: 0px 0px 10px;
@@ -18,7 +24,7 @@ height: 18rem;
 export const ImagenCard = styled.img`
 /* width: 16.5rem; */
 width: 100%;
-border-radius: 5px 5px 0 0;
+/* border-radius: 5px 5px 0 0; */
 
 `
 export const Title = styled.div`
@@ -28,10 +34,7 @@ text-decoration: none;
 color: black;
 padding: 5px;
 
-    .title{
-        font-size: 30px;
-        margin: auto;
-    }
+   
 
     .description{
         margin: auto;

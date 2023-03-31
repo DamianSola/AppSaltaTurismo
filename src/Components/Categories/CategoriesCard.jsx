@@ -4,31 +4,26 @@ import { Link } from "react-router-dom";
 import "../../App.css"
 import { useDispatch } from "react-redux";
 import {getOneCategory} from "../../Redux/Actions/Index"
+import { Button } from "reactstrap";
 
 const Card = styled.div`
 display: block;
 margin:5px;
+width: 25%;
+height: 300px;
 border: solid 0.5px;
 border-radius: 5px;
 color: black;
 transition: 0.5s;
-background-color: white;
 text-align: center;
-height: 20rem;
-
-:hover{
-    .NameCategory{
-        box-shadow: 3px 3px 3px;
-
-    }
-
-}
-
 `
 
 const NameCategory = styled.h2`
 display: block;
-color: black;
+margin: 4px;
+padding: 4px;
+color: #ffff;
+text-shadow: 2px 2px 2px black;
 font-size: 19px;
 font-family:arial;
 transition: 0.5s;
@@ -46,21 +41,11 @@ width: 100%;
 border-radius: 5px 5px 0 0 ;
 
 `
-const SeeMore = styled.p`
+const SeeMore = styled(Button)`
     background-color: black;
-    color: white;
-    margin: auto;
-    font-style: italic;
-    font-size: 20px;
-    padding: 5px;
-    width: 60%;
-    border-radius: 10px;
-    transition: 0.2s;
-
-    :hover{
-    font-size: 22px;
-
-    }
+    position: relative;
+    top: 72%;
+    /* bottom: 15%; */
 `
 
 const CategoriesCard = ({image, name, id}) =>{
@@ -74,12 +59,10 @@ const CategoriesCard = ({image, name, id}) =>{
 
 
     return(
-        <Card> 
-            <Photo src={image} width="100%" />
+        <Card style={backImage}> 
             <NameCategory>{name}</NameCategory>
-            <StyleLink exact to={`/categories/${id}`} onChange={() => {dispatch(getOneCategory(id))
-}} id="App-links">               
-                <SeeMore>Ver mas {">"}</SeeMore>
+            <StyleLink exact to={`/categories/${id}`} onChange={() => {dispatch(getOneCategory(id))}} id="App-links">
+                <SeeMore>Ver mas</SeeMore>
             </StyleLink>
         </Card>
     )

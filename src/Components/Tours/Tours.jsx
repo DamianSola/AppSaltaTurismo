@@ -4,7 +4,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import {useDispatch, useSelector} from "react-redux"
 // import { ActivitiesContainer, OnlyActivities, Title } from "../Activities/StyleActivities";
-import {TourContainer} from "./TourCarousel"
+import {TourContainer, Carousel} from "./TourCarousel"
 import { getAllTours } from "../../Redux/Actions/Index";
 import TourCard from "../ToursCard/TourCard";
 
@@ -34,7 +34,7 @@ const Tours = () => {
     return (
       <div
         className={className}
-        style={{ ...style, width: "200", colorButton: 'black'}}
+        style={{ ...style}}
         onClick={onClick}
       />
     );
@@ -86,12 +86,12 @@ const Tours = () => {
 
   return(         
     <TourContainer>
-      <Slider {...settings} >
+      <Carousel {...settings} >
         {someTours && someTours.map((e,i) => {
           return <TourCard 
             title={e.name} key={i} id={e.id} image={e.image} description={e.description}/>
         })}
-      </Slider>
+      </Carousel>
     </TourContainer>
     )
 }

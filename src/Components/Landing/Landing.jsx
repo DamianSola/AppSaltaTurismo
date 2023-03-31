@@ -12,7 +12,7 @@ import 'react-dropdown/style.css';
 
 const LandingContain = styled.div `
     border-top: solid 25px #87CEFA;
-    height: 4rem;
+    min-height: 4rem;
     padding: none;
     /* position: static; */
     /* background-color: #87CEFA; */
@@ -79,7 +79,9 @@ export default function Landing(){
         <LandingContain>
             <ul>
                 <Link className="home" exact to='/'>INICIO</Link>
-                <Link className="item" exact to='/about'>Sobre nosotros</Link>
+                <a className="item" href='#about'>Sobre nosotros</a>
+                <a className="item" href='#towns'>Pueblos de Salta</a>
+                <a className="item" href='#tours'>Tours</a>
                 <Dropdown isOpen={dropDown} toggle={OpenAndCloseDD} >
                     <DropdownToggle className="dropdown">
                         Servicios</DropdownToggle>
