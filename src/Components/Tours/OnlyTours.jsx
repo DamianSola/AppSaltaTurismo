@@ -1,6 +1,5 @@
 import React from "react";
 import { useEffect } from "react";
-import { ActivitiesContainer, Title } from "../Activities/StyleActivities";
 import {useDispatch, useSelector} from "react-redux"
 import { getAllTours } from "../../Redux/Actions/Index";
 import TourCard from "../ToursCard/TourCard";

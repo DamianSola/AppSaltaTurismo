@@ -20,7 +20,6 @@ export const Body = styled.section`
   display: block;
   background-color: black;
   width: 75%;
-  /* align-items: stretch; */
   margin: auto 20px;
   padding: 0 4%;
 
@@ -30,8 +29,7 @@ export const Body = styled.section`
 
 `
 export const Photo = styled.img`
-/* width: 60%; */
-/* height: 100%; */
+
 `
 export const Title = styled.h3`
 font-size: 35px;

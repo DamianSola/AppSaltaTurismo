@@ -1,14 +1,8 @@
 import React, { useEffect, useState } from "react";
-import {
-    Button,
-    Form,
-    TextBox,
-  } from 'react-form-elements'
 import { useDispatch, useSelector } from "react-redux";
 import { postActivity } from "../../../../Redux/Actions/Admin";
 import { getAllSubCategories, getAllTowns } from "../../../../Redux/Actions/Index";
-import { ContainerModal, CloseButton, ContainerForm, Forms, 
-    Label,ModalContainer,Input, InputDescription, TitleForm } from "../Styled";
+import { CloseBut, ContainerForm, Forms,ModalContainer,Input, InputDescription, TitleForm } from "../Styled";
 
 
 const ActivityFormPost = ({close, open}) => {
@@ -95,7 +89,7 @@ const ActivityFormPost = ({close, open}) => {
             overlay: {
               backgroundColor: '#000000aa'
             }}}>
-        <CloseButton onClick={close}>x</CloseButton>
+        <CloseBut onClick={close}/>
        <ContainerForm>
         <TitleForm >Agragar una nueva actividad</TitleForm>
         <Forms onSubmit={(e)=> handleOnSubmit(e)}>

@@ -1,5 +1,5 @@
 import React,{ useEffect } from "react";
-import { ActivitiesContainer,Title, Photo, Slyder, Description, Header, Body, } from "./StyleActivities";
+import { ActivitiesContainer,Title, Photo, Description, Body } from "./StyleActivities";
 import {useDispatch,useSelector} from 'react-redux'
 import {getOneActivity} from "../../Redux/Actions/Index"
 import { useParams } from "react-router";

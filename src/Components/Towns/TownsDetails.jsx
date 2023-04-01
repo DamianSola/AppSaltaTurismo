@@ -1,12 +1,28 @@
 import React,{useEffect} from "react";
 import { useParams } from "react-router";
-import { DetailContain, Photos, Image, Description,Data, 
+import { DetailContain, Photos, Description,Data, 
     Text, Activities,Title,ActiviTitle, 
     TownContainer} from "./DetailStyled";
 import {useDispatch , useSelector} from 'react-redux';
 import { getOneTown } from "../../Redux/Actions/Index";
 import ActivityCard from "../ActivitiesCard/ActivityCard";
 import Slider from 'react-slick';
+import styled from 'styled-components'
+
+const Carrousel = styled(Slider)`
+.slick-prev:before, .slick-next:before{
+        color: black;
+        size: 40px;
+    }
+
+    .slick-next {
+        right: 10;
+
+    }
+     .slick-prev{
+        left: -10
+    }
+`
 
 
 const TownDetails = () => {
@@ -33,20 +49,20 @@ const TownDetails = () => {
         return(
             <DetailContain>
                 <TownContainer>
-                    <Photos>
-                <Slider {...settings} style={{ width: 650}}>
-                    {images && images.map((e,i) => {
-                    return <div>
-                            <img src={e} style={{ width: "100%" }}/>
-                        </div> 
-                })}
-                </Slider>
-                    </Photos>
-                    <Data>
+                     <Data>
                         <Title>{name.toUpperCase()}</Title>
                         <Text>Ubicacion: {location}</Text>
                         <Description>{description}</Description>
                     </Data>
+                    <Photos>
+                <Carrousel {...settings} style={{ width: 650}}>
+                    {images && images.map((e,i) => {
+                    return <div key={i}>
+                            <img src={e} style={{ width: "100%" }} alt="carousel"/>
+                        </div> 
+                })}
+                </Carrousel>
+                    </Photos>
                 </TownContainer>
                 <ActiviTitle>Actividades en {name}</ActiviTitle>
         <Activities>

@@ -35,12 +35,6 @@ text-decoration: none;
 margin:0 5px;
 color: black;
 `
-
-const Photo = styled.img`
-width: 100%;
-border-radius: 5px 5px 0 0 ;
-
-`
 const SeeMore = styled(Button)`
     background-color: black;
     position: relative;

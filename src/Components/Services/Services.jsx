@@ -2,7 +2,7 @@ import React,{useEffect} from "react";
 import ServiceCard from "./ServiceCard/ServiceCard";
 import { ServiceContain, Title, OnlyService, Photo, ServicesTypes, Types, TypeName } from "./styleServices";
 import {useDispatch, useSelector} from "react-redux"
-import { getOneServiceType, AllServiceType, deleteServiceType } from "../../Redux/Actions/Index";
+import { getOneServiceType, AllServiceType} from "../../Redux/Actions/Index";
 import {useParams} from "react-router-dom"
 
 export default function Services(){

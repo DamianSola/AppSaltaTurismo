@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import Modal from 'react-modal';
+import { CloseButton } from "reactstrap";
+
 
 export const ModalContainer = styled(Modal)`
     display: block;
@@ -58,7 +60,7 @@ export const Label = styled.label`
 margin: 10px;
 `
 
-export const CloseButton = styled.button`
+export const CloseBut = styled(CloseButton)`
 display: block;
 background-color: white;
 padding: 3px;

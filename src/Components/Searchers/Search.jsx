@@ -2,6 +2,7 @@ import React,{useState} from "react";
 import { useDispatch } from "react-redux";
 import styled from "styled-components";
 import { getActivityByName, getTownByName } from "../../Redux/Actions/Index";
+import { Button, Input } from "reactstrap";
 
 
 
@@ -13,6 +14,7 @@ const ContainerSearch = styled.div`
         background-color: #ffff;
         color: black;
         margin: 0 10px;
+        
     }
 
     button{
@@ -36,13 +38,12 @@ export const SearchActivity = () => {
     const handleOnClick = (e) => {
         e.preventDefault()
         dispatch(getActivityByName(input))
-        // setInput("")
     }
 
     return(
         <ContainerSearch>
         <input type="search" placeholder="buscar actividad..." value={input}  onChange={handleOnChange}/>
-        <button type="submit" onClick={handleOnClick}>buscar</button>
+        <Button type="submit" onClick={handleOnClick}>buscar</Button>
         </ContainerSearch>
     )
 
@@ -63,15 +64,15 @@ export const SearchTown = () => {
 
     return(
         <ContainerSearch>
-        <input type="search" placeholder="buscar pueblo..." value={input}  onChange={handleOnChange}/>
-        <button type="submit" onClick={handleOnClick}>buscar</button>
+        <Input type="search" placeholder="buscar pueblo..." value={input}  onChange={handleOnChange}/>
+        <Input type="submit" onClick={handleOnClick} value="buscar"/>
         </ContainerSearch>
     )
 }
 
 export const SearchService = () => {
     let [input, setInput ] = useState("")
-    let dispatch = useDispatch()
+    // let dispatch = useDispatch()
 
     const handleOnChange = (e) => {
         setInput(e.target.value)

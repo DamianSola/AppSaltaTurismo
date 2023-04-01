@@ -101,13 +101,3 @@ export default function Landing(){
         </LandingContain>
     )
 }
-
-
- {/* <ServiList>
-                <Servi onClick={() => display? setDisplay(false) : setDisplay(true)}>Servicios</Servi>
-                <TypesList display = {display}>
-                    {allServiceTypes && allServiceTypes.map(e => {
-                        return <Type key={e.id}><Tname to={`/service/${e.id}`}>{e.name}</Tname></Type>
-                    })}
-				</TypesList>
-			</ServiList> */}

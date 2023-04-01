@@ -1,6 +1,5 @@
 import React from "react";
 import { Cardcontainer, ImagenCard, Title, StyleLink } from "./StyledTourCard";
-import {useLocation, useParams} from "react-router-dom"
 
 
 

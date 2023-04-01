@@ -13,7 +13,6 @@ import OnlyTours from './Components/Tours/OnlyTours';
 import TourDetail from './Components/Tours/TourDetail'
 import Services from './Components/Services/Services';
 import Footer from './Components/Footer/Footer';
-import Towns from './Components/Towns/Towns';
 import AllActivities from './Components/Admin/Details/AllActivities';
 import AllSubCategories from './Components/Admin/Details/AllSubCategories';
 import AllCategories from './Components/Admin/Details/AllCategories';
@@ -26,7 +25,6 @@ function App() {
     <div className="App" >
         <Landing/>
       <Routes>
-      {/* <Route path="/" element={<Landing/>}/> */}
       <Route exact path='/' element={<Home/>}/>
       <Route exact path='/sub-categories/:id' element={<ElementList/>}/>
       <Route exact path='/admin' element= {<Resume/>}/>

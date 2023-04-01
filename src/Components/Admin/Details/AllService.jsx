@@ -1,7 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import { ButtonGroup, Button } from "reactstrap";
 import styled from "styled-components";
 import { getAllService } from "../../../Redux/Actions/Index";
 import { SearchService } from "../../Searchers/Search";
@@ -74,11 +72,6 @@ const AllServices = () => {
                         <p className="name">{e.name}</p>
                         <p className="punct">puntuacion: {e.punctuation}</p>
                         <img src={e.images[0]}/>
-                        {/* <ButtonGroup>
-                            <Button>cambios</Button>
-                            <Button >borrar</Button>
-                            <Button >detalles</Button>
-                        </ButtonGroup> */}
                         <div className="buttons">
                             <button className="button">cambios</button>
                             <button className="button">borrar</button>

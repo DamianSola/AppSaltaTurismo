@@ -1,6 +1,5 @@
 import React, {useEffect} from "react";
-// import Footer from "../Footer/Footer";
-import { HomeContainer, StyleLink } from "./StyleHome";
+import { HomeContainer} from "./StyleHome";
 import Tours from "../Tours/Tours";
 import Intro from "./Intro";
 import Towns from "../Towns/Towns";
@@ -12,18 +11,12 @@ const Title = styled.h1`
     color:black;
     transition: 0.3s;
     margin: 20px;
-    /* :hover{
-        color: bisque
-        ;
-    } */
 ` 
 
 
 
 export default function Home(){
     
-
-    // const dispatch = useDispatch()
     useEffect(() => {
         document.title = "Home";
     }, [])

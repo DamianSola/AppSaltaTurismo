@@ -1,9 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import Slider from 'react-slick';
+import React, {useEffect } from 'react';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import {useDispatch, useSelector} from "react-redux"
-// import { ActivitiesContainer, OnlyActivities, Title } from "../Activities/StyleActivities";
 import {TourContainer, Carousel} from "./TourCarousel"
 import { getAllTours } from "../../Redux/Actions/Index";
 import TourCard from "../ToursCard/TourCard";
@@ -16,7 +14,6 @@ const Tours = () => {
   let someTours;
   if(allTours) someTours = allTours.slice(0,12)
 
-  const [defaultImage, setDefaultImage] = useState({});
 
   const SamplePrevArrow  = (props) => {
     const {className, style, onClick} = props;

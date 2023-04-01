@@ -11,6 +11,8 @@ export const TownContainer = styled.div`
 display: flex;
 
 `
+
+
 export const Title = styled.h1`
  /* position: absolute; */
     /* color: white; */
@@ -25,7 +27,7 @@ display: flex;
 justify-content: center;
 /* width: 100%; */
 padding: 0 20px;
-background-color: black;
+/* background-color: black; */
 `
 
 export const Image = styled.img`

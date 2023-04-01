@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import { getAllCategories, getAllSubCategories } from "../../../Redux/Actions/Index";
-import { Link } from "react-router-dom";
 import PutSubCategory from "../Forms/UpDates/putSubCategory";
 import AddSubCategory from "../Forms/Create/AddSubCategory.";
 

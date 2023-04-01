@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { getAllTowns } from "../../../Redux/Actions/Index";
@@ -81,7 +81,7 @@ const AllTowns = () => {
             {allTowns && allTowns.map((e,i) => {
                 return <div className="card" key={i}>
                     <p className="name">{e.name}</p>
-                    <img src={e.images[0]} className="image"/>
+                    <img src={e.images[0]} className="town"/>
                     <div className="buttons">
                         <button className="button">cambios</button>
                         <button className="button">borrar</button>

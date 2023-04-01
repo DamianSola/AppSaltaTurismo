@@ -1,12 +1,12 @@
 import React from "react";
-import { CloseButton, Forms, Input, Label, ModalContainer, TitleForm } from "../Styled";
+import { CloseBut, Forms, Input, Label, ModalContainer, TitleForm } from "../Styled";
 
 const AddSubCategory = ({close}) => {
 
 
     return(
         <ModalContainer isOpen={true}>
-            <CloseButton onClick={close}>x</CloseButton>
+            <CloseBut onClick={close}/>
             <TitleForm>Nueva sub categoria</TitleForm>
             <Forms>
                 <Label>nombre:</Label>

@@ -70,7 +70,7 @@ const TourDetail = () => {
             <p className="namee">{name}</p>
             </div>
             <div className="body">
-            <img src={image}/>
+            <img src={image} alt="tour"/>
             <p className="description">{description}</p>
             </div>
                 

@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getOneSubCategories } from "../../../../Redux/Actions/Index";
 // import Modal from 'react-modal';
-import {ModalContainer, CloseButton, TitleForm, Forms, Label, Input} from "../Styled"
+import {ModalContainer, CloseBut, TitleForm, Forms, Label, Input} from "../Styled"
 import styled from "styled-components";
 import SubCategoryCard from "../../../SubCategories/SubCategoryCard";
 
@@ -27,7 +27,7 @@ const PutSubCategory = ({close, id}) => {
 
     return(
         <ModalContainer isOpen= {true}>
-            <CloseButton onClick={close}>x</CloseButton>
+            <CloseBut onClick={close}/>
             <TitleForm>Hacer cambios?</TitleForm>
             <Body>
                 <Forms>

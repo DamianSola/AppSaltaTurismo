@@ -2,10 +2,9 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { ContainerTwo, ContainerSubCategories } from "./SubCateStyled";
 import SubCategoryCard from './SubCategoryCard';
-import CategoriesHome from '../Categories/Categories'
 import { useEffect } from "react";
 import { useParams } from "react-router";
-import { getOneCategory, getAllCategories, ClearPage} from "../../Redux/Actions/Index";
+import { getOneCategory, getAllCategories} from "../../Redux/Actions/Index";
 import { Link } from "react-router-dom";
 
 
@@ -21,7 +20,6 @@ const SubCategories = () => {
 
 
     useEffect(()=>{
-        dispatch(ClearPage("categories"))
         dispatch(getOneCategory(id))
         dispatch(getAllCategories())
 
@@ -32,7 +30,7 @@ const SubCategories = () => {
             <div className="categories">
                 <h4>Otras categorias</h4>
                 {allCategories && allCategories.map(e => {
-                    return <Link exact to={`/categories/${e.id}`}>{e.name}</Link>
+                    return <Link exact to={`/categories/${e.id}`} onChange={() => dispatch(getOneCategory(e.id)) }>{e.name}</Link>
                 })}
             </div>
             
