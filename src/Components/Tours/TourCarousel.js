@@ -26,7 +26,15 @@ export const Carousel = styled(Slider)`
 
     .slick-prev:before, .slick-next:before{
         color: black;
-        size: 20px;
+        size: 40px;
         /* width: 30px; */
+    }
+
+    .slick-next {
+        right: 10;
+
+    }
+     .slick-prev{
+        left: -10
     }
 `

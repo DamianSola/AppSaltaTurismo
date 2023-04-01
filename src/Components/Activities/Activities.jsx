@@ -1,5 +1,5 @@
 import React,{ useEffect } from "react";
-import { ActivitiesContainer,Title, Photo, Slyder, Description, Header, Body} from "./StyleActivities";
+import { ActivitiesContainer,Title, Photo, Slyder, Description, Header, Body, } from "./StyleActivities";
 import {useDispatch,useSelector} from 'react-redux'
 import {getOneActivity} from "../../Redux/Actions/Index"
 import { useParams } from "react-router";
@@ -14,7 +14,7 @@ const Activities = () => {
     let {likes,images,description,name,} = oneActivity;
 
    const settings = {
-      dots: true,
+      dots: false,
       infinite: true,
       speed: 500,
       slidesToShow: 1,
@@ -30,18 +30,18 @@ const Activities = () => {
         <ActivitiesContainer>
             <Title>{name}</Title>
             <Body>
-            <Slider {...settings} style={{ width: 700}}>
+            <Slider {...settings} style={{ width: 800}}>
             {images && images.map((e,i) => {
                 return <div>
-                    <img src={e} style={{ width: "100%" }}/>
+                    <Photo src={e} style={{ width: "100%" }}/>
                 </div> 
                 })}
             </Slider>
             </Body>
             <Description>{description}</Description>
-
         </ActivitiesContainer>
     )
 }
 
 export default Activities
+

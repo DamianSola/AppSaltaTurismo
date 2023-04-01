@@ -29,6 +29,11 @@ const Name = styled.div`
     font-size: 25px;
     text-decoration: none;
     margin: auto;
+    color: black;
+   }
+
+   .name:hover{
+    color: #7B0000;
    }
 
    .description{

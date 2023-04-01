@@ -19,8 +19,10 @@ export const OnlyActivities = styled.div`
 export const Body = styled.section`
   display: block;
   background-color: black;
-  /* align-items: center; */
-  padding: 0 20%;
+  width: 75%;
+  /* align-items: stretch; */
+  margin: auto 20px;
+  padding: 0 4%;
 
   @media screen and (max-width: 750px){
   width: 100%;
@@ -28,11 +30,12 @@ export const Body = styled.section`
 
 `
 export const Photo = styled.img`
-width: 60%;
+/* width: 60%; */
+/* height: 100%; */
 `
 export const Title = styled.h3`
 font-size: 35px;
-margin: auto;
+margin: 40px 20px;
 `
 
 export const Header = styled.div`
@@ -41,7 +44,9 @@ width: 100%;
 `
 
 export const Description = styled.p`
-width: 100%;
-margin: 40px auto;
+width: 75%;
+margin: 40px 20px;
+
+/* margin: 40px auto; */
 font-size: 20px;
 `

@@ -1,21 +1,17 @@
 import React, { createContext } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import {Card} from "reactstrap";
 
 
-const Card = styled.div`
-    display: block;
+const CardConainer = styled(Card)`
     margin: 10px;
-    padding: 5px;
-    width: 250px;
-    height: 250px;
-    border: solid 1px;
-    border-radius: 10px;
-    text-align: center;
+    width: 300px;
+    height: 300px;
 `
 const Photo = styled.img`
     width: 100%;
-    border-radius: 10px;
+    /* border-radius: 10px; */
 
 `
 const Name = styled.p`
@@ -23,7 +19,8 @@ const Name = styled.p`
     font-size: 20px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     /* padding: none; */
-    margin: 0 0 30px 0;
+    /* margin: 0 0 30px 0; */
+    margin: auto;
 
 `
 const SeeMore = styled(Link)`
@@ -52,20 +49,20 @@ const BodyCard = styled.div`
 const SubCategoryCard = ({name, id, image, showButton, category}) => {
 
     return(
-        <Card>
+        <CardConainer>
+            <Name>{name}</Name>
             <Photo src={image}/>
             <BodyCard>
-            <Name>{name}</Name>
             <SeeText>
                 {
-                    showButton && <SeeMore exact to={`/sub-categories/${id}`}>Ver mas {" >"}</SeeMore>
+                    showButton && <SeeMore exact to={`/sub-categories/${id}`}>Ver mas </SeeMore>
                 }{
                     category && <p>{category}</p>
                 }
 
             </SeeText>
             </BodyCard>
-        </Card>
+        </CardConainer>
     )
 }
 

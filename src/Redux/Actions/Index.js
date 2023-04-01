@@ -231,3 +231,11 @@ export const likeActivity = (activity) => {
         axios.put(`${URL}activities/likes/${activity}`,null)
     }     
 }
+
+
+export const ClearPage = (info) => {
+    return {
+        type: "CLEAR_PAGE",
+        payload: info
+    }
+}

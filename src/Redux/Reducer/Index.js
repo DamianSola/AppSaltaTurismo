@@ -122,6 +122,13 @@ export default function RootReducer(state = initialState, action){
                 ...state,
                 oneTour: action.payload
             }
+        case "CLEAR_PAGE":
+            if(action.payload === "categories") return {...state, allCategories: null};
+            if(action.payload === "activities") return {...state, allActivities: {}};
+            if(action.payload === "subcategories") return {...state, allSubCategories: {}};
+            if(action.payload === "services") return {...state, allServices: {}};
+            if(action.payload === "servicestypes") return {...state, allServiceTypes: {}};
+            else break;
         default: return state;
     }
 }
