@@ -32,7 +32,7 @@ const Activities = () => {
             <Body>
             <Slider {...settings} style={{ width: 800}}>
             {images && images.map((e,i) => {
-                return <div>
+                return <div key={i}>
                     <Photo src={e} style={{ width: "100%" }}/>
                 </div> 
                 })}

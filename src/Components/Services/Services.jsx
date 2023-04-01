@@ -9,7 +9,7 @@ export default function Services(){
 
     const {id} = useParams()
     const {oneServiceType, allServiceTypes} = useSelector(s => s)
-    // console.log(oneServiceType)
+    console.log(allServiceTypes)
     let {name, image, services} = oneServiceType
 
     const dispatch = useDispatch()
@@ -23,7 +23,16 @@ export default function Services(){
 
     return(
         <ServiceContain>
-            <Title><Photo src={image}/> {name && name.toUpperCase()}</Title>
+             
+            <Title><Photo src={image}/> {name && name.toUpperCase()}{services && <p>Hay {services.length} servicios</p>}</Title>
+            <div>
+
+            <ServicesTypes>
+                {allServiceTypes && allServiceTypes.map(e => {
+                    return <Types key={e.id} ><Photo src={image}/><TypeName to={`/service/${e.id}`} onChange={() => dispatch(getOneServiceType(e.id))}>{e.name.toUpperCase()}</TypeName>
+                   </Types>
+                })}
+            </ServicesTypes>
             <OnlyService>
                 {services && services.map((e,i) => {
                     return(
@@ -38,12 +47,9 @@ export default function Services(){
                         )
                     })}
             </OnlyService>
-            <Title>Ver tambien</Title>
-            <ServicesTypes>
-                {allServiceTypes && allServiceTypes.map(e => {
-                    return <Types key={e.id} ><TypeName to={`/service/${e.id}`} onChange={() => dispatch(getOneServiceType(e.id))}>{e.name.toUpperCase()}</TypeName><Photo src={image}/></Types>
-                })}
-            </ServicesTypes>
+            </div>
+
+            {/* <Title>Ver tambien</Title> */}
         </ServiceContain>
     )
 }

@@ -1,18 +1,21 @@
 import styled from "styled-components";
+import { Card,CardTitle  } from "reactstrap";
 
 export const Head = styled.div`
 display:flex;
-width: 580px;
+width: 400px;
 justify-content: left;
 background-size: cover;
+border-bottom: solid 0.5px grey;
+
 `
 
-export const CardService = styled.div`
+export const CardService = styled(Card)`
 display:block;
 /* width: 600px; */
 justify-content: left;
 background-size: cover;
-margin: 0.7rem;
+margin: 15px;
 padding: 10px;
 border: solid black 1px;
 transition: 0.5s;
@@ -26,7 +29,7 @@ transition: 0.5s;
 export const Photo = styled.img`
 width: 12rem;
 `
-export const CardName = styled.h1`
+export const CardName = styled(CardTitle)`
 /* margin-top: 50%; */
 margin: auto;
 font-size: 40px;

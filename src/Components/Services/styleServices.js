@@ -5,37 +5,38 @@ export const ServiceContain = styled.div`
 display:block;
 /* justify-content: space-between; */
 /* flex-wrap:wrap; */
+  div{
+    display:flex;
+  }
 `
 export const OnlyService = styled.div`
 display:flex;
 flex-wrap:wrap;
-justify-content: left;
+width: 75%;
+/* align-items: center; */
+margin: auto;
+/* justify-content: left; */
 
 `
 export const ServicesTypes = styled.div`
 display: flex;
-justify-content: left;
-flex-wrap: wrap;
+flex-direction: column;
+width: 25%;
+margin: 0 20px;
+border-right: solid 0.5px grey;
 `
-export const Types = styled.h1`
+export const Types = styled.p`
 display: flex;
-margin:1rem;
-width: 570px;
-/* padding: 0 10px; */
-/* text-align: left; */
-justify-content: space-between;
-background-color: #00b2ec ;
-transition: 0.5s;
-:hover{
-    background-color: #7B0000;
-    
-}
+
 `
 
 export const Title = styled.h1`
 text-align: left;
 margin:1rem;
 padding: 10px;
+p{
+    font-size: 15px;
+}
 `
 export const TypeName = styled(Link)`
 text-decoration: none;
@@ -43,7 +44,7 @@ color: black;
 margin: auto;
 `
 export const Photo = styled.img`
-width: 70px;
-height: 70px;
+width: 40px;
+height: 40px;
 margin: auto 0;
 `
