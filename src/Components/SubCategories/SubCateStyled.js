@@ -14,6 +14,11 @@ text-align: left;
         border-right: solid 0.5px grey;
     }
 
+    .link{
+        text-decoration: none;
+        color: black;
+    }
+
 `
 
 export const ContainerTwo = styled.div`

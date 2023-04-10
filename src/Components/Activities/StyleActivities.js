@@ -29,7 +29,8 @@ export const Body = styled.section`
 
 `
 export const Photo = styled.img`
-
+width: 600px;
+height: 550px;
 `
 export const Title = styled.h3`
 font-size: 35px;

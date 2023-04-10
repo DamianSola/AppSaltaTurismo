@@ -49,7 +49,7 @@ const ActivityFormPost = ({close, open}) => {
     const handleOnSubmit = (e) => {
         e.preventDefault()
         if(error === {}){
-            alert("hola")
+            alert("por favor completa el formulario correctamente")
         }else{
             close()
             dispatch(postActivity(input))

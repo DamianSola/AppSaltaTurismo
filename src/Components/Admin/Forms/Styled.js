@@ -64,8 +64,8 @@ export const CloseBut = styled(CloseButton)`
 display: block;
 background-color: white;
 padding: 3px;
-width: 20px;
-font-size: 30px;
+width: 10px;
+font-size: 20px;
 border-style: none;
 margin-left: 95%;
 

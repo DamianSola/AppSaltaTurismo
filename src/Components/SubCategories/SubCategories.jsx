@@ -30,7 +30,7 @@ const SubCategories = () => {
             <div className="categories">
                 <h4>Otras categorias</h4>
                 {allCategories && allCategories.map(e => {
-                    return <Link exact to={`/categories/${e.id}`} onChange={() => dispatch(getOneCategory(e.id)) }>{e.name}</Link>
+                    return <Link className="link" exact to={`/categories/${e.id}`} onChange={() => dispatch(getOneCategory(e.id)) }>{e.name}</Link>
                 })}
             </div>
             

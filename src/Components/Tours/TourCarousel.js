@@ -5,7 +5,7 @@ import 'slick-carousel/slick/slick-theme.css';
 
 export const TourContainer = styled.div`
     width: 100%;
-    height: 100%;
+    height: 350px;
     margin: auto;
     /* margin-bottom: 30px; */
 

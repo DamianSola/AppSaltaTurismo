@@ -6,7 +6,7 @@ import Activities from './Components/Activities/Activities';
 import Home from './Components/Home/Home';
 import Resume from './Components/Admin/Resume/Resume';
 import ElementList from './Components/AllElements/ElememntsList';
-import About from './Components/About/About';
+// import About from './Components/About/About';
 import SubCategories from './Components/SubCategories/SubCategories';
 import TownDetails from './Components/Towns/TownsDetails';
 import OnlyTours from './Components/Tours/OnlyTours';
@@ -28,7 +28,7 @@ function App() {
       <Route exact path='/' element={<Home/>}/>
       <Route exact path='/sub-categories/:id' element={<ElementList/>}/>
       <Route exact path='/admin' element= {<Resume/>}/>
-      <Route exact path='/about' element= {<About/>}/>
+      {/* <Route exact path='/about' element= {<About/>}/> */}
       <Route exact path='/categories/:id' element= {<SubCategories/>}/>
       <Route exact path='/town/:id' element= {<TownDetails/>}/>
       <Route exact path='/tours' element= {<OnlyTours/>}/>

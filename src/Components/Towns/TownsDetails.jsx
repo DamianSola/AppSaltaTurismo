@@ -5,10 +5,35 @@ import { DetailContain, Photos, Description,Data,
     TownContainer} from "./DetailStyled";
 import {useDispatch , useSelector} from 'react-redux';
 import { getOneTown } from "../../Redux/Actions/Index";
-import ActivityCard from "../ActivitiesCard/ActivityCard";
 import Slider from 'react-slick';
-import styled from 'styled-components'
+import styled from 'styled-components';
+import { Card } from "reactstrap";
+import { Link } from "react-router-dom";
 
+const ActivityCard = styled(Card)`
+    margin: 20px;
+    width: 250px;
+    background-color: #2d2d2d;
+    color: #ffff;
+    /* box-shadow: 2px 2px 3px;  */
+    padding: 10px 0;
+    text-align: center;
+
+    p{ margin: auto}
+
+    .link{
+        color: #ffff;
+        text-decoration:none;
+    }
+
+    img{
+    width: 100%; 
+    }
+`
+const Pics = styled.img`
+    width: 50%;
+    height: 400px;
+`
 const Carrousel = styled(Slider)`
 .slick-prev:before, .slick-next:before{
         color: black;
@@ -34,10 +59,37 @@ const TownDetails = () => {
 
     const settings = {
         dots: true,
-        infinite: true,
+        infinite: false,
         speed: 500,
-        slidesToShow: 1,
+        slidesToShow: 4,
         slidesToScroll: 1,
+        initialSlide: 0,
+        responsive: [
+          {
+            breakpoint: 1024,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 2,
+              infinite: true,
+              dots: true,
+            },
+          },
+          {
+            breakpoint: 600,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 2,
+              initialSlide: 2,
+            },
+          },
+          {
+            breakpoint: 480,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1,
+            },
+          },
+        ],
       };
 
     useEffect(() => {
@@ -55,21 +107,31 @@ const TownDetails = () => {
                         <Description>{description}</Description>
                     </Data>
                     <Photos>
-                <Carrousel {...settings} style={{ width: 650}}>
+                <Carrousel style={{ width: 650}}>
                     {images && images.map((e,i) => {
                     return <div key={i}>
-                            <img src={e} style={{ width: "100%" }} alt="carousel"/>
+                            <Pics src={e} style={{ width: "100%" }} alt="carousel"/>
                         </div> 
                 })}
                 </Carrousel>
                     </Photos>
                 </TownContainer>
                 <ActiviTitle>Actividades en {name}</ActiviTitle>
-        <Activities>
+                <Activities>
             {activities && activities.map(e => {
-                return <ActivityCard image={e.images} title={e.name} key={e.id} likes={e.likes}/>
+                return <ActivityCard key={e.id}>
+                    <p>{e.name}</p>
+                    <img src={e.images} />
+                    {/* <div className="body">
+                    <p>{e.likes}</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" color="red" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                    </svg>
+                    </div> */}
+                    <Link className="link" exact to={`/sub-categories/activity/${e.id}`}>ver mas</Link>
+                </ActivityCard>
             })}
-        </Activities>
+            </Activities>
         </DetailContain>
         )
     }

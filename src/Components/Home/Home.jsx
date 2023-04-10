@@ -6,13 +6,26 @@ import Towns from "../Towns/Towns";
 import CategoriesHome from "../Categories/Categories";
 import styled from "styled-components"
 import About from "../About/About";
+import { Button } from "reactstrap";
+import {Link} from "react-router-dom"
 
 const Title = styled.h1`
     color:black;
     transition: 0.3s;
     margin: 20px;
 ` 
+const Component = styled.div`
+    display: block;
+    padding: 20px 0;
+`
+const ShowMore = styled(Button)`
+    background-color: black;
 
+    .link{
+        text-decoration: none;
+        color: #ffff;
+    }
+`
 
 
 export default function Home(){
@@ -27,16 +40,25 @@ export default function Home(){
             <Title>DESTACADOS</Title>
             <CategoriesHome/>
             <br/>
-            {/* <Title><StyleLink to='/tours' text-decoration="none">TOURS</StyleLink></Title> */}
-            <Title id="tours">TOURS</Title>
+            <Component  id="tours">
+            <Title>TOURS</Title>
             <Tours/>
+            <ShowMore><Link className="link" exact to={`/tours`}>VER MAS RECORRIDOS</Link></ShowMore>
+            </Component>
+            
             <br/>
-            <Title id="towns">PUEBLOS DE SALTA</Title>
+
+            <Component id="towns">
+            <Title>PUEBLOS DE SALTA</Title>
             <Towns/>
+            <ShowMore><Link className="link" exact to={`/tours`}>VER TODOS LOS PUEBLOS</Link></ShowMore>
+            </Component>
+            
             <br/>
-            <Title id="about">SOBRE NOSOTROS</Title>
+            <Component id="about">
+            <Title>SOBRE NOSOTROS</Title>
             <About/>
-            {/* <Carousel/> */}
+            </Component>
 
         </HomeContainer>
         

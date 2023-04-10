@@ -12,32 +12,7 @@ const Tours = () => {
   const dispatch = useDispatch()
   const {allTours} = useSelector(s => s)
   let someTours;
-  if(allTours) someTours = allTours.slice(0,12)
-
-
-  const SamplePrevArrow  = (props) => {
-    const {className, style, onClick} = props;
-    return (
-      <div
-        className={className}
-        style={{ ...style}}
-        onClick={onClick}
-      />
-    );
-  }
-
-  const SampleNextArrow = (props) => {
-    const {className, style, onClick} = props;
-    return (
-      <div
-        className={className}
-        style={{ ...style}}
-        onClick={onClick}
-      />
-    );
-
-  }
-
+  if(allTours) someTours = allTours.slice(0,7)
 
   const settings = {
     dots: true,
@@ -46,8 +21,6 @@ const Tours = () => {
     slidesToShow: 4,
     slidesToScroll: 1,
     initialSlide: 0,
-    prevArrow: <SamplePrevArrow/>,
-    nextArrow: <SampleNextArrow/>,
     responsive: [
       {
         breakpoint: 1024,

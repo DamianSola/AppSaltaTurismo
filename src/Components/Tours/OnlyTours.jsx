@@ -12,6 +12,7 @@ export const OnlyActivities = styled.div`
   display: flex; 
   justify-content: left;
   flex-wrap: wrap;
+  margin: 2%;
 `
 
 
@@ -19,9 +20,6 @@ const OnlyTours = () => {
 
     const dispatch = useDispatch()
     const {allTours} = useSelector(s => s)
-    // console.log(allTours)
-    // let tours = allTours.rows
-
 
     useEffect(() => {
         dispatch(getAllTours())
@@ -29,11 +27,11 @@ const OnlyTours = () => {
 
     return(
         <Container>
-            <h1>Todos los tours</h1>
+            <h1>Todos los recorridos</h1>
             <OnlyActivities>
                 {allTours && allTours.map((e,i) => {
                     return <TourCard 
-                    title={e.name} key={i} id={e.id} image={e.image}/>
+                    title={e.name} key={i} id={e.id} image={e.image} description={e.description}/>
                 })}
             </OnlyActivities>
         </Container>

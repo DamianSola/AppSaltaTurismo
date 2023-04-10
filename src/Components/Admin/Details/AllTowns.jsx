@@ -1,18 +1,19 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { getAllTowns } from "../../../Redux/Actions/Index";
 import styled from "styled-components";
 import { SearchTown } from "../../Searchers/Search";
+import { Button } from "reactstrap";
+import AddTown from "../Forms/Create/AddTown";
+
 
 const Container = styled.div`
     display: flex;
+    /* flex-direction: column; */
     flex-wrap: wrap;
     margin: 0 1%;
-    /* width: 95%; */
-    /* justify-content: center; */
-    /* align-items: center; */
-
+    
     .allTowns{
         display: flex;
         flex-wrap: wrap;
@@ -58,7 +59,8 @@ const Container = styled.div`
         border-radius: 5px;
         background-color: #ffff;
         color: black;
-        margin: 0 10px;
+        margin: 10px;
+        /* width: 150px; */
     }
 `
 
@@ -67,7 +69,11 @@ const AllTowns = () => {
 
     let dispatch = useDispatch()
     let {allTowns} = useSelector(s => s)
+    const [open, setOpen] = useState(false)
 
+    const Close = () => {
+        setOpen(false)
+    }
 
     useEffect(() => {
         dispatch(getAllTowns())
@@ -76,7 +82,8 @@ const AllTowns = () => {
     return(
         <Container>
                 <SearchTown/>
-                <button className="addTown">agregar pueblo</button>
+                <Button onClick={() => setOpen(true)}>agregar pueblo</Button>
+                <AddTown close={Close} open={open}/>
             <div className="allTowns">
             {allTowns && allTowns.map((e,i) => {
                 return <div className="card" key={i}>

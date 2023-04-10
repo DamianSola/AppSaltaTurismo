@@ -5,8 +5,13 @@ import { getActivityByName, getTownByName } from "../../Redux/Actions/Index";
 import { Button, Input } from "reactstrap";
 
 
+const InputForm = styled(Input)`
+    /* width: 30%; */
+    border: none ;
+`
 
 const ContainerSearch = styled.div`
+    display: flex;
     
     input{
         border: solid 0.5px;
@@ -64,8 +69,10 @@ export const SearchTown = () => {
 
     return(
         <ContainerSearch>
-        <Input type="search" placeholder="buscar pueblo..." value={input}  onChange={handleOnChange}/>
-        <Input type="submit" onClick={handleOnClick} value="buscar"/>
+        <InputForm type="search" placeholder="buscar pueblo..." value={input}  onChange={handleOnChange}/>
+        <Button type="submit" onClick={handleOnClick}>buscar</Button>
+
+        {/* <Input type="submit" onClick={handleOnClick} value="buscar"/> */}
         </ContainerSearch>
     )
 }
