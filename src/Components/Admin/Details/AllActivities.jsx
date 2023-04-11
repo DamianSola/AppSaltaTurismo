@@ -7,7 +7,8 @@ import { getAllActivities } from "../../../Redux/Actions/Index";
 import ActivityFormPost from "../Forms/Create/ActivityForm";
 import PutActivity from "../Forms/UpDates/putActivity";
 import {SearchActivity} from "../../Searchers/Search";
-import { Button } from "reactstrap";
+import { Button, Modal } from "reactstrap";
+import ActivityDelete from "../Forms/Delete/ActivityDelete";
 // import { AllServiceType, getAllActivities, getAllCategories, getAllService, getAllSubCategories, getAllTours, getAllTowns } from "../../../Redux/Actions/Index"
 
 
@@ -98,6 +99,8 @@ const AllActivities = () => {
 
     const [addActivity, setAddActivity] = useState(false)
     const [putActivity, setPutActivity] = useState(false)
+    const [warning, setWarning] = useState({open:false, id:""})
+
 
     let {allActivities} = useSelector(s => s)
     let dispatch = useDispatch()    
@@ -111,6 +114,7 @@ const AllActivities = () => {
         setPutActivity(false)
     }
 
+   
     const destroyActivity = (id) => {
         dispatch(deleteActivity(id)).then(res => alert(res))
         dispatch(getAllActivities())
@@ -130,6 +134,7 @@ const AllActivities = () => {
             </Controls>
             <ActivityFormPost close={closeModal} open={addActivity}/>
             <PutActivity close={closeModal} open={putActivity}/>
+            {/* <ActivityDelete close={setWarning({...warning, open: false})} open={warning} destroy={destroyActivity}/> */}
             <ContainElements>
                 {allActivities && allActivities.map(e => {
                     return <Elements key={e.id}>
@@ -156,3 +161,5 @@ const AllActivities = () => {
 }
 
 export default AllActivities;
+
+

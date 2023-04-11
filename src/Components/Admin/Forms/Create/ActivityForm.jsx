@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { postActivity } from "../../../../Redux/Actions/Admin";
 import { getAllSubCategories, getAllTowns } from "../../../../Redux/Actions/Index";
 import { CloseBut, ContainerForm, Forms,ModalContainer,Input, InputDescription, TitleForm } from "../Styled";
+import ImageUploader from "../ImageUL/ImageUploader";
 
 
 const ActivityFormPost = ({close, open}) => {
@@ -48,12 +49,14 @@ const ActivityFormPost = ({close, open}) => {
 
     const handleOnSubmit = (e) => {
         e.preventDefault()
-        if(error === {}){
-            alert("por favor completa el formulario correctamente")
-        }else{
-            close()
-            dispatch(postActivity(input))
-        }
+        dispatch(postActivity(input))
+
+        // if(Object.values(error).length === 0){
+        //     close()
+        //     dispatch(postActivity(input))
+        // }else{
+        //     alert("por favor completa los campos correctamente")
+        // }
     }
 
     const handleSelector = (e) => {
@@ -98,8 +101,6 @@ const ActivityFormPost = ({close, open}) => {
             {error.name && <p className="errorText">{error.name}</p> }
             <Input type="text" placeholder="nombre de la actividad..." name="name" 
             onChange={(e) => handleOnChange(e)} value={input.name}/>
-            <br/>
-            <br/>
             {error.town && <p className="errorText">{error.town}</p> }
             <label className="label">Pueblo</label>
             <select name="town" onChange={(e) => handleSelector(e)} value={input.town}>
@@ -107,8 +108,6 @@ const ActivityFormPost = ({close, open}) => {
                     return <option key={e.id} value={e.id}>{e.name}</option>
                 })}
             </select>
-            <br/>
-            <br/>
             {error.subcategory && <p className="errorText">{error.subcategory}</p> }
             <label className="label">Sub categoria</label>
             <select name="subcategory" onChange={(e) => handleSelector(e)} value={input.subcategory}>
@@ -118,18 +117,19 @@ const ActivityFormPost = ({close, open}) => {
             </select>
             <br/>
             <br/>
-            {error.images && <p className="errorText">{error.images}</p>}
-            <label>imagenes</label>
+            {/* <label>imagenes</label>
             <Input type="file" name="images" id="images" onChange={(e) => handleOnImages(e)} 
-            value={[input.images]} accept="image/png, image/jpg" multiple/>
+        value={[input.images]} accept="image/png, image/jpg" multiple/> */}
             </div> 
+            {error.images && <p className="errorText">{error.images}</p>}
+            <ImageUploader json={input} setJson={setInput}/>
             <div className="second">
             {error.description && <p className="errorText">{error.description}</p> }
             <InputDescription placeholder="descripcion..." name="description" onChange={(e) => handleOnChange(e)} value={input.description}/>
             
+            </div>
+            </div>
             <input type="submit" value="agregar actividad" onClick={(e) => handleOnSubmit(e)}/>
-            </div>
-            </div>
         </Forms>
         </ContainerForm>
         </ModalContainer>

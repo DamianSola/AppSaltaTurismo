@@ -5,9 +5,7 @@ import { CloseButton } from "reactstrap";
 
 export const ModalContainer = styled(Modal)`
     display: block;
-    /* background-color: #87CEFA; */
     width: 80%;
-    min-height: 50%;
     transform: translate(10%, 2%);
     padding: 20px;
     border: solid 1px black;
@@ -23,18 +21,17 @@ margin: auto;
 justify-content: center;
 `
 export const Forms = styled.div`
-    display: block;
-
+    display: grid;
 
     .images{
         display: flex;
-        /* display: grid; grid-template-columns: 200px 200px 200px; */
         justify-content: space-between;
         font-size: 15px;
     }
 
     .content{
         display: flex;
+        height: 100%;
 
     }
     .label{
@@ -42,9 +39,11 @@ export const Forms = styled.div`
     }
 
     .first{
-        display: block;
+        display: flex;
+        flex-direction:column;
         margin:20px
     }
+
     .second{
         width: 90%;
         margin:20px
@@ -78,10 +77,9 @@ margin-left: 95%;
 export const Input = styled.input`
 padding: 5px;
 margin: 10px 0;
-width: ${prop => prop.name === "name" && "80%" };
+width: ${prop => prop.name === "name" && "250px" };
 text-align: left;
 border: solid 0.5px;
-/* border-bottom: solid 0.5px; */
 `
 
 export const InputDescription = styled.textarea`

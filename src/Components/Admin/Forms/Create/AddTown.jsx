@@ -3,6 +3,8 @@ import { useDispatch } from "react-redux";
 import { Modal, CloseButton, Form, Input, Label } from "reactstrap";
 import styled from "styled-components";
 import { postTown } from "../../../../Redux/Actions/Admin";
+import ImageUploader from "./../ImageUL/ImageUploader"
+
 
 
 const ContainerForm = styled.div`
@@ -14,50 +16,59 @@ const Close = styled(CloseButton)`
     left: 95%;
     right: 0%;
 `
+const Error = styled.p`
+    color: #f74848;
+    font-size: 12px;
+`
 
 
 const AddTown = ({open, close}) => {
     const [input, setInput] = useState({
-        name:"", town:"", subcategory:"", images:[], description:""
+        name:"", location:"", images:[], description:""
     })
+    const [error, setError] = useState({})
+    
 
-const [images, setImages] = useState([])
+    // const [images, setImages] = useState([])
 
     const dispatch = useDispatch()
 
-    const handleOnChange = (e) =>{
+    const validation = (input) => {
+        let {name, images, description, location} = input ;
+        let error = {};
+        
+        if(name.length < 3) error.name = "debe poner un nombre (minimo tres caracteres)";
+        if(images === undefined) error.images = "agrega almenos una imagen";
+        if(location.length < 5) error.location = "debe poner la localidad del pueblo";
+        if(description.length < 100) error.description = "debe poner una descripcion de al menos 100 caracteres";
+
+        return error;
+
+    }
+
+    const handleOnInput = (e) =>{
         let {name, value} = e.target;
         setInput({
             ...input,
             [name]: value
         })
-        // setError(validation({
-        //     ...input,
-        //     [name]:value
-        // }))
+        setError(validation({
+            ...input,
+            [name]:value
+        }))
     }
 
     const handleOnSubmit = (e) => {
         e.preventDefault()
-        // if(error === {}){
-        //     // alert("hola")
-        // }else{
-        //     close()
-        //     dispatch(postTown(input))
-        // }
+        // console.log(error)
+        if(Object.values(error).length === 0){
+            close()
+            dispatch(postTown(input))
+            .then(res => alert(res))
+        }else{
+           alert("por favor, completa el campo correctamente")
+        }
     }
-
-    const handleOnImages = (e) => {
-        const {name, value} = e.target;
-        // setImages([...images, value])
-
-        setInput({
-            ...input,
-            [name]: [value]
-        })
-    }
-    
-    // console.log(input)
 
     useEffect(() => {}, [input])
 
@@ -66,37 +77,42 @@ const [images, setImages] = useState([])
             <Close onClick={close} />
             <ContainerForm>
             <h3>Agregar pueblo</h3>
-            <Form>
+            <Form onSubmit={handleOnSubmit}>
                 <Label>Nombre</Label>
+                {error.name && <Error className="errorText">{error.name}</Error> }
                 <Input
                 name="name"
                 type="text"
                 value={input.name}
-                onChange={handleOnChange}
+                onInput={handleOnInput}
                 />
                 <Label>Lugar</Label>
+                {error.location && <Error className="errorText">{error.location}</Error> }
                 <Input
                 name="location"
                 type="text"
                 value={input.location}
-                onChange={handleOnChange}
+                onInput={handleOnInput}
                 />
-                <Label>Imagenes</Label>
-                <Input
+                {/* <Label>Imagenes</Label> */}
+                {/* <Input
                 name="images"
                 type="file"
                 accept="image/*"
                 multiple="true"
                 value={[input.images]}
-                onChange={handleOnImages}
-                />
+                onInput={(e) => handleOnImages(e.target.files)}
+                /> */}
+                <ImageUploader json={input} setJson={setInput} />
+
                 {/* {images && <img src={images} width="50px" alt="foto"/>} */}
                 <Label>Descripcion</Label>
+                {error.description && <Error>{error.description}</Error>}
                 <Input 
                 name="description"
                 type="textarea"
                 value={input.description}
-                onChange={handleOnChange}
+                onInput={handleOnInput}
                 />
                 <br/>
                 <Input

@@ -58,6 +58,9 @@ export const postSubCategory = (data) => {
 export const postTown = (data) => {
     return () => {
         axios.post(`${url}/towns`,data)
+        .then(res => {
+            return res.data
+        }) 
     }
 }
 
