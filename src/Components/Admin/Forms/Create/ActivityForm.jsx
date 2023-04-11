@@ -51,12 +51,12 @@ const ActivityFormPost = ({close, open}) => {
         e.preventDefault()
         dispatch(postActivity(input))
 
-        // if(Object.values(error).length === 0){
-        //     close()
-        //     dispatch(postActivity(input))
-        // }else{
-        //     alert("por favor completa los campos correctamente")
-        // }
+        if(Object.values(error).length === 0){
+            close()
+            dispatch(postActivity(input))
+        }else{
+            alert("por favor completa los campos correctamente")
+        }
     }
 
     const handleSelector = (e) => {
@@ -67,15 +67,6 @@ const ActivityFormPost = ({close, open}) => {
             [name]: value
         })
         
-    }
-
-    const handleOnImages = (e) => {
-        const {name, value} = e.target;
-        // console.log(value)
-        setInput({
-            ...input,
-            [name]: [value]
-        })
     }
 
 
@@ -101,15 +92,15 @@ const ActivityFormPost = ({close, open}) => {
             {error.name && <p className="errorText">{error.name}</p> }
             <Input type="text" placeholder="nombre de la actividad..." name="name" 
             onChange={(e) => handleOnChange(e)} value={input.name}/>
-            {error.town && <p className="errorText">{error.town}</p> }
             <label className="label">Pueblo</label>
+            {error.town && <p className="errorText">{error.town}</p> }
             <select name="town" onChange={(e) => handleSelector(e)} value={input.town}>
                 {allTowns && allTowns.map(e => {
                     return <option key={e.id} value={e.id}>{e.name}</option>
                 })}
             </select>
-            {error.subcategory && <p className="errorText">{error.subcategory}</p> }
             <label className="label">Sub categoria</label>
+            {error.subcategory && <p className="errorText">{error.subcategory}</p> }
             <select name="subcategory" onChange={(e) => handleSelector(e)} value={input.subcategory}>
                 {allSubCategories && allSubCategories.rows.map(e => {
                     return <option key={e.id} value={e.id}>{e.name}</option>

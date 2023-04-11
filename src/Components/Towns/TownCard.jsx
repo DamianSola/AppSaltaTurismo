@@ -49,14 +49,13 @@ color:black;
 
 const TownCard = ({name, image, id, description}) => {
 
-
     return(
         <Card>
             <StyleLink to= {`/town/${id}`}>
             <Photo src={image.length === 1 ? image : image[0]}/>
             <Name>
                 <p className="name">{name}</p>
-                <p className="description">{description.slice(0.50)} ...mas</p>
+                <p className="description">{description.slice(0,100)} ...mas</p>
             </Name>
             </StyleLink>
         </Card>

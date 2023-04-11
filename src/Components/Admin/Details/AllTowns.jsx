@@ -10,9 +10,14 @@ import AddTown from "../Forms/Create/AddTown";
 
 const Container = styled.div`
     display: flex;
-    /* flex-direction: column; */
+    flex-direction: column;
     flex-wrap: wrap;
     margin: 0 1%;
+
+
+    .constrols{
+        display: flex;
+    }
     
     .allTowns{
         display: flex;
@@ -81,9 +86,11 @@ const AllTowns = () => {
 
     return(
         <Container>
+            <div className="constrols">
                 <SearchTown/>
                 <Button onClick={() => setOpen(true)}>agregar pueblo</Button>
                 <AddTown close={Close} open={open}/>
+            </div>
             <div className="allTowns">
             {allTowns && allTowns.map((e,i) => {
                 return <div className="card" key={i}>

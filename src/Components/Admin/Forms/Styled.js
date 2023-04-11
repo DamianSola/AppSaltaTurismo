@@ -70,7 +70,6 @@ margin-left: 95%;
 
 &&:hover{
     color: red;
-    /* background-color: red; */
 }
 `
 

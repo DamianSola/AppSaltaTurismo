@@ -60,11 +60,10 @@ const AddTown = ({open, close}) => {
 
     const handleOnSubmit = (e) => {
         e.preventDefault()
-        // console.log(error)
         if(Object.values(error).length === 0){
             close()
             dispatch(postTown(input))
-            .then(res => alert(res))
+            // .then(res => alert(res))
         }else{
            alert("por favor, completa el campo correctamente")
         }
@@ -94,18 +93,7 @@ const AddTown = ({open, close}) => {
                 value={input.location}
                 onInput={handleOnInput}
                 />
-                {/* <Label>Imagenes</Label> */}
-                {/* <Input
-                name="images"
-                type="file"
-                accept="image/*"
-                multiple="true"
-                value={[input.images]}
-                onInput={(e) => handleOnImages(e.target.files)}
-                /> */}
                 <ImageUploader json={input} setJson={setInput} />
-
-                {/* {images && <img src={images} width="50px" alt="foto"/>} */}
                 <Label>Descripcion</Label>
                 {error.description && <Error>{error.description}</Error>}
                 <Input 
