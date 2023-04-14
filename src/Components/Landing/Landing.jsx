@@ -83,11 +83,10 @@ export default function Landing(){
                 <a className="item" href='#towns'>Pueblos de Salta</a>
                 <a className="item" href='#tours'>Tours</a>
                 <Dropdown isOpen={dropDown} toggle={OpenAndCloseDD} >
-                    <DropdownToggle className="dropdown">
-                        Servicios</DropdownToggle>
-                    <DropdownMenu>
-                        {allServiceTypes && allServiceTypes.map(e => {
-                            return <DropdownItem key={e.id} >
+                    <DropdownToggle className="dropdown">Servicios</DropdownToggle>
+                    <DropdownMenu children="true">
+                        {allServiceTypes && allServiceTypes.map((e,i) => {
+                            return <DropdownItem key={i} >
                                 <Link className="item" exact to={`/service/${e.id}`}>{e.name}</Link>
                             </DropdownItem>
                         })}
@@ -95,8 +94,6 @@ export default function Landing(){
                    
                 </Dropdown>
                 <Link className="item">Contactos</Link>
-                <p></p>
-                
             </ul>
         </LandingContain>
     )

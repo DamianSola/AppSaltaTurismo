@@ -49,7 +49,7 @@ const ActivityFormPost = ({close, open}) => {
 
     const handleOnSubmit = (e) => {
         e.preventDefault()
-        dispatch(postActivity(input))
+        // dispatch(postActivity(input))
 
         if(Object.values(error).length === 0){
             close()

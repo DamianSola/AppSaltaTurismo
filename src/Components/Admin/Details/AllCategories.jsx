@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import { getAllCategories } from "../../../Redux/Actions/Index";
 import AddCategoryModal from "../Forms/Create/AddCategory";
+import { Button } from "reactstrap";
 
 const Container = styled.div`
     display: block;
@@ -74,40 +75,7 @@ const Name = styled.div`
     }
 
 `
-const NewCategory = styled.div`
-    display: flex;
-    width: 40%;
-    height: 90px;
-    border: solid 0.5px black;
-    border-radius: 10px;
-    margin: 10px auto;
-    padding:2px;
-    background-color: #ECF0F1 ;
-    
-    p{
-        font-size: 25px;
-        margin: auto;
-    }
 
-    button{
-        border-style: none;
-        padding: 5px;
-        width: 40px;
-        font-size: 30px;
-        border: solid 1px black;
-        border-radius: 5px;
-        margin: auto;
-        background-color: #D0D3D4;
-        transition: 0.3s;
-    }
-
-    button:hover{
-        color: white;
-        background-color: blue;
-
-    }
-
-`
 
 
 const AllCategories = () => {
@@ -115,7 +83,6 @@ const AllCategories = () => {
     const [open, SetOpen] = useState(false)
 
     const {allCategories} = useSelector(s => s)
-    console.log(allCategories)
     const dispatch = useDispatch()
 
     const openModal = () => {
@@ -132,10 +99,9 @@ const AllCategories = () => {
 
     return(
         <Container>
-            <NewCategory>
-                <p>Crear nueva actividad</p>
-                <button onClick={openModal}>+</button>
-            </NewCategory>
+            <div>
+                <Button onClick={openModal}>agregar Categoria</Button>
+            </div>
             {open && <AddCategoryModal close={closeModal}/>} 
             {allCategories && allCategories.map((e,i) => {
                 return <Category key={i}>
