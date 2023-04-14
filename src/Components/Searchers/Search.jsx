@@ -97,3 +97,17 @@ export const SearchService = () => {
         </ContainerSearch>
     )
 }
+
+export const SearchTours = () => {
+    let [input, setInput] = useState()
+
+    const handleOnClick = () => {}
+    const handleOnChange = () => {}
+
+    return(
+        <ContainerSearch>
+            <InputForm type="search" placeholder="buscar tour..." value={input}  onChange={handleOnChange}/>
+            <Button type="submit" onClick={handleOnClick}>buscar</Button>
+        </ContainerSearch>
+    )
+}
