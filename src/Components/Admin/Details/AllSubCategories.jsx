@@ -9,6 +9,7 @@ import AddSubCategory from "../Forms/Create/AddSubCategory.";
 const Container = styled.div`
     display: flex;
     flex-wrap: wrap;
+    min-height: 24rem;
     margin: auto;
     width: 95%;
 

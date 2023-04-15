@@ -4,6 +4,7 @@ import styled from 'styled-components'
 export const Container = styled.div`
 /* display: flex; */
 width: 100%;
+min-height: 24rem;
 `
 export const LinkDetail = styled(Link)`
 text-decoration: none;

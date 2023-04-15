@@ -7,7 +7,7 @@ import { getAllActivities } from "../../../Redux/Actions/Index";
 import ActivityFormPost from "../Forms/Create/ActivityForm";
 import PutActivity from "../Forms/UpDates/putActivity";
 import {SearchActivity} from "../../Searchers/Search";
-import { Button, Modal } from "reactstrap";
+import { Button, Modal, Spinner } from "reactstrap";
 import ActivityDelete from "../Forms/Delete/ActivityDelete";
 // import { AllServiceType, getAllActivities, getAllCategories, getAllService, getAllSubCategories, getAllTours, getAllTowns } from "../../../Redux/Actions/Index"
 
@@ -16,18 +16,19 @@ const Container = styled.div`
 display: flex;
 flex-direction: column;
 width: 100%;
+min-height: 24rem;
 `
 const Controls = styled.div`
     display: flex;
-    margin: auto;
-    padding: 2rem;
-    justify-content: space-around;
+    margin: 10px auto;
+    /* padding: 2rem; */
+    /* justify-content: space-around; */
 ` 
 const ContainElements = styled.div`
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-   
+    margin: 10px auto;
 
 `
 const Elements = styled.div`
@@ -102,7 +103,9 @@ const AllActivities = () => {
     const [warning, setWarning] = useState({open:false, id:""})
 
 
+
     let {allActivities} = useSelector(s => s)
+    console.log(allActivities)
     let dispatch = useDispatch()    
 
     const openModal = () => {
@@ -117,20 +120,20 @@ const AllActivities = () => {
    
     const destroyActivity = (id) => {
         dispatch(deleteActivity(id)).then(res => alert(res))
-        dispatch(getAllActivities())
+        // dispatch(getAllActivities())
     }
 
 
     useEffect(() => {
         dispatch(getAllActivities())
       
-    },[addActivity, dispatch])
+    },[dispatch, addActivity])
 
     return(
         <Container>
             <Controls>
-                <Button onClick ={openModal}>agregar +</Button>
                 <SearchActivity/>
+                <Button onClick ={openModal}>agregar</Button>
             </Controls>
             <ActivityFormPost close={closeModal} open={addActivity}/>
             <PutActivity close={closeModal} open={putActivity}/>
@@ -153,7 +156,8 @@ const AllActivities = () => {
                     </ButtonsEl>
                 </Elements>
                 })}
-                {!allActivities && <p>Sin resultados</p>}
+                {!allActivities && <Spinner/>}
+                {allActivities && allActivities.length === 0 && <p>No existe actividad</p>}
             </ContainElements>
           
         </Container>

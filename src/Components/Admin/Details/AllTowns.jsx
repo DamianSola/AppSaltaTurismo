@@ -13,7 +13,7 @@ const Container = styled.div`
     flex-direction: column;
     flex-wrap: wrap;
     margin: 0 1%;
-
+    min-height: 24rem;
 
     .constrols{
         display: flex;

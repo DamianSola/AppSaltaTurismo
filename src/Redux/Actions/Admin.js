@@ -123,8 +123,16 @@ export const deleteService = () => {
     
 }
 
-export const deleteTour = () => {
-
+export const deleteTour =  (data) => () => {
+    return (
+         axios.delete(`${url}/tours/`+data)
+        .then(res => {
+            if(res.status === 200){
+                console.log(res.data.msg)
+                return res.data.msg
+            }else return "error" + res.status;
+        })
+    )
 }
 
 export const deleteTown = () => {

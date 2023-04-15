@@ -6,6 +6,7 @@ import { SearchService } from "../../Searchers/Search";
 
 const Container = styled.div`
     display: block;
+    min-height: 24rem;
 
     .main{
         display: flex;

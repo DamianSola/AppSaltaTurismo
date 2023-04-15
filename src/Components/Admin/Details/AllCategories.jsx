@@ -7,6 +7,7 @@ import { Button } from "reactstrap";
 
 const Container = styled.div`
     display: block;
+    min-height: 24rem;
 `
 const Category = styled.div`
     display: flex;

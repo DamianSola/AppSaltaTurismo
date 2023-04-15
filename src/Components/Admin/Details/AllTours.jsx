@@ -1,10 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useEffect,useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import { getAllTours } from "../../../Redux/Actions/Index";
-import { useState } from "react";
 import { Button, Spinner, ButtonGroup } from "reactstrap";
 import { SearchTours } from "../../Searchers/Search";
+import { deleteTour } from "../../../Redux/Actions/Admin";
 
 
 const Container = styled.div`
@@ -61,9 +61,15 @@ const AllTours = () => {
 
     const dispatch = useDispatch()
 
+    const destroyTour = (id) => {
+        dispatch(deleteTour(id)).then(res => alert(res))
+        // dispatch(getAllTours())
+
+    }
+
     useEffect(() => {
         dispatch(getAllTours())
-    },[])
+    },[dispatch])
    
     return(
         <Container>
@@ -82,7 +88,7 @@ const AllTours = () => {
                             <Button outline>
                             cambios
                             </Button>
-                            <Button outline>
+                            <Button outline onClick={() => destroyTour(e.id)}>
                             borrar
                             </Button>
                             <Button outline>
