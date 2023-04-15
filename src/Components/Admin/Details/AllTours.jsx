@@ -5,6 +5,8 @@ import { getAllTours } from "../../../Redux/Actions/Index";
 import { Button, Spinner, ButtonGroup } from "reactstrap";
 import { SearchTours } from "../../Searchers/Search";
 import { deleteTour } from "../../../Redux/Actions/Admin";
+import { Link } from "react-router-dom";
+import AddTour from "../Forms/Create/AddTour";
 
 
 const Container = styled.div`
@@ -47,15 +49,22 @@ const CardTour = styled.div`
     .button_group{
         border: none;
     }
-
+    .link{
+        text-decoration: none;
+        color: grey
+    }
 `
 
 
 
 const AllTours = () => {
 
-    const [loading, setLoading] = useState(false)
-    
+    const [open, setOpen] = useState(false)
+
+    const Close = () => {
+        setOpen(false)
+    }
+
     const {allTours} = useSelector(s => s)
     console.log(allTours)
 
@@ -63,8 +72,6 @@ const AllTours = () => {
 
     const destroyTour = (id) => {
         dispatch(deleteTour(id)).then(res => alert(res))
-        // dispatch(getAllTours())
-
     }
 
     useEffect(() => {
@@ -75,9 +82,11 @@ const AllTours = () => {
         <Container>
             <div className="controls">
                 <SearchTours/>
-                <Button>agregar tour</Button>
+                <Button onClick={() => setOpen(true)}>agregar tour</Button>
             </div>
+            <AddTour open={open} close={Close}/>
             {!allTours && <div className="spinner"><Spinner/></div>}
+            {allTours && allTours.length === 0 && <div className="spinner"><p>No hay resultados</p></div>}
             <div className="allTours">
                 {allTours && allTours.map(e => {
                     return <CardTour>
@@ -92,7 +101,7 @@ const AllTours = () => {
                             borrar
                             </Button>
                             <Button outline>
-                            Right
+                           <Link className="link" exact to={`/tours/${e.id}`}>ver detalles</Link>
                             </Button>
                         </ButtonGroup>
                     </CardTour>

@@ -2,7 +2,8 @@ import React, {useEffect} from "react";
 import {useParams} from "react-router-dom";
 import {useSelector, useDispatch} from "react-redux";
 import { getOneTour } from "../../Redux/Actions/Index";
-import styled from "styled-components"
+import styled from "styled-components";
+import { Photos, Carrousel, Pics } from "../Towns/DetailStyled";
 
 const Container = styled.div`
     display: block;
@@ -70,7 +71,15 @@ const TourDetail = () => {
             <p className="namee">{name}</p>
             </div>
             <div className="body">
-            <img src={image} alt="tour"/>
+            <Photos>
+                <Carrousel style={{ width: 650}}>
+                    {image && image.map((e,i) => {
+                    return <div key={i}>
+                            <Pics src={e} style={{ width: "100%" }} alt="carousel"/>
+                        </div> 
+                })}
+                </Carrousel>
+            </Photos>
             <p className="description">{description}</p>
             </div>
                 

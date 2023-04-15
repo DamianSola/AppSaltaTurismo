@@ -1,4 +1,6 @@
 import styled from 'styled-components'
+import Slider from 'react-slick';
+
 
 export const DetailContain = styled.div`
 display: flex ;
@@ -53,4 +55,22 @@ display: flex;
 justify-content: left;
 flex-wrap: wrap;
 `
+export const Carrousel = styled(Slider)`
+.slick-prev:before, .slick-next:before{
+        color: black;
+        size: 40px;
+    }
 
+    .slick-next {
+        right: 10;
+
+    }
+     .slick-prev{
+        left: -10
+    }
+`
+
+export const Pics = styled.img`
+    width: 50%;
+    height: 400px;
+`

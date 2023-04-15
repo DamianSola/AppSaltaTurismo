@@ -34,7 +34,10 @@ export const postActivity = (data) => {
 export const postTour = (data) => {
     return () => {
         axios.post(`${url}/tours`, data)
-       }
+        .then(res => {
+            return res.data
+        }) 
+    }
 }
 
 export const postService = (data) => {

@@ -2,10 +2,9 @@ import React,{useEffect} from "react";
 import { useParams } from "react-router";
 import { DetailContain, Photos, Description,Data, 
     Text, Activities,Title,ActiviTitle, 
-    TownContainer} from "./DetailStyled";
+    TownContainer, Carrousel, Pics} from "./DetailStyled";
 import {useDispatch , useSelector} from 'react-redux';
 import { getOneTown } from "../../Redux/Actions/Index";
-import Slider from 'react-slick';
 import styled from 'styled-components';
 import { Card } from "reactstrap";
 import { Link } from "react-router-dom";
@@ -30,24 +29,8 @@ const ActivityCard = styled(Card)`
     width: 100%; 
     }
 `
-const Pics = styled.img`
-    width: 50%;
-    height: 400px;
-`
-const Carrousel = styled(Slider)`
-.slick-prev:before, .slick-next:before{
-        color: black;
-        size: 40px;
-    }
 
-    .slick-next {
-        right: 10;
 
-    }
-     .slick-prev{
-        left: -10
-    }
-`
 
 
 const TownDetails = () => {
