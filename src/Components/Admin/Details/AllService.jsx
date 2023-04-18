@@ -72,7 +72,7 @@ const AllServices = () => {
                     return <div className="card" key={i}>
                         <p className="name">{e.name}</p>
                         <p className="punct">puntuacion: {e.punctuation}</p>
-                        <img src={e.images[0]}/>
+                        <img src={e.images}/>
                         <div className="buttons">
                             <button className="button">cambios</button>
                             <button className="button">borrar</button>

@@ -5,6 +5,8 @@ import axios from "axios";
 import { Modal, CloseButton, Form, Input, Label, Spinner } from "reactstrap";
 import styled from "styled-components";
 import UpLoaderOneImage from "./../ImageUL/UpLoaderOneImage";
+import { useDispatch } from "react-redux";
+import { postCategory } from "../../../../Redux/Actions/Admin";
 
 
 
@@ -40,15 +42,16 @@ const ShowImage = styled.div`
 
 const AddCategoryModal = ({close}) => {
     const [input, setInput] = useState({name:"", image:''})
-    const [image, setImage] = useState('')
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState({})
+
+    const dispatch = useDispatch()
 
     const validate = (input) => {
         let {image, name} = input;
         let error = {};
         if(name.length < 3) error.name = "debe poner un nombre (minimo tres caracteres)";
-        if(image === undefined) error.images = "agrega una imagen";
+        if(image === '') error.image = "agrega una imagen";
         return error;
     }
 
@@ -67,37 +70,43 @@ const AddCategoryModal = ({close}) => {
     const handleImage = async (e) => { 
         e.preventDefault()
        const file = e.target.files;
-       const {name} = e.target;
+       const {name, value} = e.target;
        const formData = new FormData();
-       setLoading(true)
+       setLoading(true);
         formData.append('file', file[0]);
         formData.append('upload_preset', 'dhalbnfi');
         const res = await axios.post('https://api.cloudinary.com/v1_1/daau4qgbu/image/upload', formData);
-        // console.log(res.data.secure_url)
-        setImage(res.data.url)
         setLoading(false)
-        // console.log(image)
-        // setInput({
-        //     ...input,
-        //     [name]: res.data.secure_url
-        // })
+        setInput({
+            ...input,
+            image: res.data.url
+        })
+        setError(validate({
+            ...input,
+            image: res.data.url
+        }))
         
+    }
+
+    const removeImage = () => {
+        setInput({...input, image:""})
+        setError(validate({
+            ...input,
+            image: ""
+        }))
     }
 
     const handleOnSubmit = (e) => {
         e.preventDefault()
-           setInput({
-            ...input,
-            image: image
-        })
         if(Object.values(error).length === 0){
-            // close()
+            close()
+            dispatch(postCategory(input))
         }else{
             alert("por favor completa los campos correctamente")
         }
     }
 
-    // console.log(input)
+    console.log(error)
 
     useEffect(()=>{
 
@@ -114,15 +123,14 @@ const AddCategoryModal = ({close}) => {
                 <Label>imagen:  {error.image && <Error className="error">{error.image}</Error>}</Label>
                 <ShowImage>
                     {loading && <Spinner>Loading...</Spinner>}
-                    {image && <CloseButton className="closeButton" onClick={() => setImage('')} />}
-                    {image && <img src={image}/>}
+                    {input.image && <CloseButton className="closeButton" onClick={removeImage} />}
+                    {input.image && <img src={input.image}/>}
                     </ShowImage>
                 <Input 
                     type="file" 
-                    accept="image/png, image/jpg" 
+                    accept="image/*" 
                     name="image"
                     id='file'  
-                    value={input.image} 
                     onChange={handleImage}/>
                 <br/>
                 <Input type="submit" value='agregar' onClick={handleOnSubmit}/>
