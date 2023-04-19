@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import { getAllService } from "../../../Redux/Actions/Index";
 import { SearchService } from "../../Searchers/Search";
+import { Button } from "reactstrap";
+import { deleteWhatever } from "../../../Redux/Actions/Admin";
 
 const Container = styled.div`
     display: block;
@@ -46,7 +48,7 @@ const Container = styled.div`
 
     .button{
         border-style: none;
-        background-color: #ffff;
+        /* background-color: #ffff; */
         margin: 10px;
     }
 `
@@ -56,6 +58,10 @@ const AllServices = () => {
     const dispatch = useDispatch()
     const {allServices} = useSelector(s => s)
     // console.log(allServices)
+
+    const deleteService = (id) => {
+        dispatch(deleteWhatever(id,"services")).then(res => alert(res))
+    }
 
     useEffect(() => {
         dispatch(getAllService())
@@ -74,9 +80,9 @@ const AllServices = () => {
                         <p className="punct">puntuacion: {e.punctuation}</p>
                         <img src={e.images}/>
                         <div className="buttons">
-                            <button className="button">cambios</button>
-                            <button className="button">borrar</button>
-                            <button className="button">detalles</button>
+                            <Button className="button">cambios</Button>
+                            <Button className="button" onClick={() => deleteService(e.id)}>borrar</Button>
+                            <Button className="button">detalles</Button>
                         </div>
                     </div>
                 })}

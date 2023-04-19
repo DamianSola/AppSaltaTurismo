@@ -103,9 +103,9 @@ export const getAllService = () => {
 
 //SERVICES TYPES
 
-export const deleteServiceType = () => {
-return {type: "DELETE_TYPES"}
-}
+// export const deleteServiceType = () => {
+// return {type: "DELETE_TYPES"}
+// }
 
 
 export const AllServiceType = () => {

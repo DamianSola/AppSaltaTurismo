@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { getAllCategories } from "../../../Redux/Actions/Index";
 import AddCategoryModal from "../Forms/Create/AddCategory";
 import { Button } from "reactstrap";
+import { deleteCategory } from "../../../Redux/Actions/Admin";
 
 const Container = styled.div`
     display: block;
@@ -94,6 +95,10 @@ const AllCategories = () => {
         SetOpen(false)
     }
 
+    const DeleteCategory = (data) => {
+        dispatch(deleteCategory(data)).then(res => alert(res))
+    }
+
     useEffect(()=>{
         dispatch(getAllCategories())
     }, [])
@@ -114,7 +119,7 @@ const AllCategories = () => {
                         <p>sub categorias: {e.subCategories.length}</p>
                         <div>
                             <button className="put">cambios</button>
-                            <button className="delete">borrar</button>
+                            <button className="delete" onClick={() => DeleteCategory(e.id)}>borrar</button>
                         </div>
                     </Body>
                 </Category>

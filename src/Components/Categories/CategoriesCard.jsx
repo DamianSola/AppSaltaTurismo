@@ -16,6 +16,8 @@ border-radius: 5px;
 color: black;
 transition: 0.5s;
 text-align: center;
+background-size: cover;
+background-repeat: no-repeat;
 `
 
 const NameCategory = styled.h2`
@@ -39,7 +41,6 @@ const SeeMore = styled(Button)`
     background-color: black;
     position: relative;
     top: 72%;
-    /* bottom: 15%; */
 `
 
 const CategoriesCard = ({image, name, id}) =>{

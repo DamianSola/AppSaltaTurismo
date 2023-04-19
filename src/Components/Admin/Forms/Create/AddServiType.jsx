@@ -6,8 +6,7 @@ import { Modal, CloseButton, Form, Input, Label, Spinner } from "reactstrap";
 import styled from "styled-components";
 import UpLoaderOneImage from "./../ImageUL/UpLoaderOneImage";
 import { useDispatch } from "react-redux";
-import { postCategory } from "../../../../Redux/Actions/Admin";
-
+import { postServiType } from "../../../../Redux/Actions/Admin";
 
 
 const ContainerForm = styled.div`
@@ -23,7 +22,7 @@ const Close = styled(CloseButton)`
     right: 0%;
 `
 
-const AddCategoryModal = ({close}) => {
+const AddServiTypeModal = ({close,open}) => {
     const [input, setInput] = useState({name:"", image:''})
     const [error, setError] = useState({})
 
@@ -54,7 +53,7 @@ const AddCategoryModal = ({close}) => {
         e.preventDefault()
         if(Object.values(error).length === 0){
             close()
-            dispatch(postCategory(input))
+            dispatch(postServiType(input))
         }else{
             alert("por favor completa los campos correctamente")
         }
@@ -67,10 +66,10 @@ const AddCategoryModal = ({close}) => {
     }, [input])
 
     return(
-        <Modal isOpen={true}>
+        <Modal isOpen={open}>
             <ContainerForm>
             <Close onClick={close}/>
-            <h3>Nueva categoria</h3>
+            <h3>Nueva tipo de servicio</h3>
             <Form onSubmit={() => {}}>
                 <Label>nombre: {error.name && <Error className="error">{error.name}</Error>}</Label>
                 <Input type="text" name="name" value={input.name} onInput={e => handleInput(e)}/>
@@ -88,5 +87,4 @@ const AddCategoryModal = ({close}) => {
         </Modal>
     )
 }
-
-export default AddCategoryModal;
+export default AddServiTypeModal;

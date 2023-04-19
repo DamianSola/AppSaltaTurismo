@@ -4,10 +4,13 @@ import styled from "styled-components";
 import { AllServiceType } from "../../../Redux/Actions/Index";
 import { Button, ButtonGroup, Card } from "reactstrap";
 import { Link } from "react-router-dom";
+import { delteServiceType } from "../../../Redux/Actions/Admin";
+import AddServiTypeModal from "../Forms/Create/AddServiType";
 
 const Container = styled.div`
     min-height: 24rem;
     display: block;
+    align-items: center;
     .constrol{
         display: flex;
         margin: 10px auto;
@@ -15,8 +18,8 @@ const Container = styled.div`
     .service_types{
         display: flex;
         flex-wrap: wrap;
-        justify-content: center;
-        margin: 10px auto;
+        /* justify-content: space-around; */
+        margin: 10px;
     }
 
     @media (max-width: 750px) {
@@ -60,10 +63,14 @@ const CardServType = styled.div`
 
 const AllServicesTypes = () => {
 
-
+    const [open, setOpen] = useState(false)
     const dispatch = useDispatch()
     const {allServiceTypes} = useSelector(s => s)
     // console.log(allServiceTypes)
+
+    const DeleteServiceType = (data) => {
+        dispatch(delteServiceType(data)).then(res => alert(res))
+    }
 
     useEffect(() => {
         dispatch(AllServiceType())
@@ -72,8 +79,9 @@ const AllServicesTypes = () => {
     return(
         <Container>
             <div className="control">
-                <Button>agregar tipo de servicio</Button>
+                <Button onClick={() => setOpen(true)}>agregar tipo de servicio</Button>
             </div>
+            <AddServiTypeModal open={open} close={() => setOpen(false)}/>
             <div className="service_types">
                 {allServiceTypes && allServiceTypes.length === 0 && <p>No hay resultados de tipos de servicios</p>}
                 {allServiceTypes && allServiceTypes.map(e => {
@@ -86,7 +94,7 @@ const AllServicesTypes = () => {
                             <p>{e.services.length} servicios</p>
                         <ButtonGroup>
                             <Button outline>cambios</Button>
-                            <Button outline>borrar</Button>
+                            <Button onClick={() => DeleteServiceType(e.id)} outline>borrar</Button>
                             <Button outline><Link className="link" exact to={`/service/${e.id}`}>detalles</Link></Button>
                         </ButtonGroup>
                         </div>

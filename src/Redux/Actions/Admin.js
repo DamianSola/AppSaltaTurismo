@@ -79,7 +79,14 @@ export const AllActionDates = () => {
     }
 }
 
-
+export const postServiType = (data) => {
+    return () => {
+        axios.post(`${url}/serviceTypes`,data)
+        .then(res => {
+            return res.data
+        }) 
+    }
+}
 
 //put
 
@@ -114,8 +121,15 @@ export const deleteActivity = (data) => async () => {
        
 }
 
-export const deleteCategory = () => {
-    
+export const deleteCategory = (data) => () => {
+    return (
+        axios.delete(`${url}/categories/`+data)
+       .then(res => {
+           if(res.status === 200){
+               return  res.data.msg;
+           }else return "error" + res.status;
+       })
+   )
 }
 
 export const deleteSubCategory = () => {
@@ -126,12 +140,33 @@ export const deleteService = () => {
     
 }
 
+export const delteServiceType = (data) => () => {
+    return (
+        axios.delete(`${url}/serviceTypes/`+data)
+       .then(res => {
+           if(res.status === 200){
+               return  res.data.msg;
+           }else return "error" + res.status;
+       })
+   )
+}
+
 export const deleteTour =  (data) => () => {
     return (
          axios.delete(`${url}/tours/`+data)
         .then(res => {
             if(res.status === 200){
-                console.log(res.data.msg)
+                return res.data.msg
+            }else return "error" + res.status;
+        })
+    )
+}
+
+export const deleteWhatever =  (data, route) => () => {
+    return (
+         axios.delete(`${url}/${route}/`+data)
+        .then(res => {
+            if(res.status === 200){
                 return res.data.msg
             }else return "error" + res.status;
         })

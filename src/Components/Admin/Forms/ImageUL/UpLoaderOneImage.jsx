@@ -22,45 +22,51 @@ const ContainerUpLoad =  styled.div`
     
 `
 
-const UpLoaderOneImage = () => {
+const UpLoaderOneImage = ({input,setInput,setError,validate}) => {
 
-    const [image, setImage] = useState('')
     const [loading, setLoading] = useState(false)
-
 
     const handleImage = async (e) => { 
         e.preventDefault()
        const file = e.target.files;
-       const {name} = e.target;
        const formData = new FormData();
-       setLoading(true)
+       setLoading(true);
         formData.append('file', file[0]);
         formData.append('upload_preset', 'dhalbnfi');
         const res = await axios.post('https://api.cloudinary.com/v1_1/daau4qgbu/image/upload', formData);
-        console.log(res.data.secure_url)
-        setImage(res.data.secure_url)
         setLoading(false)
-        // console.log(image)
-        // setInput({
-        //     ...input,
-        //     [name]: image
-        // }) 
+        setInput({
+            ...input,
+            image: res.data.url
+        })
+        setError(validate({
+            ...input,
+            image: res.data.url
+        }))
+        
+    }
+
+    const removeImage = () => {
+        setInput({...input, image:""})
+        setError(validate({
+            ...input,
+            image: ""
+        }))
     }
     
     return(
         <ContainerUpLoad>
-            <Input 
+            <ShowImage>
+                    {loading && <Spinner>Loading...</Spinner>}
+                    {input.image && <CloseButton className="closeButton" onClick={removeImage} />}
+                    {input.image && <img src={input.image}/>}
+                    </ShowImage>
+                <Input 
                     type="file" 
-                    accept="image/png, image/jpg" 
+                    accept="image/*" 
                     name="image"
                     id='file'  
-                    value={image} 
                     onChange={handleImage}/>
-                    <ShowImage>
-                    {loading && <Spinner>Loading...</Spinner>}
-                    {image && <CloseButton className="closeButton" onClick={() => setImage('')} />}
-                    {image && <img src={image}/>}
-                    </ShowImage>
         </ContainerUpLoad>
     )
 }
