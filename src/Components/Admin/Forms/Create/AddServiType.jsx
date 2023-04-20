@@ -59,7 +59,7 @@ const AddServiTypeModal = ({close,open}) => {
         }
     }
 
-    console.log(error)
+    // console.log(error)
 
     useEffect(()=>{
 

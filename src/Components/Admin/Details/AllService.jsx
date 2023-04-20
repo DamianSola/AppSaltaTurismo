@@ -5,6 +5,7 @@ import { getAllService } from "../../../Redux/Actions/Index";
 import { SearchService } from "../../Searchers/Search";
 import { Button } from "reactstrap";
 import { deleteWhatever } from "../../../Redux/Actions/Admin";
+import AddService from "../Forms/Create/AddService";
 
 const Container = styled.div`
     display: block;
@@ -73,6 +74,7 @@ const AllServices = () => {
                 <button className="addTown">agregar servicio</button>
                 <SearchService/>
             </div>
+            <AddService/>
             <div className="allServices">
                 {allServices && allServices.map((e,i) => {
                     return <div className="card" key={i}>

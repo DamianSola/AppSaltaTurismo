@@ -19,7 +19,7 @@ const ShowImage = styled.div`
 `
 
 const ContainerUpLoad =  styled.div`
-    
+    margin: 15px;
 `
 
 const UpLoaderOneImage = ({input,setInput,setError,validate}) => {
