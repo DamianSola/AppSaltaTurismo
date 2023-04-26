@@ -21,7 +21,7 @@ margin: auto;
 export const ServicesTypes = styled.div`
 display: flex;
 flex-direction: column;
-width: 25%;
+width: 22%;
 margin: 0 20px;
 border-right: solid 0.5px grey;
 `

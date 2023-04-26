@@ -3,7 +3,8 @@ import { Card,CardTitle  } from "reactstrap";
 
 export const Head = styled.div`
 display:flex;
-width: 400px;
+/* width: 400px; */
+width: 100%;
 justify-content: left;
 background-size: cover;
 border-bottom: solid 0.5px grey;
@@ -15,19 +16,20 @@ display:block;
 /* width: 600px; */
 justify-content: left;
 background-size: cover;
-margin: 15px;
+margin: 10px;
 padding: 10px;
-border: solid black 1px;
-transition: 0.5s;
+/* border: solid black 1px; */
+/* transition: 0.5s; */
 
-:hover{
+/* :hover{
     box-shadow: 10px 10px 10px;
     border:none;
-}
+} */
 `
 
 export const Photo = styled.img`
-width: 12rem;
+/* width: 12rem; */
+width: 150px;
 `
 export const CardName = styled(CardTitle)`
 /* margin-top: 50%; */
@@ -51,6 +53,7 @@ margin: auto;
 
 export const Value = styled.a`
 text-decoration: none;
+color: black;
 text-align: left;
 padding: none;
 margin: 3rem;

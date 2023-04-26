@@ -6,6 +6,7 @@ import { SearchService } from "../../Searchers/Search";
 import { Button } from "reactstrap";
 import { deleteWhatever } from "../../../Redux/Actions/Admin";
 import AddService from "../Forms/Create/AddService";
+import { useState } from "react";
 
 const Container = styled.div`
     display: block;
@@ -56,6 +57,7 @@ const Container = styled.div`
 
 const AllServices = () => {
 
+    const [open, setOpen] = useState(false)
     const dispatch = useDispatch()
     const {allServices} = useSelector(s => s)
     // console.log(allServices)
@@ -71,10 +73,10 @@ const AllServices = () => {
     return (
         <Container>
             <div className="main">
-                <button className="addTown">agregar servicio</button>
+                <button className="addTown" onClick={() => setOpen(true)}>agregar servicio</button>
                 <SearchService/>
             </div>
-            <AddService/>
+            <AddService open={open} close={() => setOpen(false)}/>
             <div className="allServices">
                 {allServices && allServices.map((e,i) => {
                     return <div className="card" key={i}>

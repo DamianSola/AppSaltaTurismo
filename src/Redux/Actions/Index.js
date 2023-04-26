@@ -16,6 +16,7 @@ export const GET_ONE_TOWN = 'GET_ONE_TOWN'
 export const GET_ONE_TOUR = 'GET_ALL_TOUR'
 export const ACTIVITY_NAME = "ACTIVITY_NAME"
 export const TOWN_NAME = "TOWN_NAME"
+export const GET_TOURS_SERVICE = "GET_TOURS_SERVICE"
 
 
 const URL = 'http://localhost:3001/'
@@ -114,6 +115,19 @@ export const AllServiceType = () => {
         .then((res) => {
             dispatch({
                 type: GET_ALL_SERVICES_TYPES,
+                payload: res.data
+            })
+        })
+    }
+}
+
+// "Empresas de turismo"
+export const getTourServices = () => {
+    return (dispatch) => {
+        return axios.get(`${URL}serviceTypes?name=Empresas de turismo`)
+        .then((res) => {
+            dispatch({
+                type: GET_TOURS_SERVICE,
                 payload: res.data
             })
         })

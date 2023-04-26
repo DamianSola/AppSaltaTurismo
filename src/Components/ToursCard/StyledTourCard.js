@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export const Cardcontainer = styled.div`
 /* width: 18.5rem; */
 width: 18rem;
-/* border-radius: 5px; */
+border-radius: 2px;
 margin: 10px 5px;
 border: solid 1px;
 transition: 0.5s;
@@ -24,6 +24,7 @@ height: 300px;
 export const ImagenCard = styled.img`
 /* width: 16.5rem; */
 width: 100%;
+height: 200px;
 /* border-radius: 5px 5px 0 0; */
 
 `

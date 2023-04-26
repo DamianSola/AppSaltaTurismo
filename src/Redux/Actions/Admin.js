@@ -40,11 +40,20 @@ export const postTour = (data) => {
     }
 }
 
+// export const postService = (data) => {
+//     return () => {
+//         axios.post(`${url}/services`,data)
+//        }
+// }
 export const postService = (data) => {
     return () => {
         axios.post(`${url}/services`,data)
-       }
+        .then(res => {
+            return res.data
+        }) 
+    }
 }
+
 
 export const postCategory = (data) => {
     return () => {

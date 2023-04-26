@@ -1,9 +1,10 @@
 import React, {useState, useEffect}from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Modal, CloseButton, Form, Input, Label } from "reactstrap";
 import styled from "styled-components";
 import { postTour } from "../../../../Redux/Actions/Admin";
 import ImageUploader from "./../ImageUL/ImageUploader"
+import { getAllService, getTourServices } from "../../../../Redux/Actions/Index";
 
 
 
@@ -23,11 +24,15 @@ const Error = styled.p`
 
 const AddTour = ({open, close}) => {
     const [input, setInput] = useState({
-        name:"", images:[], description:""
+        name:"", images:[], description:"", serviceTypeId: ""
     })
     const [error, setError] = useState({})
 
     const dispatch = useDispatch()
+    const {allServices} = useSelector(s => s)
+    const tourService = allServices && allServices.filter(e => e.serviceTypeId === 15)
+    
+    // console.log(tourService)
 
     const validation = (input) => {
         let {name, images, description, location} = input ;
@@ -64,9 +69,20 @@ const AddTour = ({open, close}) => {
            alert("por favor, completa el campo correctamente")
         }
     }
-    console.log(input)
 
-    useEffect(() => {}, [input])
+    const handleSelector = (e) => {
+        let {name, value} = e.target;
+
+        setInput({
+            ...input,
+            [name]: value
+        })
+    }
+    // console.log(input)
+
+    useEffect(() => {
+        dispatch(getAllService())
+    }, [input])
 
 
     return(
@@ -92,6 +108,12 @@ const AddTour = ({open, close}) => {
                 value={input.description}
                 onInput={handleOnInput}
                 />
+                <Label>servicio</Label>
+                <select name="serviceTypeId"  onChange={(e) => handleSelector(e)} value={input.serviceTypeId}>
+                    {tourService && tourService.map(e => {
+                        return <option key={e.id} value={e.id}>{e.name}</option>
+                    })}
+                </select>
                 <br/>
                 <Input
                 type="submit"

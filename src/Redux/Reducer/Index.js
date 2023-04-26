@@ -2,7 +2,7 @@
 import { GET_ALL_ACTIVITIES, 
     GET_ALL_TOURS, GET_ALL_TOWNS, GET_ALL_SERVICES, GET_ALL_SUBCATEGORIES, GET_ALL_CATEGORIES,
     GET_ONE_ACTIVITY, GET_ONE_CATEGORY, GET_ONE_SUBCATEGORY, ELEMENT, GET_ONE_TOWN, GET_ONE_TOUR, 
-    GET_ALL_SERVICES_TYPES, GET_ONE_SERVICES_TYPES, ACTIVITY_NAME, TOWN_NAME
+    GET_ALL_SERVICES_TYPES, GET_ONE_SERVICES_TYPES, ACTIVITY_NAME, TOWN_NAME ,GET_TOURS_SERVICE 
 } from "../Actions/Index";
 
 import {ALL_DATE} from "../Actions/Admin"
@@ -121,6 +121,11 @@ export default function RootReducer(state = initialState, action){
             return{
                 ...state,
                 oneTour: action.payload
+            }
+        case GET_TOURS_SERVICE:
+            return{
+                ...state,
+                tourService: action.payload
             }
         case "CLEAR_PAGE":
             if(action.payload === "categories") return {...state, allCategories: null};

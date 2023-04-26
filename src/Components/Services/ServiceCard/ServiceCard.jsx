@@ -14,7 +14,7 @@ export default function ServiceCard({title, image, punctuation,Adress,webSite,ph
             </Head>
             <Data>
                 <Key>telefono: <Value>{phone}</Value></Key>
-                <Key>sitio web:  <Value href={webSite}>{webSite}</Value></Key>
+                <Key>sitio web:  <Value href={webSite} >{webSite}</Value></Key>
                 <Key>direccion:  <Value>{Adress}</Value></Key>
                 <Key>puntuacion:  <Value>{punctuation}</Value></Key>
             </Data>
