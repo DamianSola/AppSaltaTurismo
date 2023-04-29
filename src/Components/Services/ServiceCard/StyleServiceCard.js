@@ -13,18 +13,11 @@ border-bottom: solid 0.5px grey;
 
 export const CardService = styled(Card)`
 display:block;
-/* width: 600px; */
 justify-content: left;
 background-size: cover;
 margin: 10px;
 padding: 10px;
-/* border: solid black 1px; */
-/* transition: 0.5s; */
-
-/* :hover{
-    box-shadow: 10px 10px 10px;
-    border:none;
-} */
+width: 450px;
 `
 
 export const Photo = styled.img`
@@ -42,7 +35,7 @@ display: block;
 padding: none;
 margin: auto;
 text-align: left;
-font-size: x-large;
+font-size: 20px;
 font-family: Arial, Helvetica, sans-serif;
 `
 

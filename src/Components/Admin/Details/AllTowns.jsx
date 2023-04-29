@@ -30,7 +30,7 @@ const Container = styled.div`
     }
 
     .card{
-        width: 30%;
+        width: 390px;
         margin: 10px
     }
 

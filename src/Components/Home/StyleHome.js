@@ -4,7 +4,7 @@ import {Link} from "react-router-dom"
 
 export const HomeContainer = styled.div`
 display: block;
-margin:auto 2%;
+margin:auto ;
 
 `
 

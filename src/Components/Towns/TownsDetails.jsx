@@ -86,31 +86,26 @@ const TownDetails = () => {
                 <TownContainer>
                      <Data>
                         <Title>{name.toUpperCase()}</Title>
-                        <Text>Ubicacion: {location}</Text>
-                        <Description>{description}</Description>
-                    </Data>
-                    <Photos>
-                <Carrousel style={{ width: 650}}>
+                        <Photos>
+                <Carrousel style={{ width: 800}}>
                     {images && images.map((e,i) => {
                     return <div key={i}>
                             <Pics src={e} style={{ width: "100%" }} alt="carousel"/>
                         </div> 
                 })}
                 </Carrousel>
-                    </Photos>
+                  </Photos>
+                        <Text>Ubicacion: {location}</Text>
+                        <Description>{description}</Description>
+                    </Data>
+                   
                 </TownContainer>
                 <ActiviTitle>Actividades en {name}</ActiviTitle>
                 <Activities>
             {activities && activities.map(e => {
-                return <ActivityCard key={e.id}>
+              return <ActivityCard key={e.id}>
                     <p>{e.name}</p>
                     <img src={e.images} />
-                    {/* <div className="body">
-                    <p>{e.likes}</p>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" color="red" class="bi bi-heart-fill" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
-                    </svg>
-                    </div> */}
                     <Link className="link" exact to={`/sub-categories/activity/${e.id}`}>ver mas</Link>
                 </ActivityCard>
             })}

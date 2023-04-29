@@ -97,6 +97,15 @@ export const postServiType = (data) => {
     }
 }
 
+export const postWhatever = (data, route) => {
+    return () => {
+        axios.post(`${url}/${route}`,data)
+        .then(res => {
+            return res.data
+        }) 
+    }
+}
+
 //put
 
 export const putActivity = () => {
@@ -172,6 +181,7 @@ export const deleteTour =  (data) => () => {
 }
 
 export const deleteWhatever =  (data, route) => () => {
+    console.log(data,route)
     return (
          axios.delete(`${url}/${route}/`+data)
         .then(res => {

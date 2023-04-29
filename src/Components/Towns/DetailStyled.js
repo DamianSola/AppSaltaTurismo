@@ -17,21 +17,21 @@ export const Title = styled.h1`
     margin: auto;
 `
 export const Photos = styled.div`
-display: flex;
-justify-content: center;
 padding: 0 20px;
+margin: auto;
 `
 
 export const Image = styled.img`
 width: 100%;
 `
 export const Data = styled.div`
-display: block;
-width: 50%;
+display: flex;
+flex-direction: column;
+/* width: 50%; */
 `
 
 export const Description = styled.p`
-text-align: left;
+/* text-align: left; */
 margin: 10px;
 font-size: 15px;
 

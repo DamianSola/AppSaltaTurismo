@@ -12,6 +12,9 @@ import {Link} from "react-router-dom"
 const Title = styled.h1`
     color:black;
     transition: 0.3s;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    /* font-family: 'Courier New', Courier, monospace; */
+    /* font-style: oblique; */
     margin: 20px;
 ` 
 const Component = styled.div`
@@ -37,11 +40,11 @@ export default function Home(){
     return(
         <HomeContainer>
             <Intro/>
-            <Title>DESTACADOS</Title>
+            <Title>destacados</Title>
             <CategoriesHome/>
             <br/>
             <Component  id="tours">
-            <Title>TOURS</Title>
+            <Title>tours</Title>
             <Tours/>
             <ShowMore><Link className="link" exact to={`/tours`}>VER MAS RECORRIDOS</Link></ShowMore>
             </Component>
@@ -49,14 +52,14 @@ export default function Home(){
             <br/>
 
             <Component id="towns">
-            <Title>PUEBLOS DE SALTA</Title>
+            <Title>pueblos de Salta</Title>
             <Towns/>
             <ShowMore><Link className="link" exact to={`/tours`}>VER TODOS LOS PUEBLOS</Link></ShowMore>
             </Component>
             
             <br/>
             <Component id="about">
-            <Title>SOBRE NOSOTROS</Title>
+            <Title>sobre nosotros</Title>
             <About/>
             </Component>
 

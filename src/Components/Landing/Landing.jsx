@@ -6,44 +6,44 @@ import {AllServiceType} from "../../Redux/Actions/Index";
 import styled from "styled-components";
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Dropdown, DropdownMenu, DropdownItem, DropdownToggle } from "reactstrap";
-// import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
 
 
 const LandingContain = styled.div `
-    border-top: solid 25px #87CEFA;
-    min-height: 4rem;
+    border-top: solid 25px #7B0000;
+    height: 90px;
     padding: none;
-    /* position: static; */
     /* background-color: #87CEFA; */
     width: 100%;
     margin: auto;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    /* align-items: center; */
 
     ul{
         display: flex;
         justify-content: space-between;
-        padding: none;
-        margin: auto;
-        background-color: #ECF0F1;
+        align-items: center;
     }
 
     .home{
-        font-size: 30px;
+        /* font-size: 30px; */
         text-decoration: none;
         color: #7B0000;
+        padding: none;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     }
 
     .item {
         text-decoration: none;
-        color: #7B0000;
+        color: #1a1a1a;
         font-size: 20px;
-        padding: 6px;
+        /* padding: 6px; */
     }
 
     .service{
         text-decoration: none;
-        color: #7B0000;
+        color: #1a1a1a;
         font-size: 20px;
         padding: 6px;
     }
@@ -51,11 +51,33 @@ const LandingContain = styled.div `
     .dropdown{
         border-style: none;
         font-size: 20px;
-        color: #7B0000;
-        background-color: #ECF0F1;
-
-        
+        color: #1a1a1a;
+        background-color: #FFFF;
     }
+
+`
+const Logo = styled.div`
+    display: flex;
+    align-items: center;
+
+    .ese{
+        font-size: 45px;
+    }
+    .a{
+        font-size: 35px;
+        color: black;
+    }
+    .aa{
+        font-size: 40px;
+    }
+    .ele{
+        font-size: 50px;
+    }
+    .te{
+        font-size: 40px;
+        color: black;
+    }
+
 `
 
 export default function Landing(){
@@ -69,19 +91,28 @@ export default function Landing(){
     
     const {allServiceTypes} = useSelector(s => s)
     const dispatch = useDispatch()
-    // console.log(allServiceTypes)
+
     useEffect(()=>{
         dispatch(AllServiceType())
     },[])
-    // <NavLink to = '/servicios'>Servicios</NavLink>
 
     return(
         <LandingContain>
             <ul>
-                <Link className="home" exact to='/'>INICIO</Link>
-                <a className="item" href='#about'>Sobre nosotros</a>
-                <a className="item" href='#towns'>Pueblos de Salta</a>
+                <Link className="home" exact to='/'>
+                    <Logo>
+                        <p className="ese">S</p>
+                        <p className="a">a</p>
+                        <p className="ele">l</p>
+                        <p className="te">t</p>
+                        <p className="aa">a</p>
+                    </Logo>
+                </Link>
+                <br/>
+                <br/>
+                <Link className="item" exact to='/'>Inicio</Link>
                 <a className="item" href='#tours'>Tours</a>
+                <a className="item" href='#towns'>Pueblos de Salta</a>
                 <Dropdown isOpen={dropDown} toggle={OpenAndCloseDD} >
                     <DropdownToggle className="dropdown">Servicios</DropdownToggle>
                     <DropdownMenu children="true">
@@ -91,9 +122,10 @@ export default function Landing(){
                             </DropdownItem>
                         })}
                     </DropdownMenu>
-                   
                 </Dropdown>
-                <Link className="item">Contactos</Link>
+                <a className="item" href='#about'>Sobre nosotros</a>
+                <br/>
+                {/* <Link className="item">Contactos</Link> */}
             </ul>
         </LandingContain>
     )

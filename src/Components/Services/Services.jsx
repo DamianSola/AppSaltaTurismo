@@ -43,6 +43,7 @@ export default function Services(){
                         Adress={e.Adress}
                         webSite={e.webSite}
                         punctuation={e.punctuation}
+                        description={e.description}
                         />
                         )
                     })}
