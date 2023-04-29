@@ -7,11 +7,11 @@ display: block ;
     margin: auto;
     width: 70%;
     border: solid 0.5px grey;
-    border-radius: 10px;
+    /* border-radius: 10px; */
     background-color: #08a6d166;
 
 div{
-    padding: 20px;
+    padding: 40px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 
 }
