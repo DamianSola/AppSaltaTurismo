@@ -8,12 +8,14 @@ border-radius: 2px;
 margin: 10px 5px;
 border: solid 1px;
 transition: 0.5s;
-height: 300px;
+height: 350px;
 
 .title{
         font-size: 30px;
         margin: auto;
-        color: #7B0000;
+        /* color: #7B0000; */
+        /* background-color: black; */
+        /* position: absolute; */
     }
 
 &&:hover {
@@ -25,8 +27,8 @@ export const ImagenCard = styled.img`
 /* width: 16.5rem; */
 width: 100%;
 height: 200px;
-/* border-radius: 5px 5px 0 0; */
-
+position: relative;
+bottom: 0%;
 `
 export const Title = styled.div`
 display: block;
@@ -34,6 +36,8 @@ text-align: center;
 text-decoration: none;
 color: black;
 padding: 5px;
+font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+/* font-family: Arial, Helvetica, sans-serif; */
 
    
 

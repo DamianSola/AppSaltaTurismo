@@ -23,6 +23,7 @@ const Component = styled.div`
 `
 const ShowMore = styled(Button)`
     background-color: black;
+    margin: 20px;
 
     .link{
         text-decoration: none;
@@ -57,7 +58,6 @@ export default function Home(){
             <ShowMore><Link className="link" exact to={`/tours`}>VER TODOS LOS PUEBLOS</Link></ShowMore>
             </Component>
             
-            <br/>
             <Component id="about">
             <Title>sobre nosotros</Title>
             <About/>

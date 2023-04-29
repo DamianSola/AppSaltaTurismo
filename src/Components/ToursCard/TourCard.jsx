@@ -8,10 +8,10 @@ const TourCard = ({title, image, id, description}) => {
     return(
         <Cardcontainer>
             <StyleLink exact to={`/tours/${id}`} >
-                <p className="title"> {title}</p>
             <Title>
                 <ImagenCard src={image[0]}/>
-                {/* <p className="description">{description.slice(0,50)} ...mas</p>     */}
+                <p className="title"> {title}</p>
+                <p className="description">{description.slice(0,50)} ...mas</p>    
             </Title>
             </StyleLink>
         </Cardcontainer>
