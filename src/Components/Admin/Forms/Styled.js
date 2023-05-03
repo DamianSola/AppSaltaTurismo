@@ -11,9 +11,33 @@ export const ModalContainer = styled(Modal)`
     border: solid 1px black;
     border-radius: 10px;
     background-color: white;
+    scroll-behavior: auto;
 
 `
+export const ContItems = styled.div`
+display: flex;
+flex-wrap: wrap;
+`
+export const ItemsMini = styled.div`
+width: auto;
+display: flex;
+flex-direction: row;
+border-radius: 5px;
+align-items: center;
+margin: 5px;
+background-color:#E2E2E2;
 
+button{
+    border-style: none;
+    background-color: #E2E2E2;
+    padding: none;
+    font-size: 10px;
+    border-radius: 5px;
+}
+p{
+    font-size: 12px;
+}
+` 
 
 export const ContainerForm = styled.div`
 display: block;
@@ -46,7 +70,7 @@ export const Forms = styled.div`
 
     .second{
         width: 90%;
-        margin:20px
+        margin:0 20px
     }
 
     .errorText{

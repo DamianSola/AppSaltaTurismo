@@ -105,7 +105,7 @@ const TownDetails = () => {
             {activities && activities.map(e => {
               return <ActivityCard key={e.id}>
                     <p>{e.name}</p>
-                    <img src={e.images} />
+                    <img src={e.images[0]} />
                     <Link className="link" exact to={`/sub-categories/activity/${e.id}`}>ver mas</Link>
                 </ActivityCard>
             })}

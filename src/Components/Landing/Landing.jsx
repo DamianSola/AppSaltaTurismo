@@ -37,10 +37,15 @@ const LandingContain = styled.div `
     .item {
         text-decoration: none;
         color: #1a1a1a;
-        font-size: 20px;
+        /* font-size: 20px; */
+        font-size: larger;
+        transition: 1s;
         /* padding: 6px; */
     }
 
+    .item:hover{
+        text-decoration-line: underline;
+    }
     .service{
         text-decoration: none;
         color: #1a1a1a;

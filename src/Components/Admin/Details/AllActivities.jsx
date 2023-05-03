@@ -35,8 +35,8 @@ const Elements = styled.div`
     display: flex;
     margin: 5px ;
     border: solid 0.5px;
-    width: 40%;
-    height: 150px;
+    width: 500px;
+    /* height: 100; */
     border-radius: 10px;
     padding: 5px;
     /* background-color: #ECF0F1 ; */
@@ -105,7 +105,7 @@ const AllActivities = () => {
 
 
     let {allActivities} = useSelector(s => s)
-    console.log(allActivities)
+    // console.log(allActivities)
     let dispatch = useDispatch()    
 
     const openModal = () => {

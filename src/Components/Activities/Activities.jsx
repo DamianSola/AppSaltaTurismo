@@ -46,7 +46,7 @@ const Activities = () => {
                 {services && services.map(e => {
                     return <ServiceCard 
                     title={e.name} image={e.images} punctuation={e.punctuation} Adress={e.Adress} 
-                    webSite={e.webSite}  phone={e.phone}
+                    webSite={e.webSite}  phone={e.phone} description={e.description}
                     />
                 })}
             </div>

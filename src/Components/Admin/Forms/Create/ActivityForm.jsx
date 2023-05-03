@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { postActivity } from "../../../../Redux/Actions/Admin";
-import { getAllSubCategories, getAllTowns } from "../../../../Redux/Actions/Index";
-import { CloseBut, ContainerForm, Forms,ModalContainer,Input, InputDescription, TitleForm } from "../Styled";
+import { getAllService, getAllSubCategories, getAllTowns } from "../../../../Redux/Actions/Index";
+import { CloseBut, ContainerForm, Forms,ModalContainer,Input, InputDescription, TitleForm, ItemsMini, ContItems } from "../Styled";
 import ImageUploader from "../ImageUL/ImageUploader";
 
 
@@ -11,22 +11,24 @@ const ActivityFormPost = ({close, open}) => {
     // const [open, setOpen] = useS
     
     const [input, setInput] = useState({
-        name:"", town:"", subcategory:"", images:[], description:""
+        name:"", townId:"", subCategoryId:"", images:[], description:"", services:[]
     })
 
     const [error, setError] = useState({})
+    const [inputServices, setInputService] = useState([]);
 
-    const {allTowns ,allSubCategories} = useSelector(s => s)
+
+    const {allTowns ,allSubCategories, allServices} = useSelector(s => s)
 
     const dispatch = useDispatch()
 
     const validation = (input) => {
-        let {name, town, subcategory, images, description} = input ;
+        let {name, townId, subCategoryId, images, description} = input ;
         let error = {};
 
         if(name.length < 3) error.name = "debe poner un nombre (minimo tres caracteres)";
-        if(town.length === 0) error.town = "debe elegir un pueblo";
-        if(subcategory.length === 0) error.subcategory = "debe elegir una sub categoria";
+        if(townId.length === 0) error.townId = "debe elegir un pueblo";
+        if(subCategoryId.length === 0) error.subCategoryId = "debe elegir una sub categoria";
         if(images === undefined) error.images = "agrega almenos una imagen";
         if(description.length < 100) error.description = "debe poner una descripcion de al menos 100 caracteres";
 
@@ -69,10 +71,34 @@ const ActivityFormPost = ({close, open}) => {
         
     }
 
+    const handleSelectorService = e =>{
+        let {name, value} = e.target;
+        setInput({
+            ...input,
+            [name]: [...input.services, value]
+        })
+        let newService = allServices.find(e => e.id === value)
+       setInputService([...inputServices, newService])
+    }
+
+    const deleteService = id => {
+        // console.log("----", input.services, "-----")
+        let filt = input.services.filter(e => e !== id)
+        let show = inputServices.filter(e => e.id !== id)
+        setInput({
+            ...input,
+            services : filt
+        })
+        setInputService(show)
+    }
+
+    // console.log(input.services)
+
 
     useEffect(()=>{
         dispatch(getAllSubCategories())
         dispatch(getAllTowns())
+        dispatch(getAllService())
         
     },[dispatch])
 
@@ -93,31 +119,44 @@ const ActivityFormPost = ({close, open}) => {
             <Input type="text" placeholder="nombre de la actividad..." name="name" 
             onChange={(e) => handleOnChange(e)} value={input.name}/>
             <label className="label">Pueblo</label>
-            {error.town && <p className="errorText">{error.town}</p> }
-            <select name="town" onChange={(e) => handleSelector(e)} value={input.town}>
+            {error.townId && <p className="errorText">{error.townId}</p> }
+            <select name="townId" onChange={(e) => handleSelector(e)} value={input.townId}>
+            <option>-------</option>
                 {allTowns && allTowns.map(e => {
                     return <option key={e.id} value={e.id}>{e.name}</option>
                 })}
             </select>
             <label className="label">Sub categoria</label>
-            {error.subcategory && <p className="errorText">{error.subcategory}</p> }
-            <select name="subcategory" onChange={(e) => handleSelector(e)} value={input.subcategory}>
+            {error.subCategoryId && <p className="errorText">{error.subCategoryId}</p> }
+            <select name="subCategoryId" onChange={(e) => handleSelector(e)} value={input.subCategoryId}>
+                <option>-------</option>
                 {allSubCategories && allSubCategories.rows.map(e => {
                     return <option key={e.id} value={e.id}>{e.name}</option>
                 })}
             </select>
+            <label className="label">Servicio</label>
+            <select name="services" onChange={(e) => handleSelectorService(e)} value={input.services}>
+                <option>-------</option>
+                {allServices && allServices.map(e => {
+                    return <option key={e.id} value={e.id}>{e.name}</option>
+                })}
+            </select>
+            <ContItems>
+            {inputServices.length > 0 && inputServices.map(e => {
+                return <ItemsMini><p>{e.name}</p><button onClick={() => deleteService(e.id)}>x</button></ItemsMini>
+            })}
+            </ContItems>
             <br/>
             <br/>
             {/* <label>imagenes</label>
             <Input type="file" name="images" id="images" onChange={(e) => handleOnImages(e)} 
         value={[input.images]} accept="image/png, image/jpg" multiple/> */}
             </div> 
+            <div className="second">
             {error.images && <p className="errorText">{error.images}</p>}
             <ImageUploader json={input} setJson={setInput}/>
-            <div className="second">
             {error.description && <p className="errorText">{error.description}</p> }
             <InputDescription placeholder="descripcion..." name="description" onChange={(e) => handleOnChange(e)} value={input.description}/>
-            
             </div>
             </div>
             <input type="submit" value="agregar actividad" onClick={(e) => handleOnSubmit(e)}/>

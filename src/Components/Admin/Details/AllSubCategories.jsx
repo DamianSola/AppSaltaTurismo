@@ -25,6 +25,9 @@ const Category = styled.div`
     width: 100%;
     /* min-height: 400px; */
     /* background-color: #ECF0F1 ; */
+    .subcategories{
+        display: flex;
+    }
     img{
         width: 100%;
     }
@@ -100,6 +103,7 @@ const AllSubCategories = () => {
                 {allCategories && allCategories.map((e,i) => {
                     return <Category key={i}>
                         <NameCategory>{e.name}</NameCategory>
+                        <div className="subcategories">
                         {e.subCategories && e.subCategories.map((s,i) => {
                             return <div className="card">
                                 <img src={s.image}/>
@@ -112,6 +116,7 @@ const AllSubCategories = () => {
                                 </ButtonGroup>
                                 </div>
                         })}
+                        </div>
                     </Category>
                   
                 })}
