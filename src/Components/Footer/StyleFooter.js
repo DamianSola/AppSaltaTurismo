@@ -8,7 +8,7 @@ width: 100%;
 /* height: 100%; */
 border-top: solid 0.5px grey;
 background-color: #930000;
-color: white;
+color: #E2E2E2;
 /* background-color: #ECF0F1 ; */
 `
 
@@ -20,5 +20,6 @@ font-size: 15px;
 
 p{
     padding: none;
+    margin: 0;
 }
 `

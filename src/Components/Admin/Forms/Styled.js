@@ -25,14 +25,15 @@ flex-direction: row;
 border-radius: 5px;
 align-items: center;
 margin: 5px;
+padding: 5px;
 background-color:#E2E2E2;
 
 button{
     border-style: none;
     background-color: #E2E2E2;
-    padding: none;
-    font-size: 10px;
     border-radius: 5px;
+    font-size: 10px;
+    padding: none;
 }
 p{
     font-size: 12px;

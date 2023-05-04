@@ -73,12 +73,14 @@ const ActivityFormPost = ({close, open}) => {
 
     const handleSelectorService = e =>{
         let {name, value} = e.target;
-        setInput({
-            ...input,
-            [name]: [...input.services, value]
-        })
-        let newService = allServices.find(e => e.id === value)
-       setInputService([...inputServices, newService])
+        if(!input.services.includes(value)){
+            setInput({
+                ...input,
+                [name]: [...input.services, value]
+            })
+            let newService = allServices.find(e => e.id === value)
+            setInputService([...inputServices, newService])
+        }
     }
 
     const deleteService = id => {
@@ -92,7 +94,7 @@ const ActivityFormPost = ({close, open}) => {
         setInputService(show)
     }
 
-    // console.log(input.services)
+    console.log(input.services)
 
 
     useEffect(()=>{

@@ -1,67 +1,134 @@
-import React from "react";
-import { Modal } from "reactstrap";
-import styled from "styled-components";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { postActivity } from "../../../../Redux/Actions/Admin";
+import { getAllService, getAllSubCategories, getAllTowns, getOneActivity } from "../../../../Redux/Actions/Index";
+import { CloseBut, ContainerForm, Forms,ModalContainer,Input, InputDescription, TitleForm, ItemsMini, ContItems } from "../Styled";
+import ImageUploader from "../ImageUL/ImageUploader";
 
-const Container = styled.div`
-    display:block;
-    padding: 5px;
 
-    .close{
-        font-size: 30px;
-        position: relative;
-        margin: auto;
-        right: 0%;
-        left: 95%;
-        border-style: none;
-        background-color: #ffff;
-        color: black;
+const putFormActivity = ({close, open, activityId}) => {
+
+    const {allTowns ,allSubCategories, allServices, oneActivity} = useSelector(s => s)
+    
+    const [input, setInput] = useState({
+        name:"", townId:"", subCategoryId:"", images:[], description:"", services:[]
+    })
+
+    const [inputServices, setInputService] = useState([]);
+
+    const dispatch = useDispatch()
+
+    const handleOnChange = (e) =>{
+        let {name, value} = e.target;
+        setInput({
+            ...input,
+            [name]: value
+        })
     }
 
-    .body{
-        display: block;
-        width: 100%;
-        padding: 10px;
+    const handleOnSubmit = (e) => {
+        e.preventDefault()
+        close()
+        dispatch(postActivity(input))
     }
 
-    form{
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-    }
-    input{
-        width: 90%;
-    }
+    const handleSelector = (e) => {
+        let {name, value} = e.target;
 
-    textarea{
-        width: 90%;
+        setInput({
+            ...input,
+            [name]: value
+        })
+        
     }
 
-    .inputSubmit{
-        width: 30%;
-
+    const handleSelectorService = e =>{
+        let {name, value} = e.target;
+        if(!input.services.includes(value)){
+            setInput({
+                ...input,
+                [name]: [...input.services, value]
+            })
+            let newService = allServices.find(e => e.id === value)
+            setInputService([...inputServices, newService])
+        }
     }
-`
+
+    const deleteService = id => {
+        let filt = input.services.filter(e => e !== id)
+        let show = inputServices.filter(e => e.id !== id)
+        setInput({
+            ...input,
+            services : filt
+        })
+        setInputService(show)
+    }
+
+    // console.log(activityId, "llllll")
 
 
-const PutActivity = ({open, close}) => {
-
+    useEffect(()=>{
+        dispatch(getAllSubCategories())
+        dispatch(getAllTowns())
+        dispatch(getAllService())
+        dispatch(getOneActivity(activityId))
+    },[dispatch])
 
     return(
-        <Modal isOpen={open}>
-           <Container>
-            <button className="close" onClick={close}>x</button>
-            <p>holaa</p>
-            <div className="body">
-                <form onSubmit='submit'>
-                    <input type="text" placeholder="cambiar nombre..."/>
-                    <label>descripcion</label>
-                    <textarea type= "text" placeholder="cambiar descripcion..." minlength="200"/>
-                    <input type="submit" value="actualizar" className="inputSubmit" onClick={() => alert("este formulario todavia no funciona")}/>
-                </form>
+       
+        <ModalContainer isOpen={open} className={"formCreateActivities"}  
+        style={{
+            overlay: {
+              backgroundColor: '#000000aa'
+            }}}>
+        <CloseBut onClick={close}/>
+       <ContainerForm>
+        <TitleForm >Agragar una nueva actividad</TitleForm>
+        <Forms onSubmit={(e)=> handleOnSubmit(e)}>
+            <div className="content">
+        <div className="first">
+            <Input type="text" placeholder="nombre de la actividad..." name="name" 
+            onChange={(e) => handleOnChange(e)} value={input.name}/>
+            <label className="label">Pueblo</label>
+            <select name="townId" onChange={(e) => handleSelector(e)} value={input.townId}>
+            <option>-------</option>
+                {allTowns && allTowns.map(e => {
+                    return <option key={e.id} value={e.id}>{e.name}</option>
+                })}
+            </select>
+            <label className="label">Sub categoria</label>
+            <select name="subCategoryId" onChange={(e) => handleSelector(e)} value={input.subCategoryId}>
+                <option>-------</option>
+                {allSubCategories && allSubCategories.rows.map(e => {
+                    return <option key={e.id} value={e.id}>{e.name}</option>
+                })}
+            </select>
+            <label className="label">Servicio</label>
+            <select name="services" onChange={(e) => handleSelectorService(e)} value={input.services}>
+                <option>-------</option>
+                {allServices && allServices.map(e => {
+                    return <option key={e.id} value={e.id}>{e.name}</option>
+                })}
+            </select>
+            <ContItems>
+            {inputServices.length > 0 && inputServices.map(e => {
+                return <ItemsMini><p>{e.name}</p><button onClick={() => deleteService(e.id)}>x</button></ItemsMini>
+            })}
+            </ContItems>
+            <br/>
+           
+            </div> 
+            <div className="second">
+            <ImageUploader json={input} setJson={setInput}/>            {/* {error.description && <p className="errorText">{error.description}</p> } */}
+            <InputDescription placeholder="descripcion..." name="description" onChange={(e) => handleOnChange(e)} value={input.description}/>
             </div>
-           </Container>
-        </Modal>
+            </div>
+            <input type="submit" value="agregar actividad" onClick={(e) => handleOnSubmit(e)}/>
+        </Forms>
+        </ContainerForm>
+        </ModalContainer>
+   
     )
-}
+} 
 
-export default PutActivity;
+export default putFormActivity;

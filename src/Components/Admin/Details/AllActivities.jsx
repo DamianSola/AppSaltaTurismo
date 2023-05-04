@@ -35,7 +35,7 @@ const Elements = styled.div`
     display: flex;
     margin: 5px ;
     border: solid 0.5px;
-    width: 500px;
+    width: 550px;
     /* height: 100; */
     border-radius: 10px;
     padding: 5px;
@@ -78,9 +78,16 @@ const Name = styled.div`
     display: flex;
     width: 80%;
 
-    img{
+    .image{
         width: 50%;
-        border-radius: 10px 0 0 10px;
+    }
+    img{
+        width: 100%;
+        height: 90%;
+        border-radius: 5px;
+    }
+    p{
+        margin: 0 ; 
     }
 
     div{
@@ -100,6 +107,7 @@ const AllActivities = () => {
 
     const [addActivity, setAddActivity] = useState(false)
     const [putActivity, setPutActivity] = useState(false)
+    const [activity, SetActivity] = useState("")
     const [warning, setWarning] = useState({open:false, id:""})
 
 
@@ -117,7 +125,11 @@ const AllActivities = () => {
         setPutActivity(false)
     }
 
-   
+   const openPutModal = (id) => {
+        SetActivity(id)
+        console.log(activity)
+        setPutActivity(true)
+   }
     const destroyActivity = (id) => {
         dispatch(deleteActivity(id)).then(res => alert(res))
         // dispatch(getAllActivities())
@@ -136,13 +148,15 @@ const AllActivities = () => {
                 <Button onClick ={openModal}>agregar</Button>
             </Controls>
             <ActivityFormPost close={closeModal} open={addActivity}/>
-            <PutActivity close={closeModal} open={putActivity}/>
+            <PutActivity close={closeModal} open={putActivity} activityId={activity}/>
             {/* <ActivityDelete close={setWarning({...warning, open: false})} open={warning} destroy={destroyActivity}/> */}
             <ContainElements>
                 {allActivities && allActivities.map(e => {
                     return <Elements key={e.id}>
                         <Name>
+                            <div className="image">
                             <img src={e.images[0]} alt="activity"/>
+                            </div>
                             <div className="details">
                             <p className="name">{e.name}</p>
                             <p>{e.subCategory && e.subCategory.name}</p>
@@ -150,7 +164,7 @@ const AllActivities = () => {
                             </div>
                         </Name>
                     <ButtonsEl>
-                        <Button onClick={() => setPutActivity(true)}>cambios</Button>
+                        <Button onClick={() => openPutModal(e.id)}>cambios</Button>
                         <Button onClick={() => destroyActivity(e.id)}>borrar</Button>
                         <Link className="link" exact to= {`/sub-categories/activity/${e.id}`}>ver mas</Link>
                     </ButtonsEl>

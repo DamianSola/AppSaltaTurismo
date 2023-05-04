@@ -8,8 +8,8 @@ text-align: left;
     .categories{
         display: flex;
         flex-direction: column;
-        width: 20%;
-        margin-right: 30px;
+        width: 350px;
+        margin-right: 25px;
         background-color: #ffff;
         border-right: solid 0.5px grey;
     }

@@ -13,7 +13,7 @@ const SubCategories = () => {
 
     let {id} = useParams()
     let {oneCategry, allCategories} = useSelector(s => s)
-    console.log(allCategories)
+    // console.log(allCategories)
     let dispatch = useDispatch()
 
     let subCategories = oneCategry.subCategories;
@@ -30,7 +30,7 @@ const SubCategories = () => {
             <div className="categories">
                 <h4>Otras categorias</h4>
                 {allCategories && allCategories.map(e => {
-                    return <Link className="link" exact to={`/categories/${e.id}`} onChange={() => dispatch(getOneCategory(e.id)) }>{e.name}</Link>
+                    return <Link className="link" exact to={`/categories/${e.id}`} onClick={() => dispatch(getOneCategory(e.id)) }>{e.name}</Link>
                 })}
             </div>
             
