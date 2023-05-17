@@ -8,6 +8,10 @@ width: 100%;
 justify-content: left;
 background-size: cover;
 border-bottom: solid 0.5px grey;
+    div{
+        width: 150px;
+
+    }
 
 `
 
@@ -22,12 +26,12 @@ width: 450px;
 
 export const Photo = styled.img`
 /* width: 12rem; */
-width: 150px;
+width: 100%;
 `
-export const CardName = styled(CardTitle)`
+export const CardName = styled.p`
 /* margin-top: 50%; */
-margin: auto;
-font-size: 40px;
+margin: 0;
+font-size: 30px;
 `
 
 export const Data = styled.p`

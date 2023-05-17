@@ -44,6 +44,11 @@ export const ContainerForm = styled.div`
 display: block;
 margin: auto;
 justify-content: center;
+
+    .instuctions{
+        font-size: 14px;
+        margin: 0;
+    }
 `
 export const Forms = styled.div`
     display: grid;

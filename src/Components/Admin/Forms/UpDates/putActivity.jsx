@@ -13,6 +13,8 @@ const putFormActivity = ({close, open, activityId}) => {
     const [input, setInput] = useState({
         name:"", townId:"", subCategoryId:"", images:[], description:"", services:[]
     })
+ 
+    console.log(oneActivity)
 
     const [inputServices, setInputService] = useState([]);
 
@@ -28,8 +30,6 @@ const putFormActivity = ({close, open, activityId}) => {
 
     const handleOnSubmit = (e) => {
         e.preventDefault()
-        close()
-        dispatch(postActivity(input))
     }
 
     const handleSelector = (e) => {
@@ -71,7 +71,7 @@ const putFormActivity = ({close, open, activityId}) => {
         dispatch(getAllSubCategories())
         dispatch(getAllTowns())
         dispatch(getAllService())
-        dispatch(getOneActivity(activityId))
+        activityId && dispatch(getOneActivity(activityId))
     },[dispatch])
 
     return(
@@ -80,14 +80,21 @@ const putFormActivity = ({close, open, activityId}) => {
         style={{
             overlay: {
               backgroundColor: '#000000aa'
-            }}}>
+            }
+        }
+            // preventScroll= {true}
+    }
+            >
         <CloseBut onClick={close}/>
        <ContainerForm>
         <TitleForm >Agragar una nueva actividad</TitleForm>
+        <p className="instuctions">no hace falta cambiar todo el formulario. Solo lo que quieres cambiar. Puedes elegir otra subcategoria, pueblo.
+            los servicios e imagenes los puedes cambiar desde 0. (solo quedaran los que selecciones ahora o directamente no tocarlos)
+        </p>
         <Forms onSubmit={(e)=> handleOnSubmit(e)}>
             <div className="content">
         <div className="first">
-            <Input type="text" placeholder="nombre de la actividad..." name="name" 
+            <Input type="text" placeholder={oneActivity.name} name="name" 
             onChange={(e) => handleOnChange(e)} value={input.name}/>
             <label className="label">Pueblo</label>
             <select name="townId" onChange={(e) => handleSelector(e)} value={input.townId}>

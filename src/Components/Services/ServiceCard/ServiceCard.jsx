@@ -8,7 +8,9 @@ export default function ServiceCard({title, image, punctuation,Adress,webSite,ph
     return(
         <CardService>
             <Head>
-            <Photo src={image}/>               
+                <div>
+                    <Photo src={image}/>               
+                </div>
             <CardName>{title}</CardName>
             </Head>
             <Data>

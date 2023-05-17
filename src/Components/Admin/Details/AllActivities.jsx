@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { deleteActivity } from "../../../Redux/Actions/Admin";
-import { getAllActivities } from "../../../Redux/Actions/Index";
+import { getAllActivities, getOneActivity } from "../../../Redux/Actions/Index";
 import ActivityFormPost from "../Forms/Create/ActivityForm";
 import PutActivity from "../Forms/UpDates/putActivity";
 import {SearchActivity} from "../../Searchers/Search";
@@ -127,6 +127,7 @@ const AllActivities = () => {
 
    const openPutModal = (id) => {
         SetActivity(id)
+        dispatch(getOneActivity(id))
         console.log(activity)
         setPutActivity(true)
    }
