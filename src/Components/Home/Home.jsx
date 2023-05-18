@@ -1,35 +1,12 @@
 import React, {useEffect} from "react";
-import { HomeContainer} from "./StyleHome";
+import { HomeContainer, ShowMore, Component, Title} from "./StyleHome";
 import Tours from "../Tours/Tours";
 import Intro from "./Intro";
 import Towns from "../Towns/Towns";
 import CategoriesHome from "../Categories/Categories";
-import styled from "styled-components"
 import About from "../About/About";
-import { Button } from "reactstrap";
 import {Link} from "react-router-dom"
 
-const Title = styled.h1`
-    color:black;
-    transition: 0.3s;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    /* font-family: 'Courier New', Courier, monospace; */
-    /* font-style: oblique; */
-    margin: 20px;
-` 
-const Component = styled.div`
-    display: block;
-    padding: 20px 0;
-`
-const ShowMore = styled(Button)`
-    background-color: black;
-    margin: 20px;
-
-    .link{
-        text-decoration: none;
-        color: #ffff;
-    }
-`
 
 
 export default function Home(){
