@@ -8,16 +8,29 @@ import { Button } from "reactstrap";
 
 const Card = styled.div`
 display: block;
-margin:5px;
-width: 25%;
-height: 300px;
+margin: auto 25px;
+/* width: 90%; */
+width: 360px;
+height: 400px;
 border: solid 0.5px;
 border-radius: 5px;
 color: black;
 transition: 0.5s;
 text-align: center;
 background-size: cover;
+background-position: center;
 background-repeat: no-repeat;
+    .description{
+        display: block;
+        background-color: #000000cb;
+        color:white;
+        position: relative;
+        bottom: -85%;    
+        transition: 1s;
+    }
+    &:hover .description{
+        bottom: -40%;       
+    }
 `
 
 const NameCategory = styled.h2`
@@ -26,7 +39,7 @@ margin: 4px;
 padding: 4px;
 color: #ffff;
 text-shadow: 2px 2px 2px black;
-font-size: 19px;
+font-size: 25px;
 font-family:arial;
 transition: 0.5s;
 
@@ -42,8 +55,22 @@ const SeeMore = styled(Button)`
     position: relative;
     top: 72%;
 `
+// const Description = styled.div`
+//     display: block;
+//     background-color: #000000cb;
+//     color:white;
+//     position: relative;
+//     bottom: 85%;
+    
+//     transition: 1s;
 
-const CategoriesCard = ({image, name, id}) =>{
+//     :hover{
+//         bottom: 40%;
+//     /* display: none; */
+//     }
+// `
+
+const CategoriesCard = ({image, name, id, description}) =>{
 
     
     let backImage = {        
@@ -57,7 +84,8 @@ const CategoriesCard = ({image, name, id}) =>{
         <Card style={backImage}> 
             <NameCategory>{name}</NameCategory>
             <StyleLink exact to={`/categories/${id}`} onChange={() => {dispatch(getOneCategory(id))}} id="App-links">
-                <SeeMore>Ver mas</SeeMore>
+                {/* <SeeMore>Ver mas</SeeMore> */}
+                <div className="description">{description.slice(0,300)}...</div>  
             </StyleLink>
         </Card>
     )

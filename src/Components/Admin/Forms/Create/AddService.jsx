@@ -97,7 +97,7 @@ const AddService = ({open,close}) => {
         
     }
 
-    console.log(input)
+    // console.log(input)
     // console.log(error)
 
 
@@ -155,7 +155,8 @@ const AddService = ({open,close}) => {
                      />
                     </Label>
                     <Label>tipo de servicio 
-                    <select name="serviceTypeId" onInput={(e) => handleSelector(e)} value={input.serviceTypeId}> 
+                    <select name="serviceTypeId" onInput={(e) => handleSelector(e)} value={input.serviceTypeId}>
+                      <option>-------</option>
                     {allServiceTypes && allServiceTypes.map(e => {
                         return <option key={e.id} value={e.id}>{e.name}</option>
                     })}

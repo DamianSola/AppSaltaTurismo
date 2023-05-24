@@ -8,10 +8,13 @@ text-align: left;
     .categories{
         display: flex;
         flex-direction: column;
-        width: 350px;
+        width: 200rem;
         margin-right: 25px;
         background-color: #ffff;
         border-right: solid 0.5px grey;
+    }
+    .category-details{
+        width: 800rem;
     }
 
     .link{

@@ -1,12 +1,12 @@
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
-import axios from "axios";
 import { Modal, CloseButton, Form, Input, Label, Spinner } from "reactstrap";
 import styled from "styled-components";
 import UpLoaderOneImage from "./../ImageUL/UpLoaderOneImage";
 import { useDispatch } from "react-redux";
 import { postCategory } from "../../../../Redux/Actions/Admin";
+import {InputDescription} from "../Styled"
 
 
 
@@ -24,7 +24,7 @@ const Close = styled(CloseButton)`
 `
 
 const AddCategoryModal = ({close}) => {
-    const [input, setInput] = useState({name:"", image:''})
+    const [input, setInput] = useState({name:"", image:'', description: ''})
     const [error, setError] = useState({})
 
     const dispatch = useDispatch()
@@ -60,7 +60,7 @@ const AddCategoryModal = ({close}) => {
         }
     }
 
-    console.log(error)
+    // console.log(error)
 
     useEffect(()=>{
 
@@ -81,6 +81,7 @@ const AddCategoryModal = ({close}) => {
                         setError={setError}
                         validate={validate}
                     />
+                <InputDescription placeholder="descripcion..." name="description" onChange={(e) => handleInput(e)} value={input.description}/>
                 <br/>
                 <Input type="submit" value='agregar' onClick={handleOnSubmit}/>
             </Form>

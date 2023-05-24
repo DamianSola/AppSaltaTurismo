@@ -34,8 +34,9 @@ const SubCategories = () => {
                 })}
             </div>
             
-            <div>
+            <div className="category-details">
             <h1 key='1'>{oneCategry.name}</h1>
+            <h6>{oneCategry.description}</h6>
             <ContainerTwo>
             {subCategories? subCategories.map(e => {
                 return <SubCategoryCard name={e.name} showButton={true} image={e.image} id={e.id} Key={e.id}/>

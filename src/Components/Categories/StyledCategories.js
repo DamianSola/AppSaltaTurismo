@@ -1,7 +1,9 @@
 import styled from "styled-components";
 
 export const CategoriesC = styled.div`
-  display: flex;
-  margin: auto 2%;
-  text-decoration: none;
+  /* display: flex; */
+  width: 95%;
+  margin: auto;
+  justify-content: center;
+ /* text-decoration: none; */
 `

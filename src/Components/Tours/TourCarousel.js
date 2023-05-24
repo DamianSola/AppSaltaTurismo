@@ -4,37 +4,27 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 export const TourContainer = styled.div`
-    width: 95%;
+    width: 90%;
     /* height: 350px; */
     margin: auto ;
     /* margin-bottom: 30px; */
 
-    .back{
-        color: red
-    }
-
-    button{
-        color: green
-    }
-
-    .next{
-        color:black
-    }
 `
 
 export const Carousel = styled(Slider)`
+    width: 98%;
 
     .slick-prev:before, .slick-next:before{
         color: black;
-        size: 40px;
-        /* width: 30px; */
+        font-size: 50px;
+    
     }
 
     .slick-next {
-        right: 10;
-
+        right: 20;
     }
      .slick-prev{
-        left: -10
+        position: absolute;
+        left: 20
     }
 `
