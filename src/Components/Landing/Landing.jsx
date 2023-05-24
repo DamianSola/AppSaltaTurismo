@@ -3,91 +3,23 @@ import { useState, useEffect } from "react";
 import {Link } from "react-router-dom";
 import {useSelector, useDispatch} from "react-redux"
 import {AllServiceType} from "../../Redux/Actions/Index";
-import styled from "styled-components";
-import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {LandingContain, Logo, BgDiv} from "./Styled";
 import { Dropdown, DropdownMenu, DropdownItem, DropdownToggle } from "reactstrap";
 import 'react-dropdown/style.css';
-
-
-const LandingContain = styled.div `
-    border-top: solid 25px #7B0000;
-    height: 90px;
-    padding: none;
-    /* background-color: #87CEFA; */
-    width: 100%;
-    margin: auto;
-    margin-bottom: 15px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    /* align-items: center; */
-
-    ul{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .home{
-        /* font-size: 30px; */
-        text-decoration: none;
-        color: #7B0000;
-        padding: none;
-        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    }
-
-    .item {
-        text-decoration: none;
-        color: #1a1a1a;
-        /* font-size: 20px; */
-        font-size: larger;
-        transition: 1s;
-        /* padding: 6px; */
-    }
-
-    .item:hover{
-        text-decoration-line: underline;
-    }
-    .service{
-        text-decoration: none;
-        color: #1a1a1a;
-        font-size: 20px;
-        padding: 6px;
-    }
-
-    .dropdown{
-        border-style: none;
-        font-size: 20px;
-        color: #1a1a1a;
-        background-color: #FFFF;
-    }
-
-`
-const Logo = styled.div`
-    display: flex;
-    align-items: center;
-
-    .ese{
-        font-size: 45px;
-    }
-    .a{
-        font-size: 35px;
-        color: black;
-    }
-    .aa{
-        font-size: 40px;
-    }
-    .ele{
-        font-size: 50px;
-    }
-    .te{
-        font-size: 40px;
-        color: black;
-    }
-
-`
+import HamburgerButton from "./Burger";
+import LogoSalta from "../LogoSalta";
 
 export default function Landing(){
     
     let [dropDown , setDropDown] = useState(false)
+    const [clicked, setClicked] = useState(false);
+
+    const handleClick = () => {
+    console.log('clicked antes del setState:', clicked);
+    setClicked(!clicked);
+    console.log('clicked después del setState:', clicked);
+  }
 
     const OpenAndCloseDD = () => {
         setDropDown(!dropDown)
@@ -104,7 +36,7 @@ export default function Landing(){
     return(
         <LandingContain>
             <ul>
-                <Link className="home" exact to='/'>
+                {/* <Link className="home" exact to='/'>
                     <Logo>
                         <p className="ese">S</p>
                         <p className="a">a</p>
@@ -112,7 +44,8 @@ export default function Landing(){
                         <p className="te">t</p>
                         <p className="aa">a</p>
                     </Logo>
-                </Link>
+                </Link> */}
+                <LogoSalta/>
                 <br/>
                 <br/>
                 <Link className="item" exact to='/'>Inicio</Link>
@@ -132,6 +65,10 @@ export default function Landing(){
                 <br/>
                 {/* <Link className="item">Contactos</Link> */}
             </ul>
+            <div className="burger">
+                    <HamburgerButton clicked={clicked} handleClick={handleClick} />
+                </div>
+                <BgDiv className={`${clicked ? 'active' : ''}`} />
         </LandingContain>
     )
 }
