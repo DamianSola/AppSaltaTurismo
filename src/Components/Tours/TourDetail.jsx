@@ -4,6 +4,7 @@ import {useSelector, useDispatch} from "react-redux";
 import { getOneTour } from "../../Redux/Actions/Index";
 import styled from "styled-components";
 import { Photos, Carrousel, Pics } from "../Towns/DetailStyled";
+import ServiceCard from "../Services/ServiceCard/ServiceCard";
 
 const Container = styled.div`
     display: block;
@@ -31,35 +32,20 @@ const Container = styled.div`
     .description{
         padding: 10px;
     }
-
+    .servi-title{
+        text-align: left;
+        margin: 10px 40px;
+        font-size: 30px;
+    }
 
 `
-// const Tilte = styled.h1`
-//     position: absolute;
-//     color: white;
-//     font-size: 40px;
-//     margin: auto;
-//     background-color: #7B0000;
-//     border: solid 0.5px black ;
-//     border-radius: 2px;
-// `
-// const Photos = styled.img`
-//     width: 600px;
-//     height: 400px;
-// `
-// const Text = styled.p`
-//     text-align: left;
-//     margin: 20px;
-//     font-size: 20px;
-// `
-
 
 const TourDetail = () => {
 
     let {id} = useParams()
     let dispatch = useDispatch()
     let {oneTour} = useSelector(s => s)
-    let {name, description, image} = oneTour;
+    let {name, description, image, services} = oneTour;
 
     useEffect(() => {
         dispatch(getOneTour(id))
@@ -81,6 +67,20 @@ const TourDetail = () => {
                 </Carrousel>
             </Photos>
             <p className="description">{description}</p>
+            </div>
+            <div className="servi-title">
+                <h4>Servicios</h4>
+            </div>
+            <div>
+                {services && services.map(e => {
+                    return <ServiceCard 
+                        title= {e.name}
+                        image= {e.images}
+                        Adress= {e.Adress}
+                        webSite= {e.webSite}
+                        phone= {e.phone}
+                    />}
+                )}
             </div>
                 
         </Container>

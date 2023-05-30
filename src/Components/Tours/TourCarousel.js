@@ -6,13 +6,15 @@ import 'slick-carousel/slick/slick-theme.css';
 export const TourContainer = styled.div`
     width: 90%;
     /* height: 350px; */
+    align-items: center;
     margin: auto ;
     /* margin-bottom: 30px; */
 
 `
 
 export const Carousel = styled(Slider)`
-    width: 98%;
+    width: 100%;
+    justify-content: center;
 
     .slick-prev:before, .slick-next:before{
         color: black;

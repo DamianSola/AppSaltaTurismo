@@ -87,7 +87,7 @@ const TownDetails = () => {
                      <Data>
                         <Title>{name.toUpperCase()}</Title>
                         <Photos>
-                <Carrousel style={{ width: 800}}>
+                <Carrousel style={{ width: 500}}>
                     {images && images.map((e,i) => {
                     return <div key={i}>
                             <Pics src={e} style={{ width: "100%" }} alt="carousel"/>
@@ -98,7 +98,6 @@ const TownDetails = () => {
                         <Text>Ubicacion: {location}</Text>
                         <Description>{description}</Description>
                     </Data>
-                   
                 </TownContainer>
                 <ActiviTitle>Actividades en {name}</ActiviTitle>
                 <Activities>

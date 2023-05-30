@@ -10,7 +10,7 @@ const Container = styled.div`
 `
 export const OnlyActivities = styled.div`
   display: flex; 
-  justify-content: left;
+  justify-content: space-around;
   flex-wrap: wrap;
   margin: 2%;
 `

@@ -10,19 +10,19 @@ background-color: #930000;
 color: #E2E2E2;
 
     @media (max-width: 420px){
-        flex-wrap: wrap;
+       
     }
 `
 
 export const Parts = styled.div`
 display: flex;
 flex-direction: column;
-padding: 3rem;
+padding: 30px;
 text-align: left;
 font-size: 15px;
 
     @media (max-width: 420px){
-        font-size: 8px;
+        font-size: 6px;
         padding: 0px;
        
     }

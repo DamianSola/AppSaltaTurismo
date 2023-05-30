@@ -30,9 +30,9 @@ const AddTour = ({open, close}) => {
 
     const dispatch = useDispatch()
     const {allServices} = useSelector(s => s)
-    const tourService = allServices && allServices.filter(e => e.serviceTypeId === 15)
+    // const tourService = allServices && allServices.filter(e => e.serviceTypeId === 15)
     
-    // console.log(tourService)
+    console.log(allServices)
 
     const validation = (input) => {
         let {name, images, description, location} = input ;
@@ -110,7 +110,7 @@ const AddTour = ({open, close}) => {
                 />
                 <Label>servicio</Label>
                 <select name="serviceTypeId"  onChange={(e) => handleSelector(e)} value={input.serviceTypeId}>
-                    {tourService && tourService.map(e => {
+                    {allServices && allServices.map(e => {
                         return <option key={e.id} value={e.id}>{e.name}</option>
                     })}
                 </select>

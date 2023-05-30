@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 // Styled componets
 const Card = styled.div`
     display: block;
-    margin: 7px;
-    width: 24%;
+    margin: auto;
+    width: 300px;
     border: solid 1px;
     border-radius: 10px;
     transition: 0.5s;
@@ -20,7 +20,7 @@ const Card = styled.div`
 
 const Photo = styled.img`
     width: 100%;
-    height: 200px;
+    height: 250px;
     border-radius: 10px 10px 0 0;
 `
 const Name = styled.div`

@@ -4,9 +4,14 @@ import styled from "styled-components";
 export const Logo = styled.div`
     display: flex;
     align-items: center;
+    color: ${props => props.color};
+    text-shadow: 2px 1px 2px black;
+    /* margin:0 ; */
+    /* padding: 10px; */
 
     .ese{
         font-size: 45px;
+       
     }
     .a{
         font-size: 35px;
@@ -23,10 +28,29 @@ export const Logo = styled.div`
         color: black;
     }
 
+    /* @media (max-width: 420px){
+        .aa{
+            font-size: 20px;
+        }
+        .te{
+            font-size: 20px;
+        }
+        .ele{
+        font-size: 25px;
+        }
+        .ese{
+        font-size: 22px;
+        }
+        .a{
+        font-size: 17px;
+        color: black;
+        }
+    } */
+
 `
-export default function LogoSalta() {
+export default function LogoSalta({color}) {
     return(
-        <Logo>
+        <Logo color={color}>
         <p className="ese">S</p>
         <p className="a">a</p>
         <p className="ele">l</p>

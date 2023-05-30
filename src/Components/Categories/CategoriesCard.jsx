@@ -10,7 +10,7 @@ const Card = styled.div`
 display: block;
 margin: auto 25px;
 /* width: 90%; */
-width: 360px;
+width: 22rem;
 height: 400px;
 border: solid 0.5px;
 border-radius: 5px;
@@ -30,6 +30,10 @@ background-repeat: no-repeat;
     }
     &:hover .description{
         bottom: -40%;       
+    }
+    @media (max-width: 420px){
+        width: 18rem;
+        
     }
 `
 

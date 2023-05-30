@@ -81,7 +81,7 @@ const AllServices = () => {
                 {allServices && allServices.map((e,i) => {
                     return <div className="card" key={i}>
                         <p className="name">{e.name}</p>
-                        <p className="punct">puntuacion: {e.punctuation}</p>
+                        {/* <p className="punct">puntuacion: {e.punctuation}</p> */}
                         <img src={e.images}/>
                         <div className="buttons">
                             <Button className="button">cambios</Button>
