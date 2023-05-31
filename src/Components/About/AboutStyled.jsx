@@ -7,12 +7,14 @@ display: block ;
     margin: auto;
     width: 70%;
     border: solid 0.5px grey;
+    color: #535353;
     /* border-radius: 10px; */
-    background-color: #08a6d166;
+    /* background-color: #08a6d166; */
+    font-family: 'Courier New', Courier, monospace;
 
 div{
     padding: 40px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    /* font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; */
 
 }
 `

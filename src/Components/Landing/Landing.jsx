@@ -35,6 +35,7 @@ export default function Landing(){
                 <Link className="item" exact to='/'>Inicio</Link>
                 <a className="item" href='#tours'>Tours</a>
                 <a className="item" href='#towns'>Pueblos de Salta</a>
+                <a className="item" href='#about'>Sobre nosotros</a>
                 <Dropdown isOpen={dropDown} toggle={OpenAndCloseDD} >
                     <DropdownToggle className="dropdown">Servicios</DropdownToggle>
                     <DropdownMenu children="true">
@@ -45,7 +46,6 @@ export default function Landing(){
                         })}
                     </DropdownMenu>
                 </Dropdown>
-                <a className="item" href='#about'>Sobre nosotros</a>
                 <br/>
                
                 {/* <Link className="item">Contactos</Link> */}
