@@ -5,6 +5,12 @@ export const Container = styled.div`
 /* display: flex; */
 width: 100%;
 min-height: 24rem;
+.sesions{
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    flex-wrap: wrap;
+}
 `
 export const LinkDetail = styled(Link)`
 text-decoration: none;

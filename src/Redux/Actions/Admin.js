@@ -14,6 +14,7 @@ export const DELETE_SUBCATEGORY = 'DELETE_SUBCATEGORY'
 export const POST_CATEGORY = 'POST_CATEGORY'
 export const POSTSUBCATEGORY = 'POSTSUBCATEGORY'
 export const ALL_DATE = "ALL_DATE"
+export const LOGIN_USER = "LOGIN_USER"
 
 const url =  'http://localhost:3001'
 
@@ -181,7 +182,7 @@ export const deleteTour =  (data) => () => {
 }
 
 export const deleteWhatever =  (data, route) => () => {
-    console.log(data,route)
+    // console.log(data,route)
     return (
          axios.delete(`${url}/${route}/`+data)
         .then(res => {
@@ -193,9 +194,22 @@ export const deleteWhatever =  (data, route) => () => {
 }
 
 export const deleteTown = () => {
-
+    
 } 
 
+export const loginUser = (data) => {
+    return () => {
+        // console.log(data)
+        axios.post(`${url}/users/login`,data)
+        .then(res => {
+            return {
+                type: LOGIN_USER ,
+                payload: res.data,
+                req: res.data
+            }
+        }) 
+    }
+}
 
 
 

@@ -1,38 +1,38 @@
 import React,{useState} from "react";
 import { Modal, CloseButton, Form, Input, Label, Spinner } from "reactstrap";
 import {LoginContainer} from "./LoginStyled";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
-import "@fortawesome/fontawesome-free/css/all.min.css";
+import { useDispatch } from "react-redux";
+import { loginUser } from "../../../Redux/Actions/Admin";
+
 
 const Login = () => {
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
-    const [showPassword, setShowPassword] = useState(false);
-  
-    const handleUsernameChange = (event) => {
-      setUsername(event.target.value);
-    };
+    
+    const [login, setLogin] = useState({});
    
+    const dispatch = useDispatch()
   
-    const handlePasswordChange = (event) => {
-      setPassword(event.target.value);
+    const handleLoginChange = (e) => {
+        let {name, value} = e.target;
+        setLogin({
+            ...login,
+            [name]: value
+        })
+       
     };
   
     const handleSubmit = (event) => {
-      event.preventDefault();
-      // Aquí puedes realizar la lógica de inicio de sesión, como enviar los datos al servidor
-      // o validar las credenciales ingresadas.
-      // Puedes agregar tu lógica personalizada aquí.
+        event.preventDefault();
+        // console.log(login,"holaa")
+        dispatch(loginUser(login))
+
+        setLogin({})
+        // Aquí puedes realizar la lógica de inicio de sesión, como enviar los datos al servidor
+        // o validar las credenciales ingresadas.
+        // Puedes agregar tu lógica personalizada aquí.
   
       // Restablecer el formulario
-      setUsername('');
-      setPassword('');
     };
 
-    const togglePasswordVisibility = () => {
-        setShowPassword(!showPassword);
-    };
 
     return(
         <LoginContainer>
@@ -40,24 +40,28 @@ const Login = () => {
                 <p className="login">Iniciar Sesion</p>
                 <p className="message">Debes tener permiso para acceder en administracion</p>
             </div>
-            <Form onSubmit={handleSubmit}>
+            <Form onSubmit={handleSubmit} className="form">
 
-                <Label>Usuario</Label>
-                <Input type="text" name="user" id="user" placeholder="usuario"  onChange={handleUsernameChange}/>
+                {/* <Label>Usuario</Label> */}
+                <Input 
+                    type="email" 
+                    name="email" 
+                    placeholder="e-mail" 
+                    className="input" 
+                    onChange={handleLoginChange}/>
                 
-                <Label>Contraseña</Label>
-                <Input type={showPassword ? "text" : "password"}
-                    name="password" id="password" placeholder="Password" 
-                    onChange={handlePasswordChange}
+                {/* <Label>Contraseña</Label> */}
+                <Input 
+                    type="password"
+                    name="password"
+                    placeholder="Contraseña" 
+                    className="input"
+                    onChange={handleLoginChange}
                 />
-                <div className="toggle-password" onClick={togglePasswordVisibility}>
-                    <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
-                </div>
-
                 <button type="submit">Iniciar sesión</button>
             </Form>
         </LoginContainer>
-    )
+)
 }
 
 export default Login;

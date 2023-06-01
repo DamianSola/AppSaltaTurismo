@@ -5,7 +5,7 @@ import { GET_ALL_ACTIVITIES,
     GET_ALL_SERVICES_TYPES, GET_ONE_SERVICES_TYPES, ACTIVITY_NAME, TOWN_NAME ,GET_TOURS_SERVICE 
 } from "../Actions/Index";
 
-import {ALL_DATE} from "../Actions/Admin"
+import {ALL_DATE, LOGIN_USER} from "../Actions/Admin"
 
 const initialState = {
     oneCategry:{},
@@ -126,6 +126,12 @@ export default function RootReducer(state = initialState, action){
             return{
                 ...state,
                 tourService: action.payload
+            }
+        case LOGIN_USER:
+           
+            return{
+                ...state,
+                user: typeof action.payload === "array" && action.payload
             }
         case "CLEAR_PAGE":
             if(action.payload === "categories") return {...state, allCategories: null};
