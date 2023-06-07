@@ -1,5 +1,5 @@
 import './App.css';
-import React from 'react';
+import React, { useEffect } from 'react';
 import {Route, Routes } from "react-router-dom";
 import Landing from './Components/Landing/Landing';
 import Activities from './Components/Activities/Activities';
@@ -20,9 +20,17 @@ import AllTowns from './Components/Admin/Details/AllTowns';
 import AllServices from './Components/Admin/Details/AllService';
 import AllTours from './Components/Admin/Details/AllTours';
 import AllServicesTypes from './Components/Admin/Details/AllServicesTypes';
+import { useDispatch, useSelector } from "react-redux";
 
 
 function App() {
+
+  const {userLogin} = useSelector(s => s)
+
+  useEffect(() => {
+
+  }, [userLogin] )
+
   return (
     <div className="App" >
         <Landing/>

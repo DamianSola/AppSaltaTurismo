@@ -5,7 +5,7 @@ import { GET_ALL_ACTIVITIES,
     GET_ALL_SERVICES_TYPES, GET_ONE_SERVICES_TYPES, ACTIVITY_NAME, TOWN_NAME ,GET_TOURS_SERVICE 
 } from "../Actions/Index";
 
-import {ALL_DATE, LOGIN_USER} from "../Actions/Admin"
+import {ALL_DATE, All_USERS, LOGIN_USER, USER_SIGNOUT} from "../Actions/Admin"
 
 const initialState = {
     oneCategry:{},
@@ -13,7 +13,8 @@ const initialState = {
     oneSubCategory:{},
     OneTown:{},
     oneTour:{},
-    oneServiceType:{}
+    oneServiceType:{},
+    userLogin: localStorage.getItem('userInfo'),
 }
 
 export default function RootReducer(state = initialState, action){
@@ -127,12 +128,31 @@ export default function RootReducer(state = initialState, action){
                 ...state,
                 tourService: action.payload
             }
-        case LOGIN_USER:
-           
+        case All_USERS:
             return{
                 ...state,
-                user: typeof action.payload === "array" && action.payload
+                users: action.payload
             }
+        case LOGIN_USER:
+            // console.log(action.payload.status)
+            let ok = ''
+            if(action.payload.status === undefined){
+                localStorage.setItem("userInfo",JSON.stringify(action.payload))
+                ok = "acceso correcto"
+
+            }else ok = " no puede acceder. "+ action.payload.msg
+            // alert(action.payload.msg)
+            // console.log(action.payload)
+           return {
+            ...state,
+            userLogin: localStorage.getItem('userInfo'),
+            msg: ok
+           }
+        case USER_SIGNOUT: 
+            return {
+                ...state,
+                userLogin: localStorage.getItem('userInfo'),
+           }
         case "CLEAR_PAGE":
             if(action.payload === "categories") return {...state, allCategories: null};
             if(action.payload === "activities") return {...state, allActivities: {}};

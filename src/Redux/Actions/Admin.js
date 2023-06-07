@@ -14,7 +14,9 @@ export const DELETE_SUBCATEGORY = 'DELETE_SUBCATEGORY'
 export const POST_CATEGORY = 'POST_CATEGORY'
 export const POSTSUBCATEGORY = 'POSTSUBCATEGORY'
 export const ALL_DATE = "ALL_DATE"
+export const All_USERS = "All_USERS"
 export const LOGIN_USER = "LOGIN_USER"
+export const USER_SIGNOUT = "USER_SIGNOUT"
 
 const url =  'http://localhost:3001'
 
@@ -197,20 +199,31 @@ export const deleteTown = () => {
     
 } 
 
-export const loginUser = (data) => {
-    return () => {
-        // console.log(data)
-        axios.post(`${url}/users/login`,data)
+
+export const getUsers = () => {
+    return (dispatch) => {
+        return axios(`${url}/users/`)
+        .then((res) => {
+            dispatch({
+                type: All_USERS ,
+                payload: res.data
+            })
+        })
+    }
+}
+export const signin = (data) => {
+    return (dispatch) => {
+        return axios.post(`${url}/users/login`,data)
         .then(res => {
-            return {
-                type: LOGIN_USER ,
-                payload: res.data,
-                req: res.data
-            }
-        }) 
+            dispatch({
+                type: LOGIN_USER, 
+                payload: res.data
+            })}
+        )
     }
 }
 
-
-
-
+export const signout = () => (dispatch) => {
+    localStorage.removeItem("userInfo");
+    dispatch({type: USER_SIGNOUT});
+}

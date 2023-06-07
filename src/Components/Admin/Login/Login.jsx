@@ -1,15 +1,16 @@
-import React,{useState} from "react";
+import React,{useEffect, useState} from "react";
 import { Modal, CloseButton, Form, Input, Label, Spinner } from "reactstrap";
 import {LoginContainer} from "./LoginStyled";
-import { useDispatch } from "react-redux";
-import { loginUser } from "../../../Redux/Actions/Admin";
+import { useDispatch, useSelector } from "react-redux";
+import { getUsers,signin } from "../../../Redux/Actions/Admin";
 
 
 const Login = () => {
     
-    const [login, setLogin] = useState({});
+    const [login, setLogin] = useState({email:"", password:""});
    
     const dispatch = useDispatch()
+    const {msg} = useSelector(s => s)
   
     const handleLoginChange = (e) => {
         let {name, value} = e.target;
@@ -22,16 +23,14 @@ const Login = () => {
   
     const handleSubmit = (event) => {
         event.preventDefault();
-        // console.log(login,"holaa")
-        dispatch(loginUser(login))
-
-        setLogin({})
-        // Aquí puedes realizar la lógica de inicio de sesión, como enviar los datos al servidor
-        // o validar las credenciales ingresadas.
-        // Puedes agregar tu lógica personalizada aquí.
-  
-      // Restablecer el formulario
+        setLogin({email:"", password:""})
+        dispatch(signin(login))
+        
     };
+
+    useEffect(()=> {
+        
+    }, [login])
 
 
     return(
@@ -57,8 +56,9 @@ const Login = () => {
                     placeholder="Contraseña" 
                     className="input"
                     onChange={handleLoginChange}
-                />
-                <button type="submit">Iniciar sesión</button>
+                    />
+                <input className="button" type="submit" value="Iniciar sesión" />
+                {msg && <p className="error">{msg}</p>}
             </Form>
         </LoginContainer>
 )

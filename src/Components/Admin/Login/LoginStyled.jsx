@@ -22,12 +22,19 @@ export const LoginContainer = styled.div`
     .input{
         margin: 20px 0;
     }
-    button{
+    .button{
         margin: 10px auto;
         border-style: none;
         background-color: #03a900;
         border-radius: 5px;
         padding: 5px;
         color: white;
+    }
+    .error{
+        color: white;
+        /* color: red; */
+        background-color: #ff00003d;
+        border-radius: 10px;
+        padding: 10px
     }
 `
