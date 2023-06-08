@@ -5,10 +5,11 @@ import { Button } from "reactstrap";
 import styled from "styled-components";
 
 export const AutenticateRoutes = () => {
-    const {userInfo} = useSelector(s => s)
+    const user = localStorage.getItem('userInfo')
+    console.log(user)
 
-    if(userInfo === null) return true 
-    else return false
+    if(user === null) return false 
+    else return true
 }
 
 const Page = styled.div`
