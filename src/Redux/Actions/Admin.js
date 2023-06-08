@@ -18,8 +18,9 @@ export const All_USERS = "All_USERS"
 export const LOGIN_USER = "LOGIN_USER"
 export const USER_SIGNOUT = "USER_SIGNOUT"
 
-const url =  'http://localhost:3001'
-
+// const url =  'http://localhost:3001'
+const url = "https://saltatourapi.onrender.com"
+// console.log(url)
 // export const SomeThingDate = (date) => {
     
 // }

@@ -6,7 +6,7 @@ import styled from "styled-components";
 
 export const AutenticateRoutes = () => {
     const user = localStorage.getItem('userInfo')
-    console.log(user)
+    // console.log(user)
 
     if(user === null) return false 
     else return true

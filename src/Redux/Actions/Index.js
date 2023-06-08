@@ -19,7 +19,9 @@ export const TOWN_NAME = "TOWN_NAME"
 export const GET_TOURS_SERVICE = "GET_TOURS_SERVICE"
 
 
-const URL = 'http://localhost:3001/'
+// const URL = 'http://localhost:3001/'
+const URL = "https://saltatourapi.onrender.com/"
+
 
 export const getAllActivities = () => {
     return (dispatch) => {
