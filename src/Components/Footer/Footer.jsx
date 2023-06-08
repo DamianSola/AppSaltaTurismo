@@ -7,6 +7,7 @@ export default function Footer(){
     return(
         <FooterContain>
             <Parts>
+            <a className="item" href='/'>Inicio</a>
                 <a className="item" href='#tours'>Tours</a>
                 <a className="item" href='#towns'>Pueblos de Salta</a>
                 <a className="item" href='#about'>Sobre nosotros</a>
