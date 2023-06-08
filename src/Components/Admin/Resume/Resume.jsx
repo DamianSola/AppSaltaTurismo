@@ -47,7 +47,7 @@ export default function Resume(){
         </CountainResume>:
         <div className="sesions">
             <Login/>
-            <Register/>
+            {/* <Register/> */}
         </div>
         }
         </Container>

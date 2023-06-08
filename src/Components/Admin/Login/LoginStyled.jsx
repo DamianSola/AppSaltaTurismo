@@ -8,6 +8,7 @@ export const LoginContainer = styled.div`
     border: solid 1px black;
     border-radius: 10px;
     background-color: #e4e4e4;
+    transition: 100ms;
 
     .login{
         font-size: 25px;
@@ -35,6 +36,6 @@ export const LoginContainer = styled.div`
         /* color: red; */
         background-color: #ff00003d;
         border-radius: 10px;
-        padding: 10px
+        padding: 10px;
     }
 `

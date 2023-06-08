@@ -8,9 +8,9 @@ import { getUsers,signin } from "../../../Redux/Actions/Admin";
 const Login = () => {
     
     const [login, setLogin] = useState({email:"", password:""});
-   
     const dispatch = useDispatch()
     const {msg} = useSelector(s => s)
+    
   
     const handleLoginChange = (e) => {
         let {name, value} = e.target;
@@ -23,14 +23,15 @@ const Login = () => {
   
     const handleSubmit = (event) => {
         event.preventDefault();
-        setLogin({email:"", password:""})
-        dispatch(signin(login))
+        dispatch(signin(login));
+        setLogin({})
         
     };
 
+
     useEffect(()=> {
-        
-    }, [login])
+       
+    }, [])
 
 
     return(
@@ -58,7 +59,10 @@ const Login = () => {
                     onChange={handleLoginChange}
                     />
                 <input className="button" type="submit" value="Iniciar sesión" />
-                {msg && <p className="error">{msg}</p>}
+                {msg &&
+                    <p className="error">{msg}</p>
+                   
+                    }
             </Form>
         </LoginContainer>
 )
