@@ -6,6 +6,7 @@ import styled from "styled-components";
 import { SearchTown } from "../../Searchers/Search";
 import { Button } from "reactstrap";
 import AddTown from "../Forms/Create/AddTown";
+import { AutenticateRoutes, PageAuth } from "../Autenticate/Autenticate";
 
 
 const Container = styled.div`
@@ -83,6 +84,11 @@ const AllTowns = () => {
     useEffect(() => {
         dispatch(getAllTowns())
     },[dispatch])
+    const ValidateRoute = AutenticateRoutes()
+
+    if(!ValidateRoute){
+        return <PageAuth/>
+    }
 
     return(
         <Container>

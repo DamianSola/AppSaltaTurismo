@@ -6,6 +6,8 @@ import { Button, ButtonGroup, Card } from "reactstrap";
 import { Link } from "react-router-dom";
 import { delteServiceType } from "../../../Redux/Actions/Admin";
 import AddServiTypeModal from "../Forms/Create/AddServiType";
+import { AutenticateRoutes, PageAuth } from "../Autenticate/Autenticate";
+
 
 const Container = styled.div`
     min-height: 24rem;
@@ -76,6 +78,11 @@ const AllServicesTypes = () => {
         dispatch(AllServiceType())
     },[])
 
+    const ValidateRoute = AutenticateRoutes()
+
+    if(!ValidateRoute){
+        return <PageAuth/>
+    }
     return(
         <Container>
             <div className="control">

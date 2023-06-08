@@ -7,6 +7,7 @@ import { SearchTours } from "../../Searchers/Search";
 import { deleteTour } from "../../../Redux/Actions/Admin";
 import { Link } from "react-router-dom";
 import AddTour from "../Forms/Create/AddTour";
+import { AutenticateRoutes, PageAuth } from "../Autenticate/Autenticate";
 
 
 const Container = styled.div`
@@ -77,6 +78,11 @@ const AllTours = () => {
     useEffect(() => {
         dispatch(getAllTours())
     },[dispatch])
+    const ValidateRoute = AutenticateRoutes()
+
+    if(!ValidateRoute){
+        return <PageAuth/>
+    }
    
     return(
         <Container>

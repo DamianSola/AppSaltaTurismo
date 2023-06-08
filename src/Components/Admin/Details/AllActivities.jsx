@@ -9,6 +9,7 @@ import PutActivity from "../Forms/UpDates/putActivity";
 import {SearchActivity} from "../../Searchers/Search";
 import { Button, Modal, Spinner } from "reactstrap";
 import ActivityDelete from "../Forms/Delete/ActivityDelete";
+import { AutenticateRoutes, PageAuth } from "../Autenticate/Autenticate";
 // import { AllServiceType, getAllActivities, getAllCategories, getAllService, getAllSubCategories, getAllTours, getAllTowns } from "../../../Redux/Actions/Index"
 
 
@@ -110,8 +111,6 @@ const AllActivities = () => {
     const [activity, SetActivity] = useState("")
     const [warning, setWarning] = useState({open:false, id:""})
 
-
-
     let {allActivities} = useSelector(s => s)
     // console.log(allActivities)
     let dispatch = useDispatch()    
@@ -141,6 +140,12 @@ const AllActivities = () => {
         dispatch(getAllActivities())
       
     },[dispatch, addActivity])
+
+    const ValidateRoute = AutenticateRoutes()
+
+    if(!ValidateRoute){
+        return <PageAuth/>
+    }
 
     return(
         <Container>

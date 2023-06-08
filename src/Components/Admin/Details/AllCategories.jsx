@@ -5,6 +5,8 @@ import { getAllCategories } from "../../../Redux/Actions/Index";
 import AddCategoryModal from "../Forms/Create/AddCategory";
 import { Button } from "reactstrap";
 import { deleteCategory } from "../../../Redux/Actions/Admin";
+import { AutenticateRoutes, PageAuth } from "../Autenticate/Autenticate";
+
 
 const Container = styled.div`
     display: block;
@@ -102,6 +104,11 @@ const AllCategories = () => {
     useEffect(()=>{
         dispatch(getAllCategories())
     }, [])
+    const ValidateRoute = AutenticateRoutes()
+
+    if(!ValidateRoute){
+        return <PageAuth/>
+    }
 
     return(
         <Container>

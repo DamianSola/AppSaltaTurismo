@@ -6,6 +6,7 @@ import PutSubCategory from "../Forms/UpDates/putSubCategory";
 import AddSubCategory from "../Forms/Create/AddSubCategory.";
 import {Button, ButtonGroup} from "reactstrap"
 import { deleteWhatever } from "../../../Redux/Actions/Admin";
+import { AutenticateRoutes, PageAuth } from "../Autenticate/Autenticate";
 
  
 const Container = styled.div`
@@ -93,6 +94,11 @@ const AllSubCategories = () => {
         dispatch(getAllSubCategories())
 
     }, [])
+    const ValidateRoute = AutenticateRoutes()
+
+    if(!ValidateRoute){
+        return <PageAuth/>
+    }
 
     return(
         <div>

@@ -7,6 +7,8 @@ import { Button } from "reactstrap";
 import { deleteWhatever } from "../../../Redux/Actions/Admin";
 import AddService from "../Forms/Create/AddService";
 import { useState } from "react";
+import { AutenticateRoutes, PageAuth } from "../Autenticate/Autenticate";
+
 
 const Container = styled.div`
     display: block;
@@ -69,6 +71,11 @@ const AllServices = () => {
     useEffect(() => {
         dispatch(getAllService())
     },[dispatch])
+    const ValidateRoute = AutenticateRoutes()
+
+    if(!ValidateRoute){
+        return <PageAuth/>
+    }
  
     return (
         <Container>

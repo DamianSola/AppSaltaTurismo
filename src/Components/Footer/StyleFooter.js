@@ -21,6 +21,13 @@ padding: 30px;
 text-align: left;
 font-size: 15px;
 
+    .item{
+        text-decoration: none;
+        color: white;
+        font-size: larger;
+        transition: 1s;
+    }
+
     @media (max-width: 420px){
         font-size: 6px;
         padding: 0px;

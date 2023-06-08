@@ -7,9 +7,9 @@ export default function Footer(){
     return(
         <FooterContain>
             <Parts>
-                <p>imagenes de la pagina: google y otros lugares</p>
-                <p>desarrollador: Damian Sola</p>
-                <p>diseñador: Damian Sola</p>
+                <a className="item" href='#tours'>Tours</a>
+                <a className="item" href='#towns'>Pueblos de Salta</a>
+                <a className="item" href='#about'>Sobre nosotros</a>
                 <LogoSalta/>
             </Parts>
             <Parts>

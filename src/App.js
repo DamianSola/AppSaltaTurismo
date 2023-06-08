@@ -1,6 +1,6 @@
 import './App.css';
-import React, { useEffect } from 'react';
-import {Route, Routes } from "react-router-dom";
+import React, { useEffect, Redirect } from 'react';
+import {Route, Routes,  } from "react-router-dom";
 import Landing from './Components/Landing/Landing';
 import Activities from './Components/Activities/Activities';
 import Home from './Components/Home/Home';
