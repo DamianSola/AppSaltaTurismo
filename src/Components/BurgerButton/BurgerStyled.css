@@ -1,0 +1,33 @@
+.hamburguesa-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    right: -30%;
+  }
+  
+  .line {
+    width: 30px;
+    height: 5px;
+    background-color: #000;
+    margin-bottom: 4px;
+  }
+  
+  .open .line:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  
+  .open .line:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .open .line:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+  

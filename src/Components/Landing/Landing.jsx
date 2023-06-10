@@ -4,15 +4,22 @@ import {Link} from "react-router-dom";
 import {useSelector, useDispatch} from "react-redux"
 import {AllServiceType} from "../../Redux/Actions/Index";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {LandingContain, Logo, BgDiv} from "./Styled";
+import {LandingContain, BgDiv} from "./Styled";
 import { Dropdown, DropdownMenu, DropdownItem, DropdownToggle, Button } from "reactstrap";
 import 'react-dropdown/style.css';
 import LogoSalta from "../LogoSalta";
+import BurgerButton from "../BurgerButton/BurgerButton";
 
 export default function Landing(){
     
     let [dropDown , setDropDown] = useState(false)
-   
+    
+    const [isOpen, setIsOpen] = useState(false);
+    const handleClick = () => {
+        setIsOpen(!isOpen);
+    };
+    
+    let screenWidth = window.innerWidth;
    
     const OpenAndCloseDD = () => {
         setDropDown(!dropDown)
@@ -26,30 +33,28 @@ export default function Landing(){
     useEffect(()=>{
         dispatch(AllServiceType())
        
-    },[])
+    },[screenWidth])
 
     return(
         <LandingContain>
-            <ul>
-                <LogoSalta color={"#930000"}/>
+            <LogoSalta color={"#930000"}/>
+            {/* {screenWidth < 500 && <BurgerButton handleClick={handleClick} isOpen={isOpen}/>} */}
+                <ul>
                 <Link className="item" exact to='/'>Inicio</Link>
                 <a className="item" href='#tours'>Tours</a>
                 <a className="item" href='#towns'>Pueblos de Salta</a>
                 <a className="item" href='#about'>Sobre nosotros</a>
                 <Dropdown isOpen={dropDown} toggle={OpenAndCloseDD} >
-                    <DropdownToggle className="dropdown">Servicios</DropdownToggle>
-                    <DropdownMenu children="true">
-                        {allServiceTypes && allServiceTypes.map((e,i) => {
-                            return <DropdownItem key={i} >
+                <DropdownToggle className="dropdown">Servicios</DropdownToggle>
+                <DropdownMenu children="true">
+                {allServiceTypes && allServiceTypes.map((e,i) => {
+                    return <DropdownItem key={i} >
                                 <Link className="item" exact to={`/service/${e.id}`}>{e.name}</Link>
                             </DropdownItem>
                         })}
-                    </DropdownMenu>
-                </Dropdown>
-                <br/>
-               
-                {/* <Link className="item">Contactos</Link> */}
-            </ul>
+                        </DropdownMenu>
+                        </Dropdown>
+                    </ul>
         </LandingContain>
     )
 }

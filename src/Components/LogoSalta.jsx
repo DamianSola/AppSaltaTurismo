@@ -4,10 +4,12 @@ import styled from "styled-components";
 export const Logo = styled.div`
     display: flex;
     align-items: center;
+    text-align: center;
     color: ${props => props.color};
     text-shadow: 2px 1px 2px black;
+    width: 100px;
     /* margin:0 ; */
-    /* padding: 10px; */
+    padding: 0 10px;
 
     .ese{
         font-size: 45px;

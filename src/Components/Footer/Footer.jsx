@@ -6,12 +6,12 @@ export default function Footer(){
 
     return(
         <FooterContain>
+                <LogoSalta color={"#ffff"}/>
             <Parts>
-            <a className="item" href='/'>Inicio</a>
+                <a className="item" href='/'>Inicio</a>
                 <a className="item" href='#tours'>Tours</a>
                 <a className="item" href='#towns'>Pueblos de Salta</a>
                 <a className="item" href='#about'>Sobre nosotros</a>
-                <LogoSalta/>
             </Parts>
             <Parts>
                 <p>CONTACTO</p>
