@@ -80,8 +80,6 @@ const Name = styled.div`
 
 `
 
-
-
 const AllCategories = () => {
 
     const [open, SetOpen] = useState(false)
@@ -99,11 +97,12 @@ const AllCategories = () => {
 
     const DeleteCategory = (data) => {
         dispatch(deleteCategory(data)).then(res => alert(res))
+        dispatch(getAllCategories())
     }
 
     useEffect(()=>{
         dispatch(getAllCategories())
-    }, [])
+    }, [dispatch])
     const ValidateRoute = AutenticateRoutes()
 
     if(!ValidateRoute){

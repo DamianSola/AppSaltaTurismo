@@ -9,6 +9,7 @@ import { Dropdown, DropdownMenu, DropdownItem, DropdownToggle, Button } from "re
 import 'react-dropdown/style.css';
 import LogoSalta from "../LogoSalta";
 import BurgerButton from "../BurgerButton/BurgerButton";
+import WeatherMap from "./WeatherMap";
 
 export default function Landing(){
     
@@ -40,21 +41,24 @@ export default function Landing(){
             <LogoSalta color={"#930000"}/>
             {/* {screenWidth < 500 && <BurgerButton handleClick={handleClick} isOpen={isOpen}/>} */}
                 <ul>
-                <Link className="item" exact to='/'>Inicio</Link>
-                <a className="item" href='#tours'>Tours</a>
-                <a className="item" href='#towns'>Pueblos de Salta</a>
-                <a className="item" href='#about'>Sobre nosotros</a>
-                <Dropdown isOpen={dropDown} toggle={OpenAndCloseDD} >
-                <DropdownToggle className="dropdown">Servicios</DropdownToggle>
-                <DropdownMenu children="true">
-                {allServiceTypes && allServiceTypes.map((e,i) => {
-                    return <DropdownItem key={i} >
-                                <Link className="item" exact to={`/service/${e.id}`}>{e.name}</Link>
-                            </DropdownItem>
-                        })}
-                        </DropdownMenu>
-                        </Dropdown>
-                    </ul>
+                    <Link className="item" exact to='/'>Inicio</Link>
+                    <a className="item" href='#tours'>Tours</a>
+                    <a className="item" href='#towns'>Pueblos de Salta</a>
+                    <a className="item" href='#about'>Sobre nosotros</a>
+                    <Dropdown isOpen={dropDown} toggle={OpenAndCloseDD} >
+                        <DropdownToggle className="dropdown">Servicios</DropdownToggle>
+                            <DropdownMenu children="true">
+                                {allServiceTypes && allServiceTypes.map((e,i) => {
+                                    return <DropdownItem key={i} >
+                                                <Link className="item" exact to={`/service/${e.id}`}>{e.name}</Link>
+                                            </DropdownItem>
+                                        }
+                                    )
+                                }    
+                            </DropdownMenu>
+                    </Dropdown>
+                    <WeatherMap/>
+                </ul>
         </LandingContain>
     )
 }

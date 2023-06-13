@@ -16,6 +16,8 @@ export const LandingContain = styled.div `
         width: 80%;
         justify-content: space-between;
         align-items: center;
+        margin: auto 0;
+
     }
 
 
@@ -24,7 +26,7 @@ export const LandingContain = styled.div `
         color: #1a1a1a;
         font-size: 20px;
         transition: 1s;
-        padding: 10px;
+        /* padding: 10px; */
     }
 
     .item:hover{
@@ -56,56 +58,37 @@ export const LandingContain = styled.div `
         }
         .item{
             font-size: 10px;
+            
         }
         
     }
 
 `
 
-// export const BgDiv = styled.div`
-//   background-color: #ede9f1;
-//   position: absolute;
-//   top: -700px;
-//   transition: all 0.6s ease;
-//   &.active {
-//     z-index: -1;
-//     margin-top: 58px;
-//     width: 100%;
-//     height: 60vh;
-//     left: 0;
-//     top: 0;
-//     border-radius: 0 0 60% 0;
-//   }
-// `;
 
-// export const Responsive = styled.div`
-//       ul{
-//         display: flex;
-//         width: 80%;
-//         justify-content: space-between;
-//         align-items: center;
-//     }
+export const WeathermapContain = styled.div`
+    display: flex;
+    width: 130px;
+    color: black;
+    height: 50px;
+    margin: auto 0;
+    /* background-color: #dfdfdf; */
+    border-radius: 10px;
 
+    .image{
+        display: flex;
+        align-items: center;
+        /* margin: auto 0; */
+    }
+    p{
+        font-size: 20px;
+        align-items: center;
+        margin: 0;
+        width: 50%;
 
-//     .item {
-//         text-decoration: none;
-//         color: #1a1a1a;
-//         font-size: 20px;
-//         transition: 1s;
-//         padding: 10px;
-//     }
-
-//     .item:hover{
-//         text-decoration-line: underline;
-//     }
-
-//     .dropdown{
-//         border-style: none;
-//         font-size: 20px;
-//         color: #1a1a1a;
-//         background-color: #FFFF;
-//     }
-//     .dropdown:hover{
-//         text-decoration-line: underline;
-//     }
-// `
+    }
+    .iconoClima{
+        width: 50%;
+        height: auto;
+    }
+`

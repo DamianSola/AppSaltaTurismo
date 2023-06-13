@@ -1,12 +1,16 @@
 import React from "react";
 import { FooterContain, Parts } from "./StyleFooter";
 import LogoSalta from "../LogoSalta";
+import WeatherMap from "../Landing/WeatherMap";
 
 export default function Footer(){
 
     return(
         <FooterContain>
+            <Parts>
                 <LogoSalta color={"#ffff"}/>
+                <WeatherMap/>
+            </Parts>
             <Parts>
                 <a className="item" href='/'>Inicio</a>
                 <a className="item" href='#tours'>Tours</a>
