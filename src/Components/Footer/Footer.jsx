@@ -25,7 +25,7 @@ export default function Footer(){
             </Parts>
             <Parts>
                 <p>REDES SOCIALES</p>
-                <p>Linkedin: <a href="https://www.linkedin.com/in/damiansola/" >damiansola</a></p>
+                <p>Linkedin: <a href="https://www.linkedin.com/in/damiansola/" target="_blank">damiansola</a></p>
                 <p>twitter: @solazdamian</p>
                 <p>instagram: @damian_sola</p>
             </Parts>

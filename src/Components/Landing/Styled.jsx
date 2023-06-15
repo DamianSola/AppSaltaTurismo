@@ -8,25 +8,63 @@ export const LandingContain = styled.div `
     width: 100%;
     margin: auto;
     margin-bottom: 15px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    /* font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; */
     justify-content: space-between;
 
-    ul{
+    
+    .desactive{
         display: flex;
-        width: 80%;
+        flex-direction: row;
+        width: 70%;
         justify-content: space-between;
         align-items: center;
-        margin: auto 0;
-
+        margin: auto ;
     }
+  
+    @media (max-width: 768px) {
+    .active {
+      a {
+        font-size: 2rem;
+        color: #410c61;
+        text-decoration: none;
+        display: block;
+        margin-right: auto;
+        margin-left: auto;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        left: 0;
+        right: 0;
+        margin-top: 3rem;
+        transition: all 0.5s ease;
 
+        &:hover {
+          color: #1a1a1a;
+        }
+      }
+    }
+    .desactive {
+      position: absolute;
+      /* position: relative; */
+      z-index: 1;
+      top: -700px;
+      left: -2000px;
+      right: 0;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+      a {
+        color: black;
+      }
+    }
+  }
 
     .item {
         text-decoration: none;
         color: #1a1a1a;
-        font-size: 20px;
+        font-size: 17px;
         transition: 1s;
-        /* padding: 10px; */
+       
     }
 
     .item:hover{
@@ -35,7 +73,7 @@ export const LandingContain = styled.div `
 
     .dropdown{
         border-style: none;
-        font-size: 20px;
+        font-size: 17px;
         color: #1a1a1a;
         background-color: #FFFF;
     }
@@ -43,24 +81,13 @@ export const LandingContain = styled.div `
         text-decoration-line: underline;
     }
 
-    @media (max-width: 420px){
-        .service{
-            font-size: 10px;
-            padding: 3px;
+    .burger {
+       position: relative;
+       right: 5%;
+
+            @media (min-width: 810px) {
+            display: none;
         }
-        ul{
-            width: 90%;
-            margin: 2px;
-            padding: 0;
-        }
-        .dropdown{
-            font-size: 10px;
-        }
-        .item{
-            font-size: 10px;
-            
-        }
-        
     }
 
 `

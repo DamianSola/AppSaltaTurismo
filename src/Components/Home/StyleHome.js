@@ -15,9 +15,7 @@ margin:auto ;
 export const Title = styled.h1`
     color:black;
     transition: 0.3s;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    /* font-family: 'Courier New', Courier, monospace; */
-    /* font-style: oblique; */
+    font-family: 'Exo 2', sans-serif;
     margin: 20px;
 ` 
 export const Component = styled.div`
@@ -52,7 +50,7 @@ align-items: center;
 export const Texto = styled.h1`
     /* padding-top: 13rem; */
     margin: auto;
-    font-family:"Pacifico";
+    font-family: 'Exo 2', sans-serif;
     color: white;
     font-size: 100px;
     transition: 2s;

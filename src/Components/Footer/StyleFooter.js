@@ -7,11 +7,11 @@ justify-content: space-around;
 margin-top: 20px;
 padding: 20px;
 width: 100%;
-min-height: 150px;
+min-height: 250px;
 border-top: solid 0.5px grey;
 background-color: #930000;
 color: #E2E2E2;
-align-items: center;
+/* align-items: center; */
 
     /* @media (max-width: 420px){
        

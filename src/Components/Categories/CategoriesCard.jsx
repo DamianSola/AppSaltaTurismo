@@ -44,7 +44,6 @@ padding: 4px;
 color: #ffff;
 text-shadow: 2px 2px 2px black;
 font-size: 25px;
-font-family:arial;
 transition: 0.5s;
 
 `
@@ -59,20 +58,7 @@ const SeeMore = styled(Button)`
     position: relative;
     top: 72%;
 `
-// const Description = styled.div`
-//     display: block;
-//     background-color: #000000cb;
-//     color:white;
-//     position: relative;
-//     bottom: 85%;
-    
-//     transition: 1s;
 
-//     :hover{
-//         bottom: 40%;
-//     /* display: none; */
-//     }
-// `
 
 const CategoriesCard = ({image, name, id, description}) =>{
 

@@ -16,12 +16,12 @@ export default function Landing(){
     let [dropDown , setDropDown] = useState(false)
     
     const [isOpen, setIsOpen] = useState(false);
+
     const handleClick = () => {
         setIsOpen(!isOpen);
     };
     
-    let screenWidth = window.innerWidth;
-   
+
     const OpenAndCloseDD = () => {
         setDropDown(!dropDown)
     }
@@ -34,13 +34,13 @@ export default function Landing(){
     useEffect(()=>{
         dispatch(AllServiceType())
        
-    },[screenWidth])
+    },[])
 
     return(
         <LandingContain>
             <LogoSalta color={"#930000"}/>
-            {/* {screenWidth < 500 && <BurgerButton handleClick={handleClick} isOpen={isOpen}/>} */}
-                <ul>
+          
+                {/* <ul className="itemsList">
                     <Link className="item" exact to='/'>Inicio</Link>
                     <a className="item" href='#tours'>Tours</a>
                     <a className="item" href='#towns'>Pueblos de Salta</a>
@@ -58,7 +58,30 @@ export default function Landing(){
                             </DropdownMenu>
                     </Dropdown>
                     <WeatherMap/>
-                </ul>
+                </ul> */}
+                
+                <div className={`itemList ${isOpen ? 'active' : 'desactive'}`}>
+                    <Link className="item" exact to='/'>Inicio</Link>
+                    <a className="item" href='#tours'>Tours</a>
+                    <a className="item" href='#towns'>Pueblos de Salta</a>
+                    <a className="item" href='#about'>Sobre nosotros</a>
+                    <Dropdown isOpen={dropDown} toggle={OpenAndCloseDD} >
+                        <DropdownToggle className="dropdown">Servicios</DropdownToggle>
+                            <DropdownMenu children="true">
+                                {allServiceTypes && allServiceTypes.map((e,i) => {
+                                    return <DropdownItem key={i} >
+                                                <Link className="item" exact to={`/service/${e.id}`}>{e.name}</Link>
+                                            </DropdownItem>
+                                        }
+                                    )
+                                }    
+                            </DropdownMenu>
+                    </Dropdown>
+                    <WeatherMap/>
+                </div>
+                <div className="burger">
+                    <BurgerButton handleClick={handleClick} isOpen={isOpen}/>
+                </div>
         </LandingContain>
     )
 }

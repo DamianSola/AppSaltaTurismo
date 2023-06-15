@@ -8,7 +8,6 @@ display: block ;
     width: 80%;
     background-color:#d9d9d9;
     border-radius: 10px;
-    font-family: 'Courier New', Courier, monospace;
     box-shadow: 2px 2px 2px ;
     @media (max-width: 420px){
         width: 80%;
