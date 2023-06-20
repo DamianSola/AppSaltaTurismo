@@ -19,6 +19,8 @@ export const Title = styled.h1`
 export const Photos = styled.div`
 padding: 0 20px;
 margin: auto;
+
+
 `
 
 export const Image = styled.img`
@@ -56,6 +58,7 @@ justify-content: left;
 flex-wrap: wrap;
 `
 export const Carrousel = styled(Slider)`
+    width: 600;
 .slick-prev:before, .slick-next:before{
         color: black;
         size: 40px;
@@ -68,9 +71,13 @@ export const Carrousel = styled(Slider)`
      .slick-prev{
         left: -10
     }
+
+    @media (max-width: 620px){
+        width: 300px;
+    }
 `
 
 export const Pics = styled.img`
-    width: 50%;
+    /* width: 50%; */
     height: 400px;
 `

@@ -8,6 +8,7 @@ import TownCard from "./TownCard";
 
 const Containtowns = styled.div`
 display: flex;
+flex-wrap: wrap;
 /* width: auto; */
 
 `

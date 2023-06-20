@@ -19,13 +19,22 @@ export const LandingContain = styled.div `
         justify-content: space-between;
         align-items: center;
         margin: auto ;
+        /* background-color: white; */
     }
   
     @media (max-width: 768px) {
     .active {
+      position: relative;
+      z-index: 1;
+      background-color: white;
+
+      .item{
+        /* background-color: white; */
+
+      }
+      
       a {
-        font-size: 2rem;
-        color: #410c61;
+        /* font-size: 2rem; */
         text-decoration: none;
         display: block;
         margin-right: auto;
@@ -37,6 +46,7 @@ export const LandingContain = styled.div `
         right: 0;
         margin-top: 3rem;
         transition: all 0.5s ease;
+
 
         &:hover {
           color: #1a1a1a;

@@ -15,11 +15,31 @@ export const TourContainer = styled.div`
 export const Carousel = styled(Slider)`
     width: 100%;
     justify-content: center;
+    margin: auto;
 
     .slick-prev:before, .slick-next:before{
         color: black;
         font-size: 50px;
     
+    }
+
+    @media (max-width: 768px){
+        .slick-prev:before, .slick-next:before{
+            font-size: 20px;
+        }
+        .slick-next {
+            right: 5%;
+        }
+        .slick-prev{
+            position: absolute;
+            left: 5%;
+        }
+    }
+
+    @media (max-width: 480px){
+        .slick-prev:before, .slick-next:before{
+            display: none;
+        }
     }
 
     .slick-next {

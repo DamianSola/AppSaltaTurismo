@@ -34,9 +34,9 @@ export const ShowMore = styled(Button)`
 
 export const ImagePresentation = styled.div`
 display: block;
-position: relative;
 width: 100%;
-padding: 180px 0 ;
+height: 450px;
+padding: 10% 0 ;
 background-position: center ;
 background-size: cover;
 margin: auto;
@@ -50,6 +50,9 @@ align-items: center;
 export const Texto = styled.h1`
     /* padding-top: 13rem; */
     margin: auto;
+    position: static;
+    /* top: 50%; */
+    /* bottom: 50%; */
     font-family: 'Exo 2', sans-serif;
     color: white;
     font-size: 100px;

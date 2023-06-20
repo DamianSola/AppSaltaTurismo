@@ -29,6 +29,12 @@ const Container = styled.div`
         display: flex;
     }
 
+    @media (max-width: 620px){
+        .body{
+            flex-direction: column;
+        }
+    }
+
     .description{
         padding: 10px;
     }
@@ -36,6 +42,9 @@ const Container = styled.div`
         text-align: left;
         margin: 10px 40px;
         font-size: 30px;
+    }
+    .services{
+        width: 500px;
     }
 
 `
@@ -58,10 +67,10 @@ const TourDetail = () => {
             </div>
             <div className="body">
             <Photos>
-                <Carrousel style={{ width: 650}}>
+                <Carrousel >
                     {image && image.map((e,i) => {
                     return <div key={i}>
-                            <Pics src={e} style={{ width: "100%" }} alt="carousel"/>
+                            <Pics src={e} alt="carousel"/>
                         </div> 
                 })}
                 </Carrousel>
@@ -71,7 +80,7 @@ const TourDetail = () => {
             <div className="servi-title">
                 <h4>Servicios</h4>
             </div>
-            <div>
+            <div className="services">
                 {services && services.map(e => {
                     return <ServiceCard 
                         title= {e.name}

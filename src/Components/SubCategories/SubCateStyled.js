@@ -14,7 +14,7 @@ text-align: left;
         border-right: solid 0.5px grey;
     }
     .category-details{
-        width: 800px;
+        width: 950px;
     }
 
     .link{

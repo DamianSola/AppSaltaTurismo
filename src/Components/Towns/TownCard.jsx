@@ -16,12 +16,20 @@ const Card = styled.div`
         background-color: #F8F9F9 ;
     }
 
+    @media (max-width: 420px){
+    width: 30%;
+    height: auto;
+    }
+
 `
 
 const Photo = styled.img`
     width: 100%;
     height: 250px;
     border-radius: 10px 10px 0 0;
+    @media (max-width: 420px){
+    height:100%;
+ }
 `
 const Name = styled.div`
     padding: 5px;

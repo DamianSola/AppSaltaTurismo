@@ -8,6 +8,7 @@ const CardConainer = styled.div`
     display: flex;
     margin: 10px;
     width: 450px;
+    max-height: 150px;
     background-color: #fcfcfc;
     border-radius: 5px;
     border: solid 1px grey;
@@ -15,9 +16,12 @@ const CardConainer = styled.div`
     .photo{
         width: 40%;
         margin: 5px;
+
     }
+
     img{
         width: 100%;
+        height: 100%;
         border-radius: 5px;
     }
     .name{

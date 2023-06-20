@@ -31,6 +31,7 @@ const Category = styled.div`
     }
     img{
         width: 100%;
+        max-height: 150px;
     }
     .card{
         display: flex;
@@ -45,6 +46,10 @@ const Category = styled.div`
     .name{
        font-size: 20px;
     }
+    /* .buttons-group{
+        bottom: 0;
+        margin-bottom: 0;
+    } */
 
 `
 const NameCategory = styled.div`
@@ -116,7 +121,7 @@ const AllSubCategories = () => {
                                 <div className="center">
                                 <p className="name">{s.name}</p>
                                 </div>
-                                <ButtonGroup>
+                                <ButtonGroup className="buttons-group">
                                 <ItemSc key={i} onClick={() => openModal(s.id, 1)} >cambios</ItemSc>
                                 <ItemSc onClick={() => deleteSubCategory(s.id)}>borrar</ItemSc>
                                 </ButtonGroup>

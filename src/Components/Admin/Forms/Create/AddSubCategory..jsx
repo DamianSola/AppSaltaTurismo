@@ -1,6 +1,6 @@
 import React from "react"
 import {useState, useEffect} from "react";
-import { CloseBut, TitleForm } from "../Styled";
+import { CloseBut, InputDescription, TitleForm } from "../Styled";
 import { Modal, Form, Input, Label, } from "reactstrap";
 import styled from "styled-components";
 import UpLoaderOneImage from "../ImageUL/UpLoaderOneImage";
@@ -22,12 +22,12 @@ const Error = styled.p`
 
 const AddSubCategory = ({close}) => {
 
-    const [input, setInput] = useState({name:"", image:'', categoryId: ""})
+    const [input, setInput] = useState({name:"", image:'', categoryId: "", description:""})
     const [error, setError] = useState({})
 
     const dispatch = useDispatch()
     const {allCategories} = useSelector(s => s)
-    console.log(allCategories)
+    // console.log(input)
 
     const validate = (input) => {
         let {image, name} = input;
@@ -95,6 +95,8 @@ const AddSubCategory = ({close}) => {
                     })}
                     </select>
                     </Label>
+                    <InputDescription placeholder="descripcion..." name="description" onChange={(e) => handleInput(e)} value={input.description}/>
+
                     <Input type="submit" value='agregar' />
                 </Form>
                 <br/>
