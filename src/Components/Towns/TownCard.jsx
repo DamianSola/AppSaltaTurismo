@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 // Styled componets
 const Card = styled.div`
     display: block;
-    margin: auto;
+    margin: 20px auto;
     width: 300px;
     border: solid 1px;
     border-radius: 10px;

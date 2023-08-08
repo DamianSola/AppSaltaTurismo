@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const LandingContain = styled.div `
+export const LandingContain = styled.nav `
     border-top: solid 25px #7B0000;
     display: flex;
     height: 90px;
