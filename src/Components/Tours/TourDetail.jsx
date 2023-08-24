@@ -26,7 +26,7 @@ const Container = styled.div`
         /* margin: auto; */
     }
     .body{
-        display: flex;
+        display: block;
     }
 
     @media (max-width: 620px){
@@ -55,6 +55,7 @@ const TourDetail = () => {
     let dispatch = useDispatch()
     let {oneTour} = useSelector(s => s)
     let {name, description, image, services} = oneTour;
+    console.log(image)
 
     useEffect(() => {
         dispatch(getOneTour(id))
@@ -66,15 +67,22 @@ const TourDetail = () => {
             <p className="namee">{name}</p>
             </div>
             <div className="body">
-            <Photos>
-                <Carrousel >
+            {/* <Photos> */}
+                {/* <Carrousel >
                     {image && image.map((e,i) => {
-                    return <div key={i}>
+                        return <div key={i}>
                             <Pics src={e} alt="carousel"/>
                         </div> 
                 })}
+                </Carrousel> */}
+                <Carrousel style={{ width: 500}}>
+                    {image && image.map((e,i) => {
+                    return <div key={i}>
+                            <Pics src={e} style={{ width: "100%" }} alt="carousel"/>
+                        </div> 
+                })}
                 </Carrousel>
-            </Photos>
+            {/* </Photos> */}
             <p className="description">{description}</p>
             </div>
             <div className="servi-title">

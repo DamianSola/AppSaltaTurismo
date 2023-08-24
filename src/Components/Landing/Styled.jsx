@@ -29,7 +29,9 @@ export const LandingContain = styled.nav `
       position: absolute;
       background-color: white;
       width: 100%;
+      /* height: 100%; */
       left: 0%;
+      top:100px;
 
       .item{
         /* background-color: white; */

@@ -78,6 +78,6 @@ export const Carrousel = styled(Slider)`
 `
 
 export const Pics = styled.img`
-    /* width: 50%; */
-    height: 400px;
+    width: 50%;
+    /* height: 400px; */
 `

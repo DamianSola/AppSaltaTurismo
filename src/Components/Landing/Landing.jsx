@@ -41,10 +41,10 @@ export default function Landing(){
             <LogoSalta color={"#930000"}/>
                 
                 <div className={`itemList ${isOpen ? 'active' : 'desactive'}`}>
-                    <Link className="item" exact to='/' onClick={handleClick}>Inicio</Link>
-                    <a className="item" href='#tours' onClick={handleClick}>Tours</a>
-                    <a className="item" href='#towns' onClick={handleClick}>Pueblos de Salta</a>
-                    <a className="item" href='#about' onClick={handleClick}>Sobre nosotros</a>
+                    <Link className="item" exact to='/' >Inicio</Link>
+                    <a className="item" href='#tours' >Tours</a>
+                    <a className="item" href='#towns' >Pueblos de Salta</a>
+                    <a className="item" href='#about' >Sobre nosotros</a>
                     <Dropdown isOpen={dropDown} toggle={OpenAndCloseDD} >
                         <DropdownToggle className="dropdown">Servicios</DropdownToggle>
                             <DropdownMenu children="true">
