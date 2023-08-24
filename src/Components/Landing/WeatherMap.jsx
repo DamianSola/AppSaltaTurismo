@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
 import {WeathermapContain} from "./Styled"
+const apiKey = '4ae2636d8dfbdc3044bede63951a019b';
+// console.log(apiKey)
+
 
 const WeatherMap = () => {
     const [city, setCity] = useState({})
 
-    const apiKey = '4ae2636d8dfbdc3044bede63951a019b';
+    // const apiKey = '4ae2636d8dfbdc3044bede63951a019b';
 
   function getCity(){
     fetch(`http://api.openweathermap.org/data/2.5/weather?q=Salta&appid=${apiKey}&units=metric`)

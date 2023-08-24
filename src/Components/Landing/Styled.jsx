@@ -24,9 +24,12 @@ export const LandingContain = styled.nav `
   
     @media (max-width: 768px) {
     .active {
-      position: relative;
+      /* position: relative; */
       z-index: 1;
+      position: absolute;
       background-color: white;
+      width: 100%;
+      left: 0%;
 
       .item{
         /* background-color: white; */
@@ -93,7 +96,7 @@ export const LandingContain = styled.nav `
 
     .burger {
        position: relative;
-       right: 5%;
+       right: 3%;
 
             @media (min-width: 810px) {
             display: none;
@@ -127,5 +130,10 @@ export const WeathermapContain = styled.div`
     .iconoClima{
         width: 50%;
         height: auto;
+    }
+
+    @media (max-width: 768px){
+    display: none;
+
     }
 `

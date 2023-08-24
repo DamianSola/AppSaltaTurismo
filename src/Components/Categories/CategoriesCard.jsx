@@ -10,7 +10,8 @@ const Card = styled.div`
 display: block;
 margin: auto 25px;
 /* width: 90%; */
-width: 22rem;
+/* width: 22rem; */
+width: 90%;
 height: 400px;
 border: solid 0.5px;
 border-radius: 5px;
