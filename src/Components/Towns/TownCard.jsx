@@ -7,18 +7,20 @@ const Card = styled.div`
     display: block;
     margin: 20px auto;
     width: 300px;
+    height: auto;
     border: solid 1px;
     border-radius: 10px;
     transition: 0.5s;
 
     :hover{
-        /* border: 3px; */
         background-color: #F8F9F9 ;
     }
 
-    @media (max-width: 420px){
-    width: 100%;
-    height: auto;
+    @media (max-width: 500px){
+    width: 90%;
+    }
+    @media ((max-width: 700px) and (min-width: 500px)){
+        width: 45%;
     }
 
 `
@@ -27,9 +29,7 @@ const Photo = styled.img`
     width: 100%;
     height: 250px;
     border-radius: 10px 10px 0 0;
-    @media (max-width: 420px){
-    height:100%;
- }
+
 `
 const Name = styled.div`
     padding: 5px;
