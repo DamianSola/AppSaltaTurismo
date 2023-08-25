@@ -4,8 +4,8 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 export const TourContainer = styled.div`
-    width: 90%;
-    /* height: 350px; */
+    width: 100%;
+    height: auto;
     align-items: center;
     margin: auto ;
     /* margin-bottom: 30px; */
@@ -13,7 +13,8 @@ export const TourContainer = styled.div`
 `
 
 export const Carousel = styled(Slider)`
-    width: 100%;
+    width: 90%;
+    height: auto;
     justify-content: center;
     margin: auto;
 
@@ -23,7 +24,7 @@ export const Carousel = styled(Slider)`
     
     }
 
-    @media (max-width: 768px){
+    @media( (max-width: 768px)and( min-width: 500px)){
         .slick-prev:before, .slick-next:before{
             font-size: 20px;
         }
@@ -32,11 +33,11 @@ export const Carousel = styled(Slider)`
         }
         .slick-prev{
             position: absolute;
-            left: 5%;
+            left: -30px;
         }
     }
 
-    @media (max-width: 480px){
+    @media (max-width: 500px){
         .slick-prev:before, .slick-next:before{
             display: none;
         }
@@ -47,6 +48,6 @@ export const Carousel = styled(Slider)`
     }
      .slick-prev{
         position: absolute;
-        left: 20
+        left: -50px;
     }
 `

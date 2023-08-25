@@ -8,9 +8,9 @@ import { Button } from "reactstrap";
 
 const Card = styled.div`
 display: block;
-margin: auto 25px;
-/* width: 90%; */
-/* width: 22rem; */
+margin: auto ;
+/* margin: auto 25px; */
+
 width: 90%;
 height: 400px;
 border: solid 0.5px;

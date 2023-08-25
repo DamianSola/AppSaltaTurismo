@@ -2,25 +2,27 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 export const Cardcontainer = styled.div`
-/* width: 18.5rem; */
-/* width: 18rem; */
+width: 95%;
 border-radius: 2px;
-margin: 10px 5px;
+margin: auto;
 border: solid 1px;
 transition: 0.5s;
 height: 350px;
 
 .title{
-        font-size: 30px;
+        font-size: 25px;
         margin: auto;
-        /* color: #7B0000; */
-        /* background-color: black; */
-        /* position: absolute; */
+
     }
 
 &&:hover {
     box-shadow: 0px 0px 10px;
-    /* width: 17.5rem; */
+}
+
+@media((max-width:700px)and(min-width:480px)){
+    .title{
+        font-size: 15px;
+    }
 }
 ` 
 export const ImagenCard = styled.img`
@@ -45,6 +47,15 @@ font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
         margin: auto;
         color:grey;
     }
+
+    @media((max-width:700px)and(min-width:480px)){
+        .title{
+        font-size: 15px;
+        }
+    .description{
+        font-size: 12px;
+    }
+}
 
 
 `
