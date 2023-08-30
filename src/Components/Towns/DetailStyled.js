@@ -81,3 +81,14 @@ export const Pics = styled.img`
     width: 50%;
     /* height: 400px; */
 `
+
+export const allTownContainer = styled.div`
+    display: block;
+    text-align: justify;
+    margin: 20px ;
+
+    img{
+        max-width: 200px;
+    }
+
+`

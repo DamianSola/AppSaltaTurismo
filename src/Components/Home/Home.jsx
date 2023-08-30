@@ -32,7 +32,7 @@ export default function Home(){
             <Component id="towns">
             <Title>pueblos mas destacados de Salta</Title>
             <Towns/>
-            <ShowMore><Link className="link" exact to={`/tours`}>VER TODOS LOS PUEBLOS</Link></ShowMore>
+            <ShowMore><Link className="link" exact to={`/towns`}>VER TODOS LOS PUEBLOS</Link></ShowMore>
             </Component>
             
             <Component id="about">

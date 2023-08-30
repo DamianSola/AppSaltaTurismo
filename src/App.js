@@ -20,6 +20,7 @@ import AllTowns from './Components/Admin/Details/AllTowns';
 import AllServices from './Components/Admin/Details/AllService';
 import AllTours from './Components/Admin/Details/AllTours';
 import AllServicesTypes from './Components/Admin/Details/AllServicesTypes';
+import Alltowns from "./Components/Towns/Alltowns"
 import { useDispatch, useSelector } from "react-redux";
 
 
@@ -52,6 +53,7 @@ function App() {
       <Route exact path='/admin/SERVICE' element={<AllServices/>}/>
       <Route exact path='/admin/TOURS' element={<AllTours/>}/>
       <Route exact path='/admin/SERVICE TYPES' element={<AllServicesTypes/>}/>
+      <Route exact path='/towns' element= {<Alltowns/>}/>
       </Routes>
       <Footer/>
     </div>
